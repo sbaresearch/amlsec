@@ -1,0 +1,680 @@
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh:    <http://www.w3.org/ns/shacl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix amlImp: <http://www.ipr.kit.edu/aml_importer#> .
+@prefix amlOnt: <http://www.ipr.kit.edu/aml_ontology#> .
+@prefix icsSecOnt: <http://securityontology.com/icssecont#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+
+icsSecOnt:HasRefPartnerLinkMin1Shape
+    sh:path amlOnt:hasRefPartner ;
+	sh:qualifiedValueShape [ sh:class amlImp:Link ] ;
+	sh:qualifiedMinCount 1 .
+
+# Endpoints without a link (no consumers)
+icsSecOnt:UnusedLogicalEndpoints
+    a sh:NodeShape ;
+    sh:targetClass amlImp:LogicalEndPoint ;
+    sh:message "Unused Logical Endpoint" ;
+	sh:property icsSecOnt:HasRefPartnerLinkMin1Shape .
+
+icsSecOnt:ActiveCopyProtection
+    sh:path amlImp:hasCopyProtection ;
+	sh:hasValue "True" .
+
+# Deactivated PLC program copy protection
+icsSecOnt:DeactivatedPLCProgramCopyProtection
+    a sh:NodeShape ;
+    sh:targetClass amlImp:PLCProgram ;
+	sh:message "Deactivated Copy Protection" ;
+	sh:property icsSecOnt:ActiveCopyProtection .
+
+icsSecOnt:ActiveKnowHowProtection
+    sh:path amlImp:hasKnowHowProtection ;
+    sh:hasValue "True" .
+
+# Deactivated PLC program know-how protection
+icsSecOnt:DeactivatedPLCProgramKnowHowProtection
+    a sh:NodeShape ;
+    sh:targetClass amlImp:PLCProgram ;
+	sh:message "Deactivated Know-How Protection" ;
+	sh:property icsSecOnt:ActiveKnowHowProtection .
+
+icsSecOnt:InsecureProtocol
+    a sh:NodeShape ;
+    sh:class icsSecOnt:InsecureProtocol .
+
+icsSecOnt:InsecureProtocolInUse
+    a sh:NodeShape ;
+    sh:targetClass amlImp:LogicalConnection ;
+	sh:message "Uses insecure protocol" ;
+	sh:not icsSecOnt:InsecureProtocol .
+
+icsSecOnt:InsecureAlgorithm
+    a sh:NodeShape ;
+    sh:class icsSecOnt:InsecureAlgorithm .
+
+icsSecOnt:InsecureAlgorithmInUse
+    a sh:NodeShape ;
+    sh:targetClass owl:Thing ;
+	sh:message "Uses insecure algorithm" ;
+	sh:not icsSecOnt:InsecureAlgorithm .
+
+# Logical/Physical connection connecting assets from 2 zones, but not declared as conduit
+icsSecOnt:CrossZoneConnections
+    sh:targetClass amlImp:Wire ;
+    sh:targetClass amlImp:LogicalConnection ;
+	sh:sparql [
+	    a sh:SPARQLConstraint ;
+        sh:message "The logical or physical connection {$this} connects assets of two different security zones ({?zone1} and {?zone2}) and has not been declared as a conduit." ;
+        sh:prefixes [
+            sh:declare [
+                sh:prefix    "amlImp" ;
+                sh:namespace "http://www.ipr.kit.edu/aml_importer#"^^xsd:anyURI ;
+            ];
+            sh:declare [
+                sh:prefix    "amlOnt" ;
+                sh:namespace "http://www.ipr.kit.edu/aml_ontology#"^^xsd:anyURI ;
+            ];
+            sh:declare [
+                sh:prefix    "rdf" ;
+                sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+            ];
+            sh:declare [
+                sh:prefix    "rdfs" ;
+                sh:namespace "http://www.w3.org/2000/01/rdf-schema#"^^xsd:anyURI ;
+            ]
+        ] ;
+        sh:select """
+            SELECT DISTINCT $this ?plug1 ?link1 ?plug2 ?link2 ?socket1 ?socket2 ?portList1 ?portList2 ?zone1 ?zone2
+               WHERE {
+                       {
+                         $this rdf:type ?wireType.
+                         ?wireType rdfs:subClassOf* amlImp:Wire.
+                       }
+                       UNION
+                       {
+                         $this a amlImp:LogicalConnection.
+                       }
+
+                  $this amlOnt:hasEI ?plug1, ?plug2.
+                  FILTER ( str(?plug1) < str(?plug2) ).
+
+                  FILTER NOT EXISTS {
+                       $this a amlImp:Conduit.
+                  }
+
+                  ?plug1 amlOnt:hasRefPartner ?link1.
+                  ?plug2 amlOnt:hasRefPartner ?link2.
+
+                  ?link1 a amlImp:Link.
+                  ?link2 a amlImp:Link.
+
+                  ?socket1 amlOnt:hasRefPartner ?link1.
+                  ?socket2 amlOnt:hasRefPartner ?link2.
+                  FILTER ( ?plug1 != ?socket1 ).
+                  FILTER ( ?plug2 != ?socket2 ).
+
+                  ?portList1 amlOnt:hasEI ?socket1.
+                  ?portList2 amlOnt:hasEI ?socket2.
+
+                  ?zone1 amlOnt:hasIE+ ?portList1.
+                  ?zone2 amlOnt:hasIE+ ?portList2.
+                  FILTER ( ?zone1 != ?zone2 ).
+
+                  ?zone1 rdf:type ?zoneType.
+                  ?zone2 rdf:type ?zoneType.
+                  ?zoneType rdfs:subClassOf* amlImp:Zone.
+
+                  FILTER NOT EXISTS {
+                     ?zone1 amlOnt:hasIE+ ?anyZone1.
+                     ?anyZone1 amlOnt:hasIE+ ?portList1.
+                     ?anyZone1 rdf:type ?zoneType.
+                  }
+
+                  FILTER NOT EXISTS {
+                     ?zone2 amlOnt:hasIE+ ?anyZone2.
+                     ?anyZone2 amlOnt:hasIE+ ?portList2.
+                     ?anyZone2 rdf:type ?zoneType.
+                  }
+
+               }
+               """ ;
+	] .
+
+# ICS assets are logically or physically connected to business or enterprise system assets (ZCR-3.2)
+icsSecOnt:ITOTCrossConnections
+    a sh:NodeShape ;
+    sh:targetClass amlImp:Wire ;
+    sh:targetClass amlImp:LogicalConnection ;
+	sh:sparql [
+	    a sh:SPARQLConstraint ;
+        sh:message "The logical or physical connection {$this} connects an ICS asset to a business or enterprise asset (zones: {?zone1} and {?zone2})." ;
+        sh:prefixes [
+            sh:declare [
+                sh:prefix    "amlImp" ;
+                sh:namespace "http://www.ipr.kit.edu/aml_importer#"^^xsd:anyURI ;
+            ];
+            sh:declare [
+                sh:prefix    "amlOnt" ;
+                sh:namespace "http://www.ipr.kit.edu/aml_ontology#"^^xsd:anyURI ;
+            ];
+            sh:declare [
+                sh:prefix    "rdf" ;
+                sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+            ];
+            sh:declare [
+                sh:prefix    "rdfs" ;
+                sh:namespace "http://www.w3.org/2000/01/rdf-schema#"^^xsd:anyURI ;
+            ]
+        ] ;
+        sh:select """
+                SELECT DISTINCT $this ?plug1 ?link1 ?plug2 ?link2 ?socket1 ?socket2 ?portList1 ?portList2 ?zone1 ?zone2
+                    WHERE {
+                            {
+                              $this rdf:type ?wireType.
+                              ?wireType rdfs:subClassOf* amlImp:Wire.
+                            }
+                        UNION
+                           {
+                             $this a amlImp:LogicalConnection.
+                           }
+
+                        $this amlOnt:hasEI ?plug1, ?plug2.
+                        FILTER ( str(?plug1) < str(?plug2) ).
+
+                        ?plug1 amlOnt:hasRefPartner ?link1.
+                        ?plug2 amlOnt:hasRefPartner ?link2.
+
+                        ?link1 a amlImp:Link.
+                        ?link2 a amlImp:Link.
+
+                        ?socket1 amlOnt:hasRefPartner ?link1.
+                        ?socket2 amlOnt:hasRefPartner ?link2.
+                        FILTER ( ?plug1 != ?socket1 ).
+                        FILTER ( ?plug2 != ?socket2 ).
+
+                        ?portList1 amlOnt:hasEI ?socket1.
+                        ?portList2 amlOnt:hasEI ?socket2.
+
+                        ?zone1 amlOnt:hasIE+ ?portList1.
+                        ?zone2 amlOnt:hasIE+ ?portList2.
+                        FILTER ( ?zone1 != ?zone2 ).
+
+                        ?zone1 rdf:type ?zoneType.
+                        ?zone2 rdf:type ?zoneType.
+                        ?zoneType rdfs:subClassOf* amlImp:Zone.
+
+                        FILTER NOT EXISTS {
+                            ?zone1 amlOnt:hasIE+ ?anyZone1.
+                            ?anyZone1 amlOnt:hasIE+ ?portList1.
+                            ?anyZone1 rdf:type ?zoneType.
+                        }
+
+                        FILTER NOT EXISTS {
+                             ?zone2 amlOnt:hasIE+ ?anyZone2.
+                             ?anyZone2 amlOnt:hasIE+ ?portList2.
+                             ?anyZone2 rdf:type ?zoneType.
+                        }
+
+                        FILTER NOT EXISTS {
+                             ?zone1 rdf:type ?itZoneType.
+                             ?zone2 rdf:type ?itZoneType.
+                             ?itZoneType rdfs:subClassOf* amlImp:ITZone.
+                        }
+
+                        FILTER NOT EXISTS {
+                            ?zone1 rdf:type ?otZoneType.
+                            ?zone2 rdf:type ?otZoneType.
+                            ?otZoneType rdfs:subClassOf* amlImp:OTZone.
+                        }
+
+                    }
+            """ ;
+	] .
+
+# Safety-related assets are grouped into one zone (ZCR-3.3a)
+icsSecOnt:SafetyAssetsZone
+    a sh:NodeShape ;
+    sh:targetClass amlImp:Host ;
+	sh:sparql [
+	    a sh:SPARQLConstraint ;
+        sh:message "The safety-related device {$this} is within the zone {?zone1} (other non-safety-related device in this zone is {?host2})." ;
+        sh:prefixes [
+            sh:declare [
+                sh:prefix    "amlImp" ;
+                sh:namespace "http://www.ipr.kit.edu/aml_importer#"^^xsd:anyURI ;
+            ];
+            sh:declare [
+                sh:prefix    "amlOnt" ;
+                sh:namespace "http://www.ipr.kit.edu/aml_ontology#"^^xsd:anyURI ;
+            ];
+            sh:declare [
+                sh:prefix    "rdf" ;
+                sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+            ];
+            sh:declare [
+                sh:prefix    "rdfs" ;
+                sh:namespace "http://www.w3.org/2000/01/rdf-schema#"^^xsd:anyURI ;
+            ]
+        ] ;
+        sh:select """
+            SELECT DISTINCT $this ?host2 ?zone1
+               WHERE {
+                  $this rdf:type ?hostType.
+                  ?host2 rdf:type ?hostType.
+                  ?hostType rdfs:subClassOf* amlImp:Host.
+
+                  $this a amlImp:SIS.
+
+                  ?zone1 amlOnt:hasIE+ $this.
+                  ?zone1 amlOnt:hasIE+ ?host2.
+
+                  ?zone1 rdf:type ?zoneType.
+                  ?zoneType rdfs:subClassOf* amlImp:Zone.
+
+                  FILTER NOT EXISTS {
+                     ?zone1 amlOnt:hasIE+ ?anyZone1.
+                     ?anyZone1 amlOnt:hasIE+ $this.
+                     ?anyZone1 rdf:type ?anyZoneType1.
+                     ?anyZoneType1 rdfs:subClassOf* amlImp:Zone.
+                  }
+
+                  FILTER NOT EXISTS {
+                     ?zone1 amlOnt:hasIE+ ?anyZone1.
+                     ?anyZone1 amlOnt:hasIE+ ?host2.
+                     ?anyZone1 rdf:type ?anyZoneType1.
+                     ?anyZoneType1 rdfs:subClassOf* amlImp:Zone.
+                  }
+
+                  FILTER NOT EXISTS {
+                     $this a amlImp:SIS.
+                     ?host2 a amlImp:SIS.
+                  }
+
+               }
+        """ ;
+	] .
+
+# Logical/Physical connection connecting safety-related assets and non-safety related assets (ZCR-3.3b)
+icsSecOnt:SafetyAssetsConnectionZone
+    a sh:NodeShape ;
+    sh:targetClass amlImp:Wire ;
+    sh:targetClass amlImp:LogicalConnection ;
+	sh:sparql [
+	    a sh:SPARQLConstraint ;
+        sh:message "The logical or physical connection {$this} connects safety-related assets and non-safety-related assets (different security zones {?zone1} and {?zone2})." ;
+        sh:prefixes [
+            sh:declare [
+                sh:prefix    "amlImp" ;
+                sh:namespace "http://www.ipr.kit.edu/aml_importer#"^^xsd:anyURI ;
+            ];
+            sh:declare [
+                sh:prefix    "amlOnt" ;
+                sh:namespace "http://www.ipr.kit.edu/aml_ontology#"^^xsd:anyURI ;
+            ];
+            sh:declare [
+                sh:prefix    "rdf" ;
+                sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+            ];
+            sh:declare [
+                sh:prefix    "rdfs" ;
+                sh:namespace "http://www.w3.org/2000/01/rdf-schema#"^^xsd:anyURI ;
+            ]
+        ] ;
+        sh:select """
+            SELECT DISTINCT $this ?plug1 ?link1 ?plug2 ?link2 ?socket1 ?socket2 ?portList1 ?portList2 ?zone1 ?zone2
+            WHERE {
+                    {
+                      $this rdf:type ?wireType.
+                      ?wireType rdfs:subClassOf* amlImp:Wire.
+                    }
+                UNION
+                   {
+                     $this a amlImp:LogicalConnection.
+                   }
+
+                $this amlOnt:hasEI ?plug1, ?plug2.
+                FILTER ( str(?plug1) < str(?plug2) ).
+
+                ?plug1 amlOnt:hasRefPartner ?link1.
+                ?plug2 amlOnt:hasRefPartner ?link2.
+
+                ?link1 a amlImp:Link.
+                ?link2 a amlImp:Link.
+
+                ?socket1 amlOnt:hasRefPartner ?link1.
+                ?socket2 amlOnt:hasRefPartner ?link2.
+                FILTER ( ?plug1 != ?socket1 ).
+                FILTER ( ?plug2 != ?socket2 ).
+
+                ?portList1 amlOnt:hasEI ?socket1.
+                ?portList2 amlOnt:hasEI ?socket2.
+
+                ?zone1 amlOnt:hasIE+ ?portList1.
+                ?zone2 amlOnt:hasIE+ ?portList2.
+                FILTER ( ?zone1 != ?zone2 ).
+
+                ?zone1 rdf:type ?zoneType.
+                ?zone2 rdf:type ?zoneType.
+                ?zoneType rdfs:subClassOf* amlImp:Zone.
+
+                FILTER NOT EXISTS {
+                    ?zone1 amlOnt:hasIE+ ?anyZone1.
+                    ?anyZone1 amlOnt:hasIE+ ?portList1.
+                    ?anyZone1 rdf:type ?zoneType.
+                }
+
+                FILTER NOT EXISTS {
+                     ?zone2 amlOnt:hasIE+ ?anyZone2.
+                     ?anyZone2 amlOnt:hasIE+ ?portList2.
+                     ?anyZone2 rdf:type ?zoneType.
+                }
+
+                FILTER NOT EXISTS {
+                     ?zone1 a amlImp:SafetyZone.
+                     ?zone2 a amlImp:SafetyZone.
+                }
+
+                {
+                    ?zone1 a amlImp:SafetyZone.
+                }
+                UNION
+                {
+                    ?zone2 a amlImp:SafetyZone.
+                }
+
+            }
+        """ ;
+	] .
+
+# Devices that make temporary connections are grouped into a separate zone (ZCR-3.4)
+icsSecOnt:TempConnections
+    a sh:NodeShape ;
+    sh:targetClass amlImp:Host ;
+	sh:sparql [
+	    a sh:SPARQLConstraint ;
+        sh:message "The device {$this} makes temporary connections within the zone {?zone1} (other device in this zone is {?host2})." ;
+        sh:prefixes [
+            sh:declare [
+                sh:prefix    "amlImp" ;
+                sh:namespace "http://www.ipr.kit.edu/aml_importer#"^^xsd:anyURI ;
+            ];
+            sh:declare [
+                sh:prefix    "amlOnt" ;
+                sh:namespace "http://www.ipr.kit.edu/aml_ontology#"^^xsd:anyURI ;
+            ];
+            sh:declare [
+                sh:prefix    "rdf" ;
+                sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+            ];
+            sh:declare [
+                sh:prefix    "rdfs" ;
+                sh:namespace "http://www.w3.org/2000/01/rdf-schema#"^^xsd:anyURI ;
+            ]
+        ] ;
+        sh:select """
+            SELECT DISTINCT $this ?host2 ?zone1
+               WHERE {
+                  $this rdf:type ?hostType.
+                  ?host2 rdf:type ?hostType.
+                  ?hostType rdfs:subClassOf* amlImp:Host.
+
+                  $this rdf:type ?engWorkType.
+                  ?engWorkType rdfs:subClassOf* amlImp:EngineeringWorkstation.
+
+                  ?zone1 amlOnt:hasIE+ $this.
+                  ?zone1 amlOnt:hasIE+ ?host2.
+
+                  ?zone1 rdf:type ?zoneType.
+                  ?zoneType rdfs:subClassOf* amlImp:Zone.
+
+                  FILTER NOT EXISTS {
+                     ?zone1 amlOnt:hasIE+ ?anyZone1.
+                     ?anyZone1 amlOnt:hasIE+ $this.
+                     ?anyZone1 rdf:type ?anyZoneType1.
+                     ?anyZoneType1 rdfs:subClassOf* amlImp:Zone.
+                  }
+
+                  FILTER NOT EXISTS {
+                     ?zone1 amlOnt:hasIE+ ?anyZone1.
+                     ?anyZone1 amlOnt:hasIE+ ?host2.
+                     ?anyZone1 rdf:type ?anyZoneType1.
+                     ?anyZoneType1 rdfs:subClassOf* amlImp:Zone.
+                  }
+
+                  FILTER NOT EXISTS {
+                     $this rdf:type ?engWorkType.
+                     ?host2 rdf:type ?engWorkType.
+                     ?engWorkType rdfs:subClassOf* amlImp:EngineeringWorkstation.
+                  }
+
+               }
+        """ ;
+	] .
+
+# Wireless assets are grouped into one zone (ZCR-3.5a)
+icsSecOnt:WirelessAssetsZone
+    a sh:NodeShape ;
+    sh:targetClass amlImp:Host ;
+	sh:sparql [
+	    a sh:SPARQLConstraint ;
+        sh:message "The wireless-enabled device {$this} is within the zone {?zone1} (other wired device in this zone is {?host2})." ;
+        sh:prefixes [
+            sh:declare [
+                sh:prefix    "amlImp" ;
+                sh:namespace "http://www.ipr.kit.edu/aml_importer#"^^xsd:anyURI ;
+            ];
+            sh:declare [
+                sh:prefix    "amlOnt" ;
+                sh:namespace "http://www.ipr.kit.edu/aml_ontology#"^^xsd:anyURI ;
+            ];
+            sh:declare [
+                sh:prefix    "rdf" ;
+                sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+            ];
+            sh:declare [
+                sh:prefix    "rdfs" ;
+                sh:namespace "http://www.w3.org/2000/01/rdf-schema#"^^xsd:anyURI ;
+            ]
+        ] ;
+        sh:select """
+            SELECT DISTINCT $this ?host2 ?zone1
+               WHERE {
+                  $this rdf:type ?hostType.
+                  ?host2 rdf:type ?hostType.
+                  ?hostType rdfs:subClassOf* amlImp:Host.
+
+                  $this amlOnt:hasIE+ ?portList1.
+                  ?portList1 a amlImp:PortList.
+                  ?portList1 amlOnt:hasEI ?wirelessInterface.
+                  ?wirelessInterface a amlImp:WirelessInterface.
+
+                  ?zone1 amlOnt:hasIE+ $this.
+                  ?zone1 amlOnt:hasIE+ ?host2.
+
+                  ?zone1 rdf:type ?zoneType.
+                  ?zoneType rdfs:subClassOf* amlImp:Zone.
+
+                  FILTER NOT EXISTS {
+                     ?zone1 amlOnt:hasIE+ ?anyZone1.
+                     ?anyZone1 amlOnt:hasIE+ $this.
+                     ?anyZone1 rdf:type ?anyZoneType1.
+                     ?anyZoneType1 rdfs:subClassOf* amlImp:Zone.
+                  }
+
+                  FILTER NOT EXISTS {
+                     ?zone1 amlOnt:hasIE+ ?anyZone1.
+                     ?anyZone1 amlOnt:hasIE+ ?host2.
+                     ?anyZone1 rdf:type ?anyZoneType1.
+                     ?anyZoneType1 rdfs:subClassOf* amlImp:Zone.
+                  }
+
+                  FILTER NOT EXISTS {
+                     $this amlOnt:hasIE+ ?portList1.
+                     ?host2 amlOnt:hasIE+ ?portList2.
+                     ?portList1 a amlImp:PortList.
+                     ?portList2 a amlImp:PortList.
+                     ?portList1 amlOnt:hasEI ?wirelessInterface1.
+                     ?portList2 amlOnt:hasEI ?wirelessInterface2.
+                     ?wirelessInterface1 a amlImp:WirelessInterface.
+                     ?wirelessInterface2 a amlImp:WirelessInterface.
+                  }
+
+               }
+        """ ;
+	] .
+
+# Logical/Physical connection connecting wireless assets and wired assets (ZCR-3.5b)
+icsSecOnt:WirelessAssetsConnectionZone
+    a sh:NodeShape ;
+    sh:targetClass amlImp:WirelessConnection ;
+    sh:targetClass amlImp:LogicalConnection ;
+	sh:sparql [
+	    a sh:SPARQLConstraint ;
+        sh:message "The logical or physical connection {$this} connects wireless-enabled assets and non-wireless-enabled assets (different security zones {?zone1} and {?zone2})." ;
+        sh:prefixes [
+            sh:declare [
+                sh:prefix    "amlImp" ;
+                sh:namespace "http://www.ipr.kit.edu/aml_importer#"^^xsd:anyURI ;
+            ];
+            sh:declare [
+                sh:prefix    "amlOnt" ;
+                sh:namespace "http://www.ipr.kit.edu/aml_ontology#"^^xsd:anyURI ;
+            ];
+            sh:declare [
+                sh:prefix    "rdf" ;
+                sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+            ];
+            sh:declare [
+                sh:prefix    "rdfs" ;
+                sh:namespace "http://www.w3.org/2000/01/rdf-schema#"^^xsd:anyURI ;
+            ]
+        ] ;
+        sh:select """
+            SELECT DISTINCT $this ?plug1 ?link1 ?plug2 ?link2 ?socket1 ?socket2 ?portList1 ?portList2 ?zone1 ?zone2
+                WHERE {
+                        {
+                          $this a amlImp:WirelessConnection.
+                        }
+                    UNION
+                       {
+                         $this a amlImp:LogicalConnection.
+                       }
+
+                    $this amlOnt:hasEI ?plug1, ?plug2.
+                    FILTER ( str(?plug1) < str(?plug2) ).
+
+                    ?plug1 amlOnt:hasRefPartner ?link1.
+                    ?plug2 amlOnt:hasRefPartner ?link2.
+
+                    ?link1 a amlImp:Link.
+                    ?link2 a amlImp:Link.
+
+                    ?socket1 amlOnt:hasRefPartner ?link1.
+                    ?socket2 amlOnt:hasRefPartner ?link2.
+                    FILTER ( ?plug1 != ?socket1 ).
+                    FILTER ( ?plug2 != ?socket2 ).
+
+                    ?portList1 amlOnt:hasEI ?socket1.
+                    ?portList2 amlOnt:hasEI ?socket2.
+
+                    ?zone1 amlOnt:hasIE+ ?portList1.
+                    ?zone2 amlOnt:hasIE+ ?portList2.
+                    FILTER ( ?zone1 != ?zone2 ).
+
+                    ?zone1 rdf:type ?zoneType.
+                    ?zone2 rdf:type ?zoneType.
+                    ?zoneType rdfs:subClassOf* amlImp:Zone.
+
+                    FILTER NOT EXISTS {
+                        ?zone1 amlOnt:hasIE+ ?anyZone1.
+                        ?anyZone1 amlOnt:hasIE+ ?portList1.
+                        ?anyZone1 rdf:type ?zoneType.
+                    }
+
+                    FILTER NOT EXISTS {
+                         ?zone2 amlOnt:hasIE+ ?anyZone2.
+                         ?anyZone2 amlOnt:hasIE+ ?portList2.
+                         ?anyZone2 rdf:type ?zoneType.
+                    }
+
+                    FILTER NOT EXISTS {
+                         ?zone1 a amlImp:WirelessZone.
+                         ?zone2 a amlImp:WirelessZone.
+                    }
+
+                    {
+                        ?zone1 a amlImp:WirelessZone.
+                    }
+                    UNION
+                    {
+                        ?zone2 a amlImp:WirelessZone.
+                    }
+           }
+        """ ;
+	] .
+
+# Devices that make external connections are grouped into a separate zone (ZCR-3.6)
+icsSecOnt:ExtConnections
+    a sh:NodeShape ;
+    sh:targetClass amlImp:Host ;
+    sh:sparql [
+      a sh:SPARQLConstraint ;
+        sh:message "The device {$this} makes external connections within the zone {?zone1} (other device in this zone is {?host2})." ;
+        sh:prefixes [
+            sh:declare [
+                sh:prefix    "amlImp" ;
+                sh:namespace "http://www.ipr.kit.edu/aml_importer#"^^xsd:anyURI ;
+            ];
+            sh:declare [
+                sh:prefix    "amlOnt" ;
+                sh:namespace "http://www.ipr.kit.edu/aml_ontology#"^^xsd:anyURI ;
+            ];
+            sh:declare [
+                sh:prefix    "rdf" ;
+                sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+            ];
+            sh:declare [
+                sh:prefix    "rdfs" ;
+                sh:namespace "http://www.w3.org/2000/01/rdf-schema#"^^xsd:anyURI ;
+            ]
+        ] ;
+        sh:select """
+            SELECT DISTINCT $this ?host2 ?zone1
+               WHERE {
+                  $this rdf:type ?hostType.
+                  ?host2 rdf:type ?hostType.
+                  ?hostType rdfs:subClassOf* amlImp:Host.
+
+                  $this a amlImp:RemoteManagementSystem.
+
+                  ?zone1 amlOnt:hasIE+ $this.
+                  ?zone1 amlOnt:hasIE+ ?host2.
+
+                  ?zone1 rdf:type ?zoneType.
+                  ?zoneType rdfs:subClassOf* amlImp:Zone.
+
+                  FILTER NOT EXISTS {
+                     ?zone1 amlOnt:hasIE+ ?anyZone1.
+                     ?anyZone1 amlOnt:hasIE+ $this.
+                     ?anyZone1 rdf:type ?anyZoneType1.
+                     ?anyZoneType1 rdfs:subClassOf* amlImp:Zone.
+                  }
+
+                  FILTER NOT EXISTS {
+                     ?zone1 amlOnt:hasIE+ ?anyZone1.
+                     ?anyZone1 amlOnt:hasIE+ ?host2.
+                     ?anyZone1 rdf:type ?anyZoneType1.
+                     ?anyZoneType1 rdfs:subClassOf* amlImp:Zone.
+                  }
+
+                  FILTER NOT EXISTS {
+                     $this a amlImp:RemoteManagementSystem.
+                     ?host2 a amlImp:RemoteManagementSystem.
+                  }
+
+               }
+        """ ;
+  ] .

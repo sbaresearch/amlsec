@@ -1,0 +1,2549 @@
+@prefix :      <http://www.ipr.kit.edu/aml_importer#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix protege: <http://protege.stanford.edu/plugins/owl/protege#> .
+@prefix swrl:  <http://www.w3.org/2003/11/swrl#> .
+@prefix swrlb: <http://www.w3.org/2003/11/swrlb#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix amlOnt: <http://www.ipr.kit.edu/aml_ontology#> .
+@prefix aml_ontology: <http://www.ipr.kit.edu/aml_ontology#> .
+@prefix swrla: <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#> .
+@prefix aml_importer: <http://www.ipr.kit.edu/aml_importer#> .
+@prefix amlImp: <http://www.ipr.kit.edu/aml_importer#> .
+@prefix xsp:   <http://www.owl-ontologies.com/2005/08/07/xsp.owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml:   <http://www.w3.org/XML/1998/namespace> .
+@prefix sqwrl: <http://sqwrl.stanford.edu/ontologies/built-ins/3.4/sqwrl.owl#> .
+@prefix secOnt: <http://securityontology.com/secont#> .
+@prefix secont: <http://securityontology.com/secont#> .
+@prefix owlapi: <http://www.semanticweb.org/owlapi#> .
+
+[ a       <http://www.w3.org/ns/shacl#ValidationReport> ;
+  <http://www.w3.org/ns/shacl#conforms>
+          false ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_WHARTSensor1_65710792-ac8c-462e-9fb9-b1d73aa1e971 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The wireless-enabled device amlImp:ie_WHARTSensor1_65710792-ac8c-462e-9fb9-b1d73aa1e971 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other wired device in this zone is amlImp:ie_SimaticS71516F_1_4039125e-4cfc-4e92-bb82-14e19954f44f)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b0 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#WirelessAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_WHARTSensor1_65710792-ac8c-462e-9fb9-b1d73aa1e971
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN_7dc76996-b47d-4b08-adaa-8eedeb3e64d3 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN_7dc76996-b47d-4b08-adaa-8eedeb3e64d3 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_SE_XBTGT1_bfd7c0e1-9ad4-4f9f-b926-91352edb0fc2)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN_7dc76996-b47d-4b08-adaa-8eedeb3e64d3
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN3_cf323106-154a-4c23-aa3b-6f2ee925cbb1 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN3_cf323106-154a-4c23-aa3b-6f2ee925cbb1 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_SE_XBTGT1_bfd7c0e1-9ad4-4f9f-b926-91352edb0fc2)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN3_cf323106-154a-4c23-aa3b-6f2ee925cbb1
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN3_cf323106-154a-4c23-aa3b-6f2ee925cbb1 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN3_cf323106-154a-4c23-aa3b-6f2ee925cbb1 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN3_cf323106-154a-4c23-aa3b-6f2ee925cbb1
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_WHARTSensor3_c7b4b099-fe0a-4e85-ac94-0e75a0dbf095 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The wireless-enabled device amlImp:ie_WHARTSensor3_c7b4b099-fe0a-4e85-ac94-0e75a0dbf095 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other wired device in this zone is amlImp:ie_SimaticS71510SPF1PN_7dc76996-b47d-4b08-adaa-8eedeb3e64d3)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b0 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#WirelessAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_WHARTSensor3_c7b4b099-fe0a-4e85-ac94-0e75a0dbf095
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN3_cf323106-154a-4c23-aa3b-6f2ee925cbb1 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN3_cf323106-154a-4c23-aa3b-6f2ee925cbb1 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_WHARTSensor3_c7b4b099-fe0a-4e85-ac94-0e75a0dbf095)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN3_cf323106-154a-4c23-aa3b-6f2ee925cbb1
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN1_76764e90-3339-4944-a78e-572c29a7eda6 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN1_76764e90-3339-4944-a78e-572c29a7eda6 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_SimaticS71516F_2_c403dd71-4d52-4d22-a917-e2a991008be8)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN1_76764e90-3339-4944-a78e-572c29a7eda6
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The device amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc makes external connections within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other device in this zone is amlImp:ie_WHARTSensor2_9c43b668-636f-4d99-99c5-9741274faec8)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b2 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#ExtConnections> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN2_3cf68364-1144-4262-b3c6-b050303c5ef2 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN2_3cf68364-1144-4262-b3c6-b050303c5ef2 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_KRC4_3_551642cc-2e29-43f4-929e-ccf253e74f17)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN2_3cf68364-1144-4262-b3c6-b050303c5ef2
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_WHARTSensor2_9c43b668-636f-4d99-99c5-9741274faec8 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The wireless-enabled device amlImp:ie_WHARTSensor2_9c43b668-636f-4d99-99c5-9741274faec8 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other wired device in this zone is amlImp:ie_SimaticS71510SPF1PN_7dc76996-b47d-4b08-adaa-8eedeb3e64d3)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b0 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#WirelessAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_WHARTSensor2_9c43b668-636f-4d99-99c5-9741274faec8
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_WHARTSensor1_65710792-ac8c-462e-9fb9-b1d73aa1e971 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The wireless-enabled device amlImp:ie_WHARTSensor1_65710792-ac8c-462e-9fb9-b1d73aa1e971 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other wired device in this zone is amlImp:ie_SimaticS71510SPF1PN3_cf323106-154a-4c23-aa3b-6f2ee925cbb1)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b0 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#WirelessAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_WHARTSensor1_65710792-ac8c-462e-9fb9-b1d73aa1e971
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_WHARTSensor2_9c43b668-636f-4d99-99c5-9741274faec8 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The wireless-enabled device amlImp:ie_WHARTSensor2_9c43b668-636f-4d99-99c5-9741274faec8 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other wired device in this zone is amlImp:ie_KRC4_3_551642cc-2e29-43f4-929e-ccf253e74f17)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b0 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#WirelessAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_WHARTSensor2_9c43b668-636f-4d99-99c5-9741274faec8
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The device amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc makes external connections within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other device in this zone is amlImp:ie_KRC4_1_4e8b4f7c-35d9-43ce-95a0-f770c6dd0a18)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b2 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#ExtConnections> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The device amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc makes external connections within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other device in this zone is amlImp:ie_SimaticS71510SPF1PN3_cf323106-154a-4c23-aa3b-6f2ee925cbb1)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b2 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#ExtConnections> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN_7dc76996-b47d-4b08-adaa-8eedeb3e64d3 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN_7dc76996-b47d-4b08-adaa-8eedeb3e64d3 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_GECimplicity1_f5724f31-7ba4-4c92-9e33-1e0b315c2878)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN_7dc76996-b47d-4b08-adaa-8eedeb3e64d3
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_EthernetWire3_f55ef8d4-11e4-4daa-aa34-bb4136b68770 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The logical or physical connection amlImp:ie_EthernetWire3_f55ef8d4-11e4-4daa-aa34-bb4136b68770 connects an ICS asset to a business or enterprise asset (zones: amlImp:ie_IndustrialDMZ_fc34b2d4-76aa-4319-b827-733f33b5b0d0 and amlImp:ie_OperationsSupport_ee482db7-3f32-40ba-be0b-2a598766abd7)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b3 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#ITOTCrossConnections> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_EthernetWire3_f55ef8d4-11e4-4daa-aa34-bb4136b68770
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN2_3cf68364-1144-4262-b3c6-b050303c5ef2 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN2_3cf68364-1144-4262-b3c6-b050303c5ef2 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_GECimplicity1_f5724f31-7ba4-4c92-9e33-1e0b315c2878)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN2_3cf68364-1144-4262-b3c6-b050303c5ef2
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_WHARTSensor1_65710792-ac8c-462e-9fb9-b1d73aa1e971 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The wireless-enabled device amlImp:ie_WHARTSensor1_65710792-ac8c-462e-9fb9-b1d73aa1e971 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other wired device in this zone is amlImp:ie_SimaticS71516F_2_c403dd71-4d52-4d22-a917-e2a991008be8)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b0 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#WirelessAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_WHARTSensor1_65710792-ac8c-462e-9fb9-b1d73aa1e971
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_LogicalPROFIsafeConnection2_3cb44b24-52c4-44a8-9be6-f33770e5a0ba ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "Uses insecure protocol" ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#NotConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#InsecureProtocolInUse> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_LogicalPROFIsafeConnection2_3cb44b24-52c4-44a8-9be6-f33770e5a0ba
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SIMATICFieldPGM6_cd9a883f-873a-4a0a-980d-2f5379041b3a ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The device amlImp:ie_SIMATICFieldPGM6_cd9a883f-873a-4a0a-980d-2f5379041b3a makes temporary connections within the zone amlImp:ie_OperationsSupport_ee482db7-3f32-40ba-be0b-2a598766abd7 (other device in this zone is amlImp:ie_MES1_d186029a-3718-45c1-9170-8724a9de3d21)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b4 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#TempConnections> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SIMATICFieldPGM6_cd9a883f-873a-4a0a-980d-2f5379041b3a
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN1_76764e90-3339-4944-a78e-572c29a7eda6 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN1_76764e90-3339-4944-a78e-572c29a7eda6 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_KRC4_2_483b250d-bc7e-411d-976c-9dea138fbc60)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN1_76764e90-3339-4944-a78e-572c29a7eda6
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN_7dc76996-b47d-4b08-adaa-8eedeb3e64d3 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN_7dc76996-b47d-4b08-adaa-8eedeb3e64d3 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN_7dc76996-b47d-4b08-adaa-8eedeb3e64d3
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN2_3cf68364-1144-4262-b3c6-b050303c5ef2 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN2_3cf68364-1144-4262-b3c6-b050303c5ef2 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_SE_XBTGT1_bfd7c0e1-9ad4-4f9f-b926-91352edb0fc2)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN2_3cf68364-1144-4262-b3c6-b050303c5ef2
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The device amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc makes external connections within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other device in this zone is amlImp:ie_SimaticS71510SPF1PN2_3cf68364-1144-4262-b3c6-b050303c5ef2)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b2 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#ExtConnections> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_Program_f4452b5e-a1e4-4921-b467-fc9c59cb8970 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "Does not have value True" ;
+            <http://www.w3.org/ns/shacl#resultPath>
+                    amlImp:hasCopyProtection ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#HasValueConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#ActiveCopyProtection>
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The device amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc makes external connections within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other device in this zone is amlImp:ie_GECimplicity1_f5724f31-7ba4-4c92-9e33-1e0b315c2878)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b2 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#ExtConnections> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ei_LogicalEndpointModbus_81b74a1f-b305-470b-8c8c-d6bad9103441 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "Less than 1 values have shape _:4bad9c8faf161ebe0bdde2584b38b662" ;
+            <http://www.w3.org/ns/shacl#resultPath>
+                    aml_ontology:hasRefPartner ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#QualifiedMinCountConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#HasRefPartnerLinkMin1Shape>
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN_7dc76996-b47d-4b08-adaa-8eedeb3e64d3 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN_7dc76996-b47d-4b08-adaa-8eedeb3e64d3 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_SimaticS71516F_4_91c2cc40-bc91-4210-bbcb-c8dee270ef7f)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN_7dc76996-b47d-4b08-adaa-8eedeb3e64d3
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The device amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc makes external connections within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other device in this zone is amlImp:ie_SimaticS71516F_3_fa819ebd-d24c-405f-af26-9f1ee0d084c1)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b2 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#ExtConnections> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_LogicalOPC-UAConnection_67214374-10d5-414f-b42c-2859f1fbf4c2 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The logical or physical connection amlImp:ie_LogicalOPC-UAConnection_67214374-10d5-414f-b42c-2859f1fbf4c2 connects assets of two different security zones (amlImp:ie_OperationsSupport_ee482db7-3f32-40ba-be0b-2a598766abd7 and amlImp:ie_SCADA_e3f0537e-2d70-4bb2-a538-e31e2c74d8e7) and has not been declared as a conduit." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b5 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#CrossZoneConnections> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_LogicalOPC-UAConnection_67214374-10d5-414f-b42c-2859f1fbf4c2
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN2_3cf68364-1144-4262-b3c6-b050303c5ef2 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN2_3cf68364-1144-4262-b3c6-b050303c5ef2 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_KRC4_1_4e8b4f7c-35d9-43ce-95a0-f770c6dd0a18)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN2_3cf68364-1144-4262-b3c6-b050303c5ef2
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN3_cf323106-154a-4c23-aa3b-6f2ee925cbb1 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN3_cf323106-154a-4c23-aa3b-6f2ee925cbb1 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_KRC4_2_483b250d-bc7e-411d-976c-9dea138fbc60)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN3_cf323106-154a-4c23-aa3b-6f2ee925cbb1
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_LogicalProfinetConnection3_c5f12a8c-b961-4964-bbce-af3e03554cdb ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "Uses insecure protocol" ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#NotConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#InsecureProtocolInUse> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_LogicalProfinetConnection3_c5f12a8c-b961-4964-bbce-af3e03554cdb
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_WHARTSensor2_9c43b668-636f-4d99-99c5-9741274faec8 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The wireless-enabled device amlImp:ie_WHARTSensor2_9c43b668-636f-4d99-99c5-9741274faec8 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other wired device in this zone is amlImp:ie_SimaticS71516F_2_c403dd71-4d52-4d22-a917-e2a991008be8)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b0 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#WirelessAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_WHARTSensor2_9c43b668-636f-4d99-99c5-9741274faec8
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN_7dc76996-b47d-4b08-adaa-8eedeb3e64d3 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN_7dc76996-b47d-4b08-adaa-8eedeb3e64d3 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_KRC4_4_f58ddf2f-adc3-480e-b3cb-b9d34e1f7b52)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN_7dc76996-b47d-4b08-adaa-8eedeb3e64d3
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_WHARTSensor3_c7b4b099-fe0a-4e85-ac94-0e75a0dbf095 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The wireless-enabled device amlImp:ie_WHARTSensor3_c7b4b099-fe0a-4e85-ac94-0e75a0dbf095 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other wired device in this zone is amlImp:ie_SimaticS71516F_1_4039125e-4cfc-4e92-bb82-14e19954f44f)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b0 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#WirelessAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_WHARTSensor3_c7b4b099-fe0a-4e85-ac94-0e75a0dbf095
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The device amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc makes external connections within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other device in this zone is amlImp:ie_WHARTSensor3_c7b4b099-fe0a-4e85-ac94-0e75a0dbf095)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b2 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#ExtConnections> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_WHARTSensor2_9c43b668-636f-4d99-99c5-9741274faec8 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The wireless-enabled device amlImp:ie_WHARTSensor2_9c43b668-636f-4d99-99c5-9741274faec8 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other wired device in this zone is amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b0 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#WirelessAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_WHARTSensor2_9c43b668-636f-4d99-99c5-9741274faec8
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_WHARTSensor2_9c43b668-636f-4d99-99c5-9741274faec8 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The wireless-enabled device amlImp:ie_WHARTSensor2_9c43b668-636f-4d99-99c5-9741274faec8 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other wired device in this zone is amlImp:ie_GECimplicity1_f5724f31-7ba4-4c92-9e33-1e0b315c2878)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b0 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#WirelessAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_WHARTSensor2_9c43b668-636f-4d99-99c5-9741274faec8
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN_7dc76996-b47d-4b08-adaa-8eedeb3e64d3 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN_7dc76996-b47d-4b08-adaa-8eedeb3e64d3 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_WHARTSensor1_65710792-ac8c-462e-9fb9-b1d73aa1e971)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN_7dc76996-b47d-4b08-adaa-8eedeb3e64d3
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The device amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc makes external connections within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other device in this zone is amlImp:ie_KRC4_4_f58ddf2f-adc3-480e-b3cb-b9d34e1f7b52)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b2 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#ExtConnections> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN_7dc76996-b47d-4b08-adaa-8eedeb3e64d3 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN_7dc76996-b47d-4b08-adaa-8eedeb3e64d3 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_KRC4_2_483b250d-bc7e-411d-976c-9dea138fbc60)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN_7dc76996-b47d-4b08-adaa-8eedeb3e64d3
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The device amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc makes external connections within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other device in this zone is amlImp:ie_SimaticS71510SPF1PN_7dc76996-b47d-4b08-adaa-8eedeb3e64d3)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b2 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#ExtConnections> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The device amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc makes external connections within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other device in this zone is amlImp:ie_KRC4_3_551642cc-2e29-43f4-929e-ccf253e74f17)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b2 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#ExtConnections> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_LogicalOPC-UAConnection1_dbca61ea-cf76-472b-9115-1a49881ca28a ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The logical or physical connection amlImp:ie_LogicalOPC-UAConnection1_dbca61ea-cf76-472b-9115-1a49881ca28a connects assets of two different security zones (amlImp:ie_IndustrialDMZ_fc34b2d4-76aa-4319-b827-733f33b5b0d0 and amlImp:ie_OperationsSupport_ee482db7-3f32-40ba-be0b-2a598766abd7) and has not been declared as a conduit." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b5 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#CrossZoneConnections> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_LogicalOPC-UAConnection1_dbca61ea-cf76-472b-9115-1a49881ca28a
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_LogicalProfinetConnection2_927b3231-91ab-4cb2-835f-f6bc3cb638aa ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "Uses insecure protocol" ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#NotConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#InsecureProtocolInUse> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_LogicalProfinetConnection2_927b3231-91ab-4cb2-835f-f6bc3cb638aa
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_LogicalOPCConnection4_a8913465-7d73-4954-8f16-179ecab519ca ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "Uses insecure protocol" ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#NotConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#InsecureProtocolInUse> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_LogicalOPCConnection4_a8913465-7d73-4954-8f16-179ecab519ca
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN2_3cf68364-1144-4262-b3c6-b050303c5ef2 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN2_3cf68364-1144-4262-b3c6-b050303c5ef2 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_WHARTSensor2_9c43b668-636f-4d99-99c5-9741274faec8)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN2_3cf68364-1144-4262-b3c6-b050303c5ef2
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_LogicalOPCConnection3_589a1171-805e-4e15-8306-df9b2ed5eba2 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "Uses insecure protocol" ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#NotConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#InsecureProtocolInUse> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_LogicalOPCConnection3_589a1171-805e-4e15-8306-df9b2ed5eba2
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN2_3cf68364-1144-4262-b3c6-b050303c5ef2 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN2_3cf68364-1144-4262-b3c6-b050303c5ef2 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_KRC4_4_f58ddf2f-adc3-480e-b3cb-b9d34e1f7b52)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN2_3cf68364-1144-4262-b3c6-b050303c5ef2
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_WHARTSensor3_c7b4b099-fe0a-4e85-ac94-0e75a0dbf095 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The wireless-enabled device amlImp:ie_WHARTSensor3_c7b4b099-fe0a-4e85-ac94-0e75a0dbf095 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other wired device in this zone is amlImp:ie_SimaticS71510SPF1PN2_3cf68364-1144-4262-b3c6-b050303c5ef2)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b0 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#WirelessAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_WHARTSensor3_c7b4b099-fe0a-4e85-ac94-0e75a0dbf095
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The device amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc makes external connections within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other device in this zone is amlImp:ie_SE_XBTGT1_bfd7c0e1-9ad4-4f9f-b926-91352edb0fc2)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b2 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#ExtConnections> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_LogicalOPCConnection2_29b6c100-4d64-4fe1-bcb2-9931b8507340 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "Uses insecure protocol" ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#NotConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#InsecureProtocolInUse> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_LogicalOPCConnection2_29b6c100-4d64-4fe1-bcb2-9931b8507340
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_WHARTSensor2_9c43b668-636f-4d99-99c5-9741274faec8 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The wireless-enabled device amlImp:ie_WHARTSensor2_9c43b668-636f-4d99-99c5-9741274faec8 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other wired device in this zone is amlImp:ie_SimaticS71510SPF1PN1_76764e90-3339-4944-a78e-572c29a7eda6)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b0 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#WirelessAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_WHARTSensor2_9c43b668-636f-4d99-99c5-9741274faec8
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_WHARTSensor1_65710792-ac8c-462e-9fb9-b1d73aa1e971 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The wireless-enabled device amlImp:ie_WHARTSensor1_65710792-ac8c-462e-9fb9-b1d73aa1e971 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other wired device in this zone is amlImp:ie_SimaticS71510SPF1PN2_3cf68364-1144-4262-b3c6-b050303c5ef2)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b0 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#WirelessAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_WHARTSensor1_65710792-ac8c-462e-9fb9-b1d73aa1e971
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN3_cf323106-154a-4c23-aa3b-6f2ee925cbb1 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN3_cf323106-154a-4c23-aa3b-6f2ee925cbb1 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_SimaticS71516F_3_fa819ebd-d24c-405f-af26-9f1ee0d084c1)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN3_cf323106-154a-4c23-aa3b-6f2ee925cbb1
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_WHARTSensor2_9c43b668-636f-4d99-99c5-9741274faec8 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The wireless-enabled device amlImp:ie_WHARTSensor2_9c43b668-636f-4d99-99c5-9741274faec8 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other wired device in this zone is amlImp:ie_SimaticS71516F_3_fa819ebd-d24c-405f-af26-9f1ee0d084c1)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b0 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#WirelessAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_WHARTSensor2_9c43b668-636f-4d99-99c5-9741274faec8
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_LogicalOPCConnection5_1a514eaf-3b17-4608-bc6c-9c8c79746247 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The logical or physical connection amlImp:ie_LogicalOPCConnection5_1a514eaf-3b17-4608-bc6c-9c8c79746247 connects assets of two different security zones (amlImp:ie_SCADA_e3f0537e-2d70-4bb2-a538-e31e2c74d8e7 and amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91) and has not been declared as a conduit." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b5 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#CrossZoneConnections> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_LogicalOPCConnection5_1a514eaf-3b17-4608-bc6c-9c8c79746247
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN3_cf323106-154a-4c23-aa3b-6f2ee925cbb1 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN3_cf323106-154a-4c23-aa3b-6f2ee925cbb1 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_KRC4_1_4e8b4f7c-35d9-43ce-95a0-f770c6dd0a18)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN3_cf323106-154a-4c23-aa3b-6f2ee925cbb1
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN1_76764e90-3339-4944-a78e-572c29a7eda6 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN1_76764e90-3339-4944-a78e-572c29a7eda6 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_WHARTSensor1_65710792-ac8c-462e-9fb9-b1d73aa1e971)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN1_76764e90-3339-4944-a78e-572c29a7eda6
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_LogicalPROFIsafeConnection3_006ef612-4c52-453d-b7e1-aec4495f466d ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "Uses insecure protocol" ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#NotConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#InsecureProtocolInUse> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_LogicalPROFIsafeConnection3_006ef612-4c52-453d-b7e1-aec4495f466d
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN3_cf323106-154a-4c23-aa3b-6f2ee925cbb1 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN3_cf323106-154a-4c23-aa3b-6f2ee925cbb1 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_WHARTSensor2_9c43b668-636f-4d99-99c5-9741274faec8)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN3_cf323106-154a-4c23-aa3b-6f2ee925cbb1
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN2_3cf68364-1144-4262-b3c6-b050303c5ef2 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN2_3cf68364-1144-4262-b3c6-b050303c5ef2 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_SimaticS71516F_1_4039125e-4cfc-4e92-bb82-14e19954f44f)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN2_3cf68364-1144-4262-b3c6-b050303c5ef2
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_WHARTSensor2_9c43b668-636f-4d99-99c5-9741274faec8 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The wireless-enabled device amlImp:ie_WHARTSensor2_9c43b668-636f-4d99-99c5-9741274faec8 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other wired device in this zone is amlImp:ie_SimaticS71510SPF1PN3_cf323106-154a-4c23-aa3b-6f2ee925cbb1)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b0 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#WirelessAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_WHARTSensor2_9c43b668-636f-4d99-99c5-9741274faec8
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN2_3cf68364-1144-4262-b3c6-b050303c5ef2 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN2_3cf68364-1144-4262-b3c6-b050303c5ef2 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_SimaticS71516F_4_91c2cc40-bc91-4210-bbcb-c8dee270ef7f)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN2_3cf68364-1144-4262-b3c6-b050303c5ef2
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN2_3cf68364-1144-4262-b3c6-b050303c5ef2 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN2_3cf68364-1144-4262-b3c6-b050303c5ef2 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_SimaticS71516F_3_fa819ebd-d24c-405f-af26-9f1ee0d084c1)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN2_3cf68364-1144-4262-b3c6-b050303c5ef2
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_WHARTSensor1_65710792-ac8c-462e-9fb9-b1d73aa1e971 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The wireless-enabled device amlImp:ie_WHARTSensor1_65710792-ac8c-462e-9fb9-b1d73aa1e971 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other wired device in this zone is amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b0 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#WirelessAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_WHARTSensor1_65710792-ac8c-462e-9fb9-b1d73aa1e971
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN3_cf323106-154a-4c23-aa3b-6f2ee925cbb1 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN3_cf323106-154a-4c23-aa3b-6f2ee925cbb1 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_SimaticS71516F_2_c403dd71-4d52-4d22-a917-e2a991008be8)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN3_cf323106-154a-4c23-aa3b-6f2ee925cbb1
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN1_76764e90-3339-4944-a78e-572c29a7eda6 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN1_76764e90-3339-4944-a78e-572c29a7eda6 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_SimaticS71516F_4_91c2cc40-bc91-4210-bbcb-c8dee270ef7f)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN1_76764e90-3339-4944-a78e-572c29a7eda6
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_LogicalOPC-UAConnection1_dbca61ea-cf76-472b-9115-1a49881ca28a ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The logical or physical connection amlImp:ie_LogicalOPC-UAConnection1_dbca61ea-cf76-472b-9115-1a49881ca28a connects an ICS asset to a business or enterprise asset (zones: amlImp:ie_IndustrialDMZ_fc34b2d4-76aa-4319-b827-733f33b5b0d0 and amlImp:ie_OperationsSupport_ee482db7-3f32-40ba-be0b-2a598766abd7)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b3 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#ITOTCrossConnections> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_LogicalOPC-UAConnection1_dbca61ea-cf76-472b-9115-1a49881ca28a
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_WHARTSensor2_9c43b668-636f-4d99-99c5-9741274faec8 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The wireless-enabled device amlImp:ie_WHARTSensor2_9c43b668-636f-4d99-99c5-9741274faec8 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other wired device in this zone is amlImp:ie_SimaticS71516F_1_4039125e-4cfc-4e92-bb82-14e19954f44f)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b0 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#WirelessAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_WHARTSensor2_9c43b668-636f-4d99-99c5-9741274faec8
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN2_3cf68364-1144-4262-b3c6-b050303c5ef2 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN2_3cf68364-1144-4262-b3c6-b050303c5ef2 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN2_3cf68364-1144-4262-b3c6-b050303c5ef2
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN1_76764e90-3339-4944-a78e-572c29a7eda6 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN1_76764e90-3339-4944-a78e-572c29a7eda6 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_KRC4_4_f58ddf2f-adc3-480e-b3cb-b9d34e1f7b52)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN1_76764e90-3339-4944-a78e-572c29a7eda6
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN3_cf323106-154a-4c23-aa3b-6f2ee925cbb1 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN3_cf323106-154a-4c23-aa3b-6f2ee925cbb1 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_GECimplicity1_f5724f31-7ba4-4c92-9e33-1e0b315c2878)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN3_cf323106-154a-4c23-aa3b-6f2ee925cbb1
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN1_76764e90-3339-4944-a78e-572c29a7eda6 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN1_76764e90-3339-4944-a78e-572c29a7eda6 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_SimaticS71516F_1_4039125e-4cfc-4e92-bb82-14e19954f44f)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN1_76764e90-3339-4944-a78e-572c29a7eda6
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_WHARTSensor3_c7b4b099-fe0a-4e85-ac94-0e75a0dbf095 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The wireless-enabled device amlImp:ie_WHARTSensor3_c7b4b099-fe0a-4e85-ac94-0e75a0dbf095 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other wired device in this zone is amlImp:ie_KRC4_3_551642cc-2e29-43f4-929e-ccf253e74f17)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b0 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#WirelessAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_WHARTSensor3_c7b4b099-fe0a-4e85-ac94-0e75a0dbf095
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_EthernetWire7_78a23eb7-42df-4fb3-99b1-6e755cd22659 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The logical or physical connection amlImp:ie_EthernetWire7_78a23eb7-42df-4fb3-99b1-6e755cd22659 connects assets of two different security zones (amlImp:ie_OperationsSupport_ee482db7-3f32-40ba-be0b-2a598766abd7 and amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91) and has not been declared as a conduit." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b5 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#CrossZoneConnections> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_EthernetWire7_78a23eb7-42df-4fb3-99b1-6e755cd22659
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_WHARTSensor1_65710792-ac8c-462e-9fb9-b1d73aa1e971 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The wireless-enabled device amlImp:ie_WHARTSensor1_65710792-ac8c-462e-9fb9-b1d73aa1e971 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other wired device in this zone is amlImp:ie_KRC4_3_551642cc-2e29-43f4-929e-ccf253e74f17)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b0 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#WirelessAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_WHARTSensor1_65710792-ac8c-462e-9fb9-b1d73aa1e971
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_WHARTSensor3_c7b4b099-fe0a-4e85-ac94-0e75a0dbf095 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The wireless-enabled device amlImp:ie_WHARTSensor3_c7b4b099-fe0a-4e85-ac94-0e75a0dbf095 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other wired device in this zone is amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b0 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#WirelessAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_WHARTSensor3_c7b4b099-fe0a-4e85-ac94-0e75a0dbf095
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_WHARTSensor3_c7b4b099-fe0a-4e85-ac94-0e75a0dbf095 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The wireless-enabled device amlImp:ie_WHARTSensor3_c7b4b099-fe0a-4e85-ac94-0e75a0dbf095 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other wired device in this zone is amlImp:ie_KRC4_1_4e8b4f7c-35d9-43ce-95a0-f770c6dd0a18)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b0 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#WirelessAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_WHARTSensor3_c7b4b099-fe0a-4e85-ac94-0e75a0dbf095
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_WHARTSensor3_c7b4b099-fe0a-4e85-ac94-0e75a0dbf095 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The wireless-enabled device amlImp:ie_WHARTSensor3_c7b4b099-fe0a-4e85-ac94-0e75a0dbf095 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other wired device in this zone is amlImp:ie_SE_XBTGT1_bfd7c0e1-9ad4-4f9f-b926-91352edb0fc2)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b0 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#WirelessAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_WHARTSensor3_c7b4b099-fe0a-4e85-ac94-0e75a0dbf095
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_WHARTSensor1_65710792-ac8c-462e-9fb9-b1d73aa1e971 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The wireless-enabled device amlImp:ie_WHARTSensor1_65710792-ac8c-462e-9fb9-b1d73aa1e971 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other wired device in this zone is amlImp:ie_KRC4_4_f58ddf2f-adc3-480e-b3cb-b9d34e1f7b52)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b0 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#WirelessAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_WHARTSensor1_65710792-ac8c-462e-9fb9-b1d73aa1e971
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_LogicalProfinetConnection4_25615c2d-21e4-4624-9ee6-ac04a596e3e1 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "Uses insecure protocol" ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#NotConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#InsecureProtocolInUse> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_LogicalProfinetConnection4_25615c2d-21e4-4624-9ee6-ac04a596e3e1
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN1_76764e90-3339-4944-a78e-572c29a7eda6 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN1_76764e90-3339-4944-a78e-572c29a7eda6 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_WHARTSensor2_9c43b668-636f-4d99-99c5-9741274faec8)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN1_76764e90-3339-4944-a78e-572c29a7eda6
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_WHARTSensor2_9c43b668-636f-4d99-99c5-9741274faec8 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The wireless-enabled device amlImp:ie_WHARTSensor2_9c43b668-636f-4d99-99c5-9741274faec8 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other wired device in this zone is amlImp:ie_SimaticS71510SPF1PN2_3cf68364-1144-4262-b3c6-b050303c5ef2)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b0 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#WirelessAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_WHARTSensor2_9c43b668-636f-4d99-99c5-9741274faec8
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN1_76764e90-3339-4944-a78e-572c29a7eda6 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN1_76764e90-3339-4944-a78e-572c29a7eda6 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_KRC4_3_551642cc-2e29-43f4-929e-ccf253e74f17)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN1_76764e90-3339-4944-a78e-572c29a7eda6
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_WHARTSensor3_c7b4b099-fe0a-4e85-ac94-0e75a0dbf095 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The wireless-enabled device amlImp:ie_WHARTSensor3_c7b4b099-fe0a-4e85-ac94-0e75a0dbf095 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other wired device in this zone is amlImp:ie_SimaticS71516F_4_91c2cc40-bc91-4210-bbcb-c8dee270ef7f)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b0 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#WirelessAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_WHARTSensor3_c7b4b099-fe0a-4e85-ac94-0e75a0dbf095
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_LogicalOPCConnection1_d8bf6b53-42b3-49c5-b7af-fb9cd1421b7e ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "Uses insecure protocol" ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#NotConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#InsecureProtocolInUse> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_LogicalOPCConnection1_d8bf6b53-42b3-49c5-b7af-fb9cd1421b7e
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The device amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc makes external connections within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other device in this zone is amlImp:ie_SimaticS71516F_1_4039125e-4cfc-4e92-bb82-14e19954f44f)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b2 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#ExtConnections> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN1_76764e90-3339-4944-a78e-572c29a7eda6 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN1_76764e90-3339-4944-a78e-572c29a7eda6 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_WHARTSensor3_c7b4b099-fe0a-4e85-ac94-0e75a0dbf095)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN1_76764e90-3339-4944-a78e-572c29a7eda6
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_WHARTSensor1_65710792-ac8c-462e-9fb9-b1d73aa1e971 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The wireless-enabled device amlImp:ie_WHARTSensor1_65710792-ac8c-462e-9fb9-b1d73aa1e971 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other wired device in this zone is amlImp:ie_GECimplicity1_f5724f31-7ba4-4c92-9e33-1e0b315c2878)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b0 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#WirelessAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_WHARTSensor1_65710792-ac8c-462e-9fb9-b1d73aa1e971
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_WHARTSensor1_65710792-ac8c-462e-9fb9-b1d73aa1e971 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The wireless-enabled device amlImp:ie_WHARTSensor1_65710792-ac8c-462e-9fb9-b1d73aa1e971 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other wired device in this zone is amlImp:ie_SE_XBTGT1_bfd7c0e1-9ad4-4f9f-b926-91352edb0fc2)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b0 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#WirelessAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_WHARTSensor1_65710792-ac8c-462e-9fb9-b1d73aa1e971
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The device amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc makes external connections within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other device in this zone is amlImp:ie_SimaticS71510SPF1PN1_76764e90-3339-4944-a78e-572c29a7eda6)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b2 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#ExtConnections> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The device amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc makes external connections within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other device in this zone is amlImp:ie_SimaticS71516F_4_91c2cc40-bc91-4210-bbcb-c8dee270ef7f)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b2 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#ExtConnections> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN1_76764e90-3339-4944-a78e-572c29a7eda6 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN1_76764e90-3339-4944-a78e-572c29a7eda6 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_KRC4_1_4e8b4f7c-35d9-43ce-95a0-f770c6dd0a18)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN1_76764e90-3339-4944-a78e-572c29a7eda6
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_LogicalPROFIsafeConnection4_5b372b58-cbf9-4654-b2ac-9355d4ffd47a ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "Uses insecure protocol" ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#NotConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#InsecureProtocolInUse> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_LogicalPROFIsafeConnection4_5b372b58-cbf9-4654-b2ac-9355d4ffd47a
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN3_cf323106-154a-4c23-aa3b-6f2ee925cbb1 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN3_cf323106-154a-4c23-aa3b-6f2ee925cbb1 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_SimaticS71516F_1_4039125e-4cfc-4e92-bb82-14e19954f44f)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN3_cf323106-154a-4c23-aa3b-6f2ee925cbb1
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_WHARTSensor3_c7b4b099-fe0a-4e85-ac94-0e75a0dbf095 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The wireless-enabled device amlImp:ie_WHARTSensor3_c7b4b099-fe0a-4e85-ac94-0e75a0dbf095 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other wired device in this zone is amlImp:ie_SimaticS71510SPF1PN3_cf323106-154a-4c23-aa3b-6f2ee925cbb1)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b0 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#WirelessAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_WHARTSensor3_c7b4b099-fe0a-4e85-ac94-0e75a0dbf095
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_WHARTSensor1_65710792-ac8c-462e-9fb9-b1d73aa1e971 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The wireless-enabled device amlImp:ie_WHARTSensor1_65710792-ac8c-462e-9fb9-b1d73aa1e971 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other wired device in this zone is amlImp:ie_SimaticS71510SPF1PN_7dc76996-b47d-4b08-adaa-8eedeb3e64d3)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b0 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#WirelessAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_WHARTSensor1_65710792-ac8c-462e-9fb9-b1d73aa1e971
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_EthernetWire3_7e567996-bba2-43c4-b020-2912c02221dd ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The logical or physical connection amlImp:ie_EthernetWire3_7e567996-bba2-43c4-b020-2912c02221dd connects assets of two different security zones (amlImp:ie_OperationsSupport_ee482db7-3f32-40ba-be0b-2a598766abd7 and amlImp:ie_SCADA_e3f0537e-2d70-4bb2-a538-e31e2c74d8e7) and has not been declared as a conduit." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b5 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#CrossZoneConnections> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_EthernetWire3_7e567996-bba2-43c4-b020-2912c02221dd
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_WHARTSensor3_c7b4b099-fe0a-4e85-ac94-0e75a0dbf095 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The wireless-enabled device amlImp:ie_WHARTSensor3_c7b4b099-fe0a-4e85-ac94-0e75a0dbf095 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other wired device in this zone is amlImp:ie_GECimplicity1_f5724f31-7ba4-4c92-9e33-1e0b315c2878)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b0 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#WirelessAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_WHARTSensor3_c7b4b099-fe0a-4e85-ac94-0e75a0dbf095
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_EthernetWire3_f55ef8d4-11e4-4daa-aa34-bb4136b68770 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The logical or physical connection amlImp:ie_EthernetWire3_f55ef8d4-11e4-4daa-aa34-bb4136b68770 connects assets of two different security zones (amlImp:ie_IndustrialDMZ_fc34b2d4-76aa-4319-b827-733f33b5b0d0 and amlImp:ie_OperationsSupport_ee482db7-3f32-40ba-be0b-2a598766abd7) and has not been declared as a conduit." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b5 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#CrossZoneConnections> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_EthernetWire3_f55ef8d4-11e4-4daa-aa34-bb4136b68770
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_WHARTSensor2_9c43b668-636f-4d99-99c5-9741274faec8 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The wireless-enabled device amlImp:ie_WHARTSensor2_9c43b668-636f-4d99-99c5-9741274faec8 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other wired device in this zone is amlImp:ie_KRC4_4_f58ddf2f-adc3-480e-b3cb-b9d34e1f7b52)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b0 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#WirelessAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_WHARTSensor2_9c43b668-636f-4d99-99c5-9741274faec8
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN_7dc76996-b47d-4b08-adaa-8eedeb3e64d3 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN_7dc76996-b47d-4b08-adaa-8eedeb3e64d3 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_KRC4_3_551642cc-2e29-43f4-929e-ccf253e74f17)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN_7dc76996-b47d-4b08-adaa-8eedeb3e64d3
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_WHARTSensor2_9c43b668-636f-4d99-99c5-9741274faec8 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The wireless-enabled device amlImp:ie_WHARTSensor2_9c43b668-636f-4d99-99c5-9741274faec8 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other wired device in this zone is amlImp:ie_KRC4_2_483b250d-bc7e-411d-976c-9dea138fbc60)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b0 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#WirelessAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_WHARTSensor2_9c43b668-636f-4d99-99c5-9741274faec8
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN2_3cf68364-1144-4262-b3c6-b050303c5ef2 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN2_3cf68364-1144-4262-b3c6-b050303c5ef2 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_SimaticS71516F_2_c403dd71-4d52-4d22-a917-e2a991008be8)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN2_3cf68364-1144-4262-b3c6-b050303c5ef2
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN_7dc76996-b47d-4b08-adaa-8eedeb3e64d3 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN_7dc76996-b47d-4b08-adaa-8eedeb3e64d3 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_SimaticS71516F_2_c403dd71-4d52-4d22-a917-e2a991008be8)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN_7dc76996-b47d-4b08-adaa-8eedeb3e64d3
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_LogicalPROFIsafeConnection1_87d514a1-25b5-4ba4-9908-d9c000631b75 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "Uses insecure protocol" ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#NotConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#InsecureProtocolInUse> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_LogicalPROFIsafeConnection1_87d514a1-25b5-4ba4-9908-d9c000631b75
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The device amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc makes external connections within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other device in this zone is amlImp:ie_KRC4_2_483b250d-bc7e-411d-976c-9dea138fbc60)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b2 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#ExtConnections> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_WHARTSensor2_9c43b668-636f-4d99-99c5-9741274faec8 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The wireless-enabled device amlImp:ie_WHARTSensor2_9c43b668-636f-4d99-99c5-9741274faec8 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other wired device in this zone is amlImp:ie_KRC4_1_4e8b4f7c-35d9-43ce-95a0-f770c6dd0a18)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b0 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#WirelessAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_WHARTSensor2_9c43b668-636f-4d99-99c5-9741274faec8
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_LogicalProfinetConnection1_80352a47-7bae-44f1-ac8a-85d45a6d6944 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "Uses insecure protocol" ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#NotConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#InsecureProtocolInUse> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_LogicalProfinetConnection1_80352a47-7bae-44f1-ac8a-85d45a6d6944
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_WHARTSensor3_c7b4b099-fe0a-4e85-ac94-0e75a0dbf095 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The wireless-enabled device amlImp:ie_WHARTSensor3_c7b4b099-fe0a-4e85-ac94-0e75a0dbf095 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other wired device in this zone is amlImp:ie_KRC4_2_483b250d-bc7e-411d-976c-9dea138fbc60)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b0 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#WirelessAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_WHARTSensor3_c7b4b099-fe0a-4e85-ac94-0e75a0dbf095
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_Program_89b2c13b-7614-4964-be85-6d9d8505fecc ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "Does not have value True" ;
+            <http://www.w3.org/ns/shacl#resultPath>
+                    amlImp:hasCopyProtection ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#HasValueConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#ActiveCopyProtection>
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_WHARTSensor3_c7b4b099-fe0a-4e85-ac94-0e75a0dbf095 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The wireless-enabled device amlImp:ie_WHARTSensor3_c7b4b099-fe0a-4e85-ac94-0e75a0dbf095 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other wired device in this zone is amlImp:ie_SimaticS71516F_3_fa819ebd-d24c-405f-af26-9f1ee0d084c1)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b0 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#WirelessAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_WHARTSensor3_c7b4b099-fe0a-4e85-ac94-0e75a0dbf095
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN1_76764e90-3339-4944-a78e-572c29a7eda6 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN1_76764e90-3339-4944-a78e-572c29a7eda6 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_SE_XBTGT1_bfd7c0e1-9ad4-4f9f-b926-91352edb0fc2)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN1_76764e90-3339-4944-a78e-572c29a7eda6
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_WHARTSensor1_65710792-ac8c-462e-9fb9-b1d73aa1e971 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The wireless-enabled device amlImp:ie_WHARTSensor1_65710792-ac8c-462e-9fb9-b1d73aa1e971 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other wired device in this zone is amlImp:ie_SimaticS71516F_3_fa819ebd-d24c-405f-af26-9f1ee0d084c1)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b0 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#WirelessAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_WHARTSensor1_65710792-ac8c-462e-9fb9-b1d73aa1e971
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN_7dc76996-b47d-4b08-adaa-8eedeb3e64d3 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN_7dc76996-b47d-4b08-adaa-8eedeb3e64d3 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_KRC4_1_4e8b4f7c-35d9-43ce-95a0-f770c6dd0a18)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN_7dc76996-b47d-4b08-adaa-8eedeb3e64d3
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ei_LogicalRemoteEndpoint_ceca8b8d-7308-4242-868f-abc070544477 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "Less than 1 values have shape _:4bad9c8faf161ebe0bdde2584b38b662" ;
+            <http://www.w3.org/ns/shacl#resultPath>
+                    aml_ontology:hasRefPartner ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#QualifiedMinCountConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#HasRefPartnerLinkMin1Shape>
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_LogicalHTTPConnection1_68d44684-ec56-4b7b-b9ff-545a221a9263 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The logical or physical connection amlImp:ie_LogicalHTTPConnection1_68d44684-ec56-4b7b-b9ff-545a221a9263 connects assets of two different security zones (amlImp:ie_EnterpriseDMZ_abdd9c9b-7894-451a-b192-a2e7a6bd24c6 and amlImp:ie_Business_3ff407a0-13b9-43a3-a26a-850bd0288d49) and has not been declared as a conduit." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b5 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#CrossZoneConnections> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_LogicalHTTPConnection1_68d44684-ec56-4b7b-b9ff-545a221a9263
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_LogicalHTTPConnection1_8701d130-a9f1-4d64-8e7f-baa359db04b5 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "Uses insecure protocol" ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#NotConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#InsecureProtocolInUse> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_LogicalHTTPConnection1_8701d130-a9f1-4d64-8e7f-baa359db04b5
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_WHARTSensor1_65710792-ac8c-462e-9fb9-b1d73aa1e971 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The wireless-enabled device amlImp:ie_WHARTSensor1_65710792-ac8c-462e-9fb9-b1d73aa1e971 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other wired device in this zone is amlImp:ie_KRC4_1_4e8b4f7c-35d9-43ce-95a0-f770c6dd0a18)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b0 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#WirelessAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_WHARTSensor1_65710792-ac8c-462e-9fb9-b1d73aa1e971
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN2_3cf68364-1144-4262-b3c6-b050303c5ef2 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN2_3cf68364-1144-4262-b3c6-b050303c5ef2 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_WHARTSensor3_c7b4b099-fe0a-4e85-ac94-0e75a0dbf095)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN2_3cf68364-1144-4262-b3c6-b050303c5ef2
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_WHARTSensor3_c7b4b099-fe0a-4e85-ac94-0e75a0dbf095 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The wireless-enabled device amlImp:ie_WHARTSensor3_c7b4b099-fe0a-4e85-ac94-0e75a0dbf095 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other wired device in this zone is amlImp:ie_KRC4_4_f58ddf2f-adc3-480e-b3cb-b9d34e1f7b52)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b0 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#WirelessAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_WHARTSensor3_c7b4b099-fe0a-4e85-ac94-0e75a0dbf095
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_WHARTSensor1_65710792-ac8c-462e-9fb9-b1d73aa1e971 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The wireless-enabled device amlImp:ie_WHARTSensor1_65710792-ac8c-462e-9fb9-b1d73aa1e971 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other wired device in this zone is amlImp:ie_KRC4_2_483b250d-bc7e-411d-976c-9dea138fbc60)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b0 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#WirelessAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_WHARTSensor1_65710792-ac8c-462e-9fb9-b1d73aa1e971
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_WHARTSensor2_9c43b668-636f-4d99-99c5-9741274faec8 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The wireless-enabled device amlImp:ie_WHARTSensor2_9c43b668-636f-4d99-99c5-9741274faec8 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other wired device in this zone is amlImp:ie_SE_XBTGT1_bfd7c0e1-9ad4-4f9f-b926-91352edb0fc2)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b0 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#WirelessAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_WHARTSensor2_9c43b668-636f-4d99-99c5-9741274faec8
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN_7dc76996-b47d-4b08-adaa-8eedeb3e64d3 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN_7dc76996-b47d-4b08-adaa-8eedeb3e64d3 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_WHARTSensor2_9c43b668-636f-4d99-99c5-9741274faec8)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN_7dc76996-b47d-4b08-adaa-8eedeb3e64d3
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SIMATICFieldPGM6_cd9a883f-873a-4a0a-980d-2f5379041b3a ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The device amlImp:ie_SIMATICFieldPGM6_cd9a883f-873a-4a0a-980d-2f5379041b3a makes temporary connections within the zone amlImp:ie_OperationsSupport_ee482db7-3f32-40ba-be0b-2a598766abd7 (other device in this zone is amlImp:ie_AnalyticsSvr1_083ca8dc-4c21-44f0-ac6f-ce621610d321)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b4 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#TempConnections> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SIMATICFieldPGM6_cd9a883f-873a-4a0a-980d-2f5379041b3a
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_WHARTSensor3_c7b4b099-fe0a-4e85-ac94-0e75a0dbf095 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The wireless-enabled device amlImp:ie_WHARTSensor3_c7b4b099-fe0a-4e85-ac94-0e75a0dbf095 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other wired device in this zone is amlImp:ie_SimaticS71510SPF1PN1_76764e90-3339-4944-a78e-572c29a7eda6)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b0 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#WirelessAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_WHARTSensor3_c7b4b099-fe0a-4e85-ac94-0e75a0dbf095
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_WHARTSensor2_9c43b668-636f-4d99-99c5-9741274faec8 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The wireless-enabled device amlImp:ie_WHARTSensor2_9c43b668-636f-4d99-99c5-9741274faec8 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other wired device in this zone is amlImp:ie_SimaticS71516F_4_91c2cc40-bc91-4210-bbcb-c8dee270ef7f)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b0 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#WirelessAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_WHARTSensor2_9c43b668-636f-4d99-99c5-9741274faec8
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN3_cf323106-154a-4c23-aa3b-6f2ee925cbb1 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN3_cf323106-154a-4c23-aa3b-6f2ee925cbb1 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_SimaticS71516F_4_91c2cc40-bc91-4210-bbcb-c8dee270ef7f)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN3_cf323106-154a-4c23-aa3b-6f2ee925cbb1
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN_7dc76996-b47d-4b08-adaa-8eedeb3e64d3 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN_7dc76996-b47d-4b08-adaa-8eedeb3e64d3 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_SimaticS71516F_1_4039125e-4cfc-4e92-bb82-14e19954f44f)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN_7dc76996-b47d-4b08-adaa-8eedeb3e64d3
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_LogicalHTTPConnection1_68d44684-ec56-4b7b-b9ff-545a221a9263 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "Uses insecure protocol" ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#NotConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#InsecureProtocolInUse> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_LogicalHTTPConnection1_68d44684-ec56-4b7b-b9ff-545a221a9263
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_WHARTSensor3_c7b4b099-fe0a-4e85-ac94-0e75a0dbf095 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The wireless-enabled device amlImp:ie_WHARTSensor3_c7b4b099-fe0a-4e85-ac94-0e75a0dbf095 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other wired device in this zone is amlImp:ie_SimaticS71516F_2_c403dd71-4d52-4d22-a917-e2a991008be8)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b0 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#WirelessAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_WHARTSensor3_c7b4b099-fe0a-4e85-ac94-0e75a0dbf095
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN3_cf323106-154a-4c23-aa3b-6f2ee925cbb1 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN3_cf323106-154a-4c23-aa3b-6f2ee925cbb1 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_WHARTSensor1_65710792-ac8c-462e-9fb9-b1d73aa1e971)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN3_cf323106-154a-4c23-aa3b-6f2ee925cbb1
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The device amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc makes external connections within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other device in this zone is amlImp:ie_SimaticS71516F_2_c403dd71-4d52-4d22-a917-e2a991008be8)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b2 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#ExtConnections> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_WHARTSensor1_65710792-ac8c-462e-9fb9-b1d73aa1e971 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The wireless-enabled device amlImp:ie_WHARTSensor1_65710792-ac8c-462e-9fb9-b1d73aa1e971 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other wired device in this zone is amlImp:ie_SimaticS71516F_4_91c2cc40-bc91-4210-bbcb-c8dee270ef7f)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b0 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#WirelessAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_WHARTSensor1_65710792-ac8c-462e-9fb9-b1d73aa1e971
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_LogicalOPCConnection5_1a514eaf-3b17-4608-bc6c-9c8c79746247 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "Uses insecure protocol" ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#NotConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#InsecureProtocolInUse> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_LogicalOPCConnection5_1a514eaf-3b17-4608-bc6c-9c8c79746247
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN_7dc76996-b47d-4b08-adaa-8eedeb3e64d3 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN_7dc76996-b47d-4b08-adaa-8eedeb3e64d3 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_WHARTSensor3_c7b4b099-fe0a-4e85-ac94-0e75a0dbf095)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN_7dc76996-b47d-4b08-adaa-8eedeb3e64d3
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN2_3cf68364-1144-4262-b3c6-b050303c5ef2 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN2_3cf68364-1144-4262-b3c6-b050303c5ef2 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_KRC4_2_483b250d-bc7e-411d-976c-9dea138fbc60)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN2_3cf68364-1144-4262-b3c6-b050303c5ef2
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN2_3cf68364-1144-4262-b3c6-b050303c5ef2 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN2_3cf68364-1144-4262-b3c6-b050303c5ef2 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_WHARTSensor1_65710792-ac8c-462e-9fb9-b1d73aa1e971)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN2_3cf68364-1144-4262-b3c6-b050303c5ef2
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_WHARTSensor1_65710792-ac8c-462e-9fb9-b1d73aa1e971 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The wireless-enabled device amlImp:ie_WHARTSensor1_65710792-ac8c-462e-9fb9-b1d73aa1e971 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other wired device in this zone is amlImp:ie_SimaticS71510SPF1PN1_76764e90-3339-4944-a78e-572c29a7eda6)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b0 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#WirelessAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_WHARTSensor1_65710792-ac8c-462e-9fb9-b1d73aa1e971
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN1_76764e90-3339-4944-a78e-572c29a7eda6 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN1_76764e90-3339-4944-a78e-572c29a7eda6 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN1_76764e90-3339-4944-a78e-572c29a7eda6
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN1_76764e90-3339-4944-a78e-572c29a7eda6 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN1_76764e90-3339-4944-a78e-572c29a7eda6 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_SimaticS71516F_3_fa819ebd-d24c-405f-af26-9f1ee0d084c1)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN1_76764e90-3339-4944-a78e-572c29a7eda6
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN_7dc76996-b47d-4b08-adaa-8eedeb3e64d3 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN_7dc76996-b47d-4b08-adaa-8eedeb3e64d3 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_SimaticS71516F_3_fa819ebd-d24c-405f-af26-9f1ee0d084c1)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN_7dc76996-b47d-4b08-adaa-8eedeb3e64d3
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN3_cf323106-154a-4c23-aa3b-6f2ee925cbb1 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN3_cf323106-154a-4c23-aa3b-6f2ee925cbb1 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_KRC4_4_f58ddf2f-adc3-480e-b3cb-b9d34e1f7b52)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN3_cf323106-154a-4c23-aa3b-6f2ee925cbb1
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_LogicalHTTPConnection1_8701d130-a9f1-4d64-8e7f-baa359db04b5 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The logical or physical connection amlImp:ie_LogicalHTTPConnection1_8701d130-a9f1-4d64-8e7f-baa359db04b5 connects assets of two different security zones (amlImp:ie_Business_3ff407a0-13b9-43a3-a26a-850bd0288d49 and amlImp:ie_IndustrialDMZ_fc34b2d4-76aa-4319-b827-733f33b5b0d0) and has not been declared as a conduit." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b5 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#CrossZoneConnections> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_LogicalHTTPConnection1_8701d130-a9f1-4d64-8e7f-baa359db04b5
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_Basic128RSA15_b46c3d9c-712b-4044-aa7b-eba4e1c8200e ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "Uses insecure algorithm" ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#NotConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#InsecureAlgorithmInUse> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_Basic128RSA15_b46c3d9c-712b-4044-aa7b-eba4e1c8200e
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN3_cf323106-154a-4c23-aa3b-6f2ee925cbb1 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN3_cf323106-154a-4c23-aa3b-6f2ee925cbb1 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_KRC4_3_551642cc-2e29-43f4-929e-ccf253e74f17)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN3_cf323106-154a-4c23-aa3b-6f2ee925cbb1
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_Program_f4452b5e-a1e4-4921-b467-fc9c59cb8970 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "Does not have value True" ;
+            <http://www.w3.org/ns/shacl#resultPath>
+                    amlImp:hasKnowHowProtection ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#HasValueConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#ActiveKnowHowProtection>
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_SimaticS71510SPF1PN1_76764e90-3339-4944-a78e-572c29a7eda6 ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The safety-related device amlImp:ie_SimaticS71510SPF1PN1_76764e90-3339-4944-a78e-572c29a7eda6 is within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other non-safety-related device in this zone is amlImp:ie_GECimplicity1_f5724f31-7ba4-4c92-9e33-1e0b315c2878)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b1 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#SafetyAssetsZone> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_SimaticS71510SPF1PN1_76764e90-3339-4944-a78e-572c29a7eda6
+          ] ;
+  <http://www.w3.org/ns/shacl#result>
+          [ a       <http://www.w3.org/ns/shacl#ValidationResult> ;
+            <http://www.w3.org/ns/shacl#focusNode>
+                    amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc ;
+            <http://www.w3.org/ns/shacl#resultMessage>
+                    "The device amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc makes external connections within the zone amlImp:ie_CarDoorPartWelding_d611c771-ed15-4e30-bf93-2cbd68685c91 (other device in this zone is amlImp:ie_WHARTSensor1_65710792-ac8c-462e-9fb9-b1d73aa1e971)." ;
+            <http://www.w3.org/ns/shacl#resultSeverity>
+                    <http://www.w3.org/ns/shacl#Violation> ;
+            <http://www.w3.org/ns/shacl#sourceConstraint>
+                    _:b2 ;
+            <http://www.w3.org/ns/shacl#sourceConstraintComponent>
+                    <http://www.w3.org/ns/shacl#SPARQLConstraintComponent> ;
+            <http://www.w3.org/ns/shacl#sourceShape>
+                    <http://securityontology.com/icssecont#ExtConnections> ;
+            <http://www.w3.org/ns/shacl#value>
+                    amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc
+          ]
+] .

@@ -6,7 +6,7 @@
 	<AttributeTypeLib Name="AMLsecAttributeTypeLib">
 		<Description>AMLsec Attribute Type Library</Description>
 		<Version>1.0.0</Version>
-		<Copyright>John Doe</Copyright>
+		<Copyright>Matthias Eckhart</Copyright>
 		<AttributeType AttributeDataType="xs:string" Name="CpePart" />
 		<AttributeType AttributeDataType="xs:string" Name="CpeVendor" />
 		<AttributeType AttributeDataType="xs:string" Name="CpeProduct">

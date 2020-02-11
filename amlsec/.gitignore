@@ -160,3 +160,6 @@ venv
 # OWL / Test
 **/catalog-v001.xml
 test.owl
+
+# Attack Graph Dir
+ag

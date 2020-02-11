@@ -1,11 +1,11 @@
-package org.amlsec
+package org.sba_research
 
 import java.io.{File, FileOutputStream}
 
 import com.typesafe.scalalogging.Logger
 import org.apache.jena.rdf.model.{InfModel, Model, Resource}
 import org.apache.jena.riot.{RDFDataMgr, RDFFormat}
-import org.amlsec.model.OntModels
+import org.sba_research.model.OntModels
 import org.topbraid.jenax.util.JenaUtil
 import org.topbraid.shacl.util.ModelPrinter
 import org.topbraid.shacl.validation.ValidationUtil

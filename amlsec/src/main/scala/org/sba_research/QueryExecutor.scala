@@ -1,4 +1,4 @@
-package org.amlsec
+package org.sba_research
 
 import com.typesafe.scalalogging.Logger
 import org.apache.jena.ontology.OntModel

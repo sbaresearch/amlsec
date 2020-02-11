@@ -20,4 +20,4 @@ libraryDependencies ++= Seq(
   "guru.nidi" % "graphviz-java" % "0.12.1"
 )
 
-mainClass in assembly := Some("org.amlsec.MainApp")
+mainClass in assembly := Some("org.sba_research.MainApp")

@@ -1,11 +1,9 @@
-package org.amlsec
+package org.sba_research
 
 import org.apache.jena.ontology.{OntClass, OntModel, OntResource}
 import org.apache.jena.rdf.model.ResourceFactory
 import org.apache.jena.util.iterator.ExtendedIterator
 import org.apache.jena.vocabulary.OWL2
-
-import scala.annotation.tailrec
 
 object AmlOntExtension {
 
@@ -206,9 +204,11 @@ object AmlOntExtension {
   def importSecOnts(config: Config, ontModel: OntModel): Option[OntModel] = {
     val ontSec = ResourceFactory.createResource(config.secOntConfig.ns)
     val ontIcsSec = ResourceFactory.createResource(config.icsSecOntConfig.ns)
+    val ontAg = ResourceFactory.createResource(config.agOnt.ns)
     ontModel.listOntologies().toList.forEach { o =>
       o.addImport(ontSec)
       o.addImport(ontIcsSec)
+      o.addImport(ontAg)
     }
     ontModel.getDocumentManager.getFileManager.setModelCaching(true)
     ontModel.loadImports()

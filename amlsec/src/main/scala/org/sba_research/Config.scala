@@ -1,8 +1,8 @@
-package org.amlsec
+package org.sba_research
 
 import com.typesafe.config.ConfigFactory
 
-case class Config(amlConfig: AmlConfig, secOntConfig: OntConfig, icsSecOntConfig: OntConfig, engValFileName: String, secValFileName: String, outputPathEngValReport: String, outputPathSecValReport: String)
+case class Config(amlConfig: AmlConfig, secOntConfig: OntConfig, icsSecOntConfig: OntConfig, agOnt: OntConfig, engValFileName: String, secValFileName: String, outputPathEngValReport: String, outputPathSecValReport: String)
 
 case class AmlConfig(fileName: String, nsOnt: String, nsImp: String)
 
@@ -23,6 +23,10 @@ object Config {
     val icsSecOntFileName = conf.getString("icsSecOnt.fileName")
     val icsSecOntNs = conf.getString("icsSecOnt.ns")
 
+    val agOntFileName = conf.getString("agOnt.fileName")
+    val agOntNs = conf.getString("agOnt.ns")
+
+
     val engValFileName = conf.getString("validation.eng.fileName")
     val secFileName = conf.getString("validation.sec.fileName")
     val outputPathEngValReport = conf.getString("outputPathEngValReport")
@@ -32,6 +36,7 @@ object Config {
       AmlConfig(amlFileName, amlNsOnt, amlNsImp),
       OntConfig(secOntFileName, secOntNs),
       OntConfig(icsSecOntFileName, icsSecOntNs),
+      OntConfig(agOntFileName, agOntNs),
       engValFileName,
       secFileName,
       outputPathEngValReport,

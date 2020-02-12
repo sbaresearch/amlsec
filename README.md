@@ -10,7 +10,7 @@ Clone the aforementioned repository, compile the projects, and run the AML2OWL a
 
 After that, convert the generated OWL file (RDF/XML syntax) to the Turtle syntax (e.g., by using [Protégé](https://protege.stanford.edu/)).
 
-Then, clone this repository, place this file in the app's `resources` directory, and adapt the AML file name (`aml.fileName`) in the application [configuration file}(https://github.com/sbaresearch/amlsec/blob/master/amlsec/src/main/resources/application.conf). 
+Then, clone this repository, place this file in the app's `resources` directory, and adapt the AML file name (`aml.fileName`) in the application [configuration file](https://github.com/sbaresearch/amlsec/blob/master/amlsec/src/main/resources/application.conf). 
 
 Finally, start the app by using [sbt](https://www.scala-sbt.org/).
 

@@ -21,3 +21,7 @@ libraryDependencies ++= Seq(
 )
 
 mainClass in assembly := Some("org.sba_research.MainApp")
+
+// cf. https://github.com/sbt/sbt/issues/3963
+// cf. https://stackoverflow.com/a/55545558/5107545
+run := Defaults.runTask(fullClasspath in Runtime, mainClass in run in Compile, runner in run).evaluated

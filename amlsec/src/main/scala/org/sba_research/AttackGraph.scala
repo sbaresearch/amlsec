@@ -189,7 +189,7 @@ object AttackGraph {
       .`with`(Rank.dir(RankDir.TOP_TO_BOTTOM))
       .`with`(sources.asJava)
 
-    Graphviz.fromGraph(g).height(1000).render(Format.SVG).toFile(new File("ag/shortest_path_ag.svg"))
+    Graphviz.fromGraph(g).height(1000).render(Format.SVG).toFile(new File(config.agConfig.agShortestPath))
     ()
   }
 
@@ -253,7 +253,7 @@ object AttackGraph {
       .`with`(sources.asJava)
 
 
-    Graphviz.fromGraph(g).height(1000).render(Format.SVG).toFile(new File("ag/full_ag.svg"))
+    Graphviz.fromGraph(g).height(1000).render(Format.SVG).toFile(new File(config.agConfig.fullPath))
     ()
   }
 
@@ -382,7 +382,7 @@ object AttackGraph {
       .`with`(Rank.dir(RankDir.TOP_TO_BOTTOM), Rank.sep(0), GraphAttr.sizeMax(27.5, 2.5), Attributes.attr("ratio", "compress"))
       .`with`(sources.asJava)
 
-    Graphviz.fromGraph(g).height(1000).render(Format.SVG).toFile(new File("ag/pruned_ag.svg"))
+    Graphviz.fromGraph(g).height(1000).render(Format.SVG).toFile(new File(config.agConfig.prunedPath))
     ()
   }
 

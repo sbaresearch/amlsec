@@ -1047,7 +1047,7 @@ agOnt:edge_NoPLCProgramCopyProtection_ie_SimaticS71516F_4_91c2cc40-bc91-4210-bbc
         agOnt:edge_has_Vulnerability  icsSecOnt:NoPLCProgramCopyProtection .
 
 icsSecOnt:NoPLCProgramCopyProtection
-        secont:vulnerability_on_Asset  amlImp:ie_Program_f4452b5e-a1e4-4921-b467-fc9c59cb8970 , amlImp:ie_Program_89b2c13b-7614-4964-be85-6d9d8505fecc .
+        secont:vulnerability_on_Asset  amlImp:ie_Program_89b2c13b-7614-4964-be85-6d9d8505fecc , amlImp:ie_Program_f4452b5e-a1e4-4921-b467-fc9c59cb8970 .
 
 amlImp:OverheadConveyor
         a                owl:Class ;
@@ -1345,11 +1345,6 @@ agOnt:edge_InsecureProtocolUsed_ie_KRC4_3_551642cc-2e29-43f4-929e-ccf253e74f17_i
         agOnt:edge_has_Vertex         agOnt:vertex_ie_SimaticS71516F_2_c403dd71-4d52-4d22-a917-e2a991008be8 ;
         agOnt:edge_has_Vulnerability  secont:InsecureProtocolUsed .
 
-agOnt:edge_CVE-2014-8587_ie_FileSvr1_1b1e494a-0e92-47b4-b115-ca6b3b96faf4_ie_ERP1_542a0d50-212c-4965-a6a7-93e8c9f8efb4
-        a                             agOnt:Edge ;
-        agOnt:edge_has_Vertex         agOnt:vertex_ie_ERP1_542a0d50-212c-4965-a6a7-93e8c9f8efb4 ;
-        agOnt:edge_has_Vulnerability  secont:CVE-2014-8587 .
-
 amlImp:Attachment_030SWZ121_030WZD121
         a             amlImp:Link , owl:NamedIndividual ;
         rdfs:comment  "InternalLink" ;
@@ -1358,6 +1353,11 @@ amlImp:Attachment_030SWZ121_030WZD121
                 amlImp:ei_Attachment_030WZD121_50F00CDD-9E68-495C-A49C-09DF1F6B7B22 ;
         aml_ontology:hasRefPartnerSideB
                 amlImp:ei_Attachment_030SWZ121_D5424A35-758E-4C2F-AF2A-D59E562378E8 .
+
+agOnt:edge_CVE-2014-8587_ie_FileSvr1_1b1e494a-0e92-47b4-b115-ca6b3b96faf4_ie_ERP1_542a0d50-212c-4965-a6a7-93e8c9f8efb4
+        a                             agOnt:Edge ;
+        agOnt:edge_has_Vertex         agOnt:vertex_ie_ERP1_542a0d50-212c-4965-a6a7-93e8c9f8efb4 ;
+        agOnt:edge_has_Vulnerability  secont:CVE-2014-8587 .
 
 agOnt:edge_InsecureProtocolUsed_ie_010RB_100_KR240R2700prime__AF138E59-0000-17AC-556E-B124000031B5_ie_GECimplicity1_f5724f31-7ba4-4c92-9e33-1e0b315c2878
         a                             agOnt:Edge ;
@@ -6127,7 +6127,7 @@ amlImp:ei_Attachment_030WZD180_82862925-A9D8-4528-B513-67818494A71A
         rdfs:label    "Attachment_030WZD180" .
 
 icsSecOnt:NotSeparatedWirelessDevice
-        secont:vulnerability_on_Asset  amlImp:ie_WHARTSensor2_9c43b668-636f-4d99-99c5-9741274faec8 , amlImp:ie_WHARTSensor1_65710792-ac8c-462e-9fb9-b1d73aa1e971 , amlImp:ie_WHARTSensor3_c7b4b099-fe0a-4e85-ac94-0e75a0dbf095 .
+        secont:vulnerability_on_Asset  amlImp:ie_WHARTSensor3_c7b4b099-fe0a-4e85-ac94-0e75a0dbf095 , amlImp:ie_WHARTSensor2_9c43b668-636f-4d99-99c5-9741274faec8 , amlImp:ie_WHARTSensor1_65710792-ac8c-462e-9fb9-b1d73aa1e971 .
 
 amlImp:ie_LogicalOPC-UAConnection_67214374-10d5-414f-b42c-2859f1fbf4c2
         a                   amlImp:OPC-UA , amlImp:LogicalConnection , owl:NamedIndividual ;
@@ -6325,7 +6325,7 @@ agOnt:edge_CVE-2016-2200_ie_SimaticS71516F_3_fa819ebd-d24c-405f-af26-9f1ee0d084c
         agOnt:edge_has_Vulnerability  secont:CVE-2016-2200 .
 
 secont:UnusedOpenPort
-        secont:vulnerability_on_Asset  amlImp:ie_SIMATICWinCCSvr1_1c19e45f-df6e-4e92-b4dc-dd582e54d804 , amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc .
+        secont:vulnerability_on_Asset  amlImp:ie_KUKAConnBox1_c26762e4-12c1-46b9-89ed-8a0c95472cfc , amlImp:ie_SIMATICWinCCSvr1_1c19e45f-df6e-4e92-b4dc-dd582e54d804 .
 
 amlImp:ie_SimaticS71510SPF1PN2_3cf68364-1144-4262-b3c6-b050303c5ef2
         a                     owl:NamedIndividual , amlImp:PLC , amlImp:SIS ;
@@ -9929,7 +9929,7 @@ amlImp:ei_Attachment_030RB_100_KR240R2700prime__D0EC1411-8E0B-4A32-8AE3-6E309ABA
         rdfs:label    "Attachment_030RB_100_KR240R2700prime_" .
 
 icsSecOnt:NotSeparatedSafetyRelatedDevice
-        secont:vulnerability_on_Asset  amlImp:ie_SimaticS71510SPF1PN1_76764e90-3339-4944-a78e-572c29a7eda6 , amlImp:ie_SimaticS71510SPF1PN_7dc76996-b47d-4b08-adaa-8eedeb3e64d3 , amlImp:ie_SimaticS71510SPF1PN3_cf323106-154a-4c23-aa3b-6f2ee925cbb1 , amlImp:ie_SimaticS71510SPF1PN2_3cf68364-1144-4262-b3c6-b050303c5ef2 .
+        secont:vulnerability_on_Asset  amlImp:ie_SimaticS71510SPF1PN3_cf323106-154a-4c23-aa3b-6f2ee925cbb1 , amlImp:ie_SimaticS71510SPF1PN_7dc76996-b47d-4b08-adaa-8eedeb3e64d3 , amlImp:ie_SimaticS71510SPF1PN1_76764e90-3339-4944-a78e-572c29a7eda6 , amlImp:ie_SimaticS71510SPF1PN2_3cf68364-1144-4262-b3c6-b050303c5ef2 .
 
 agOnt:edge_CVE-2017-9788_ie_AppSvr1_989621b1-84e2-40af-9fb2-122e3b2adac1_ie_WebSvr1_21ef26be-2c1f-4cb3-b2fa-3718f2295ff2
         a                             agOnt:Edge ;
@@ -10935,16 +10935,16 @@ agOnt:edge_CVE-2016-8740_ie_ERP1_542a0d50-212c-4965-a6a7-93e8c9f8efb4_ie_WebSvr1
         agOnt:edge_has_Vertex         agOnt:vertex_ie_WebSvr1_21ef26be-2c1f-4cb3-b2fa-3718f2295ff2 ;
         agOnt:edge_has_Vulnerability  secont:CVE-2016-8740 .
 
-amlImp:ei_Attachment_FZG0_C696797F-9B5D-4EFD-8117-EC83FFC9393E
-        a             amlImp:AttachmentInterface , owl:NamedIndividual ;
-        rdfs:comment  "ExternalInterface" ;
-        rdfs:label    "Attachment_FZG0" .
-
 amlImp:ie_Portlist_bd1d02e1-de6e-43c1-8d50-d0d5d306e4af
         a                   amlImp:PortList , owl:NamedIndividual ;
         rdfs:comment        "InternalElement" ;
         rdfs:label          "Portlist" ;
         aml_ontology:hasEI  amlImp:ei_MotorSocket_8b7f2dde-0548-4459-9b33-bf7a7875e0ed , amlImp:ei_DataSocket_92cbf340-ae86-4bbd-9ce9-e9995c8255ff .
+
+amlImp:ei_Attachment_FZG0_C696797F-9B5D-4EFD-8117-EC83FFC9393E
+        a             amlImp:AttachmentInterface , owl:NamedIndividual ;
+        rdfs:comment  "ExternalInterface" ;
+        rdfs:label    "Attachment_FZG0" .
 
 agOnt:edge_NoPLCProgramKnowHowProtection_ie_030RB_300_KR240R2700prime__AF138E59-0000-17AC-556E-B961000032DB_ie_SimaticS71516F_1_4039125e-4cfc-4e92-bb82-14e19954f44f
         a                             agOnt:Edge ;

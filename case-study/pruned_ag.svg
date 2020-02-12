@@ -1,0 +1,399 @@
+<svg width="3039px" height="1000px"
+ viewBox="0.00 0.00 547.30 180.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(0.2782 0.2782) rotate(0) translate(4 643)">
+<title>pruned_ag</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-643 1963.2393,-643 1963.2393,4 -4,4"/>
+<!-- SIMATICWinCCSvr1 -->
+<g id="node1" class="node">
+<title>SIMATICWinCCSvr1</title>
+<ellipse fill="none" stroke="#000000" cx="612.2393" cy="-286" rx="99.3824" ry="18"/>
+<text text-anchor="middle" x="612.2393" y="-282.3" font-family="Times New Roman" font-size="14.00" fill="#000000">SIMATICWinCCSvr1</text>
+</g>
+<!-- GECimplicity1 -->
+<g id="node2" class="node">
+<title>GECimplicity1</title>
+<ellipse fill="none" stroke="#000000" cx="599.2393" cy="-219" rx="74.9875" ry="18"/>
+<text text-anchor="middle" x="599.2393" y="-215.3" font-family="Times New Roman" font-size="14.00" fill="#000000">GECimplicity1</text>
+</g>
+<!-- SIMATICWinCCSvr1&#45;&gt;GECimplicity1 -->
+<g id="edge2" class="edge">
+<title>SIMATICWinCCSvr1&#45;&gt;GECimplicity1</title>
+<path fill="none" stroke="#000000" d="M598.584,-267.9026C597.2168,-265.3563 596.04,-262.6877 595.2393,-260 594.0557,-256.0267 593.6131,-251.7506 593.6368,-247.5125"/>
+<polygon fill="#000000" stroke="#000000" points="597.1495,-247.508 594.4995,-237.25 590.1741,-246.9216 597.1495,-247.508"/>
+<text text-anchor="middle" x="651.2393" y="-248.8" font-family="Times New Roman" font-size="14.00" fill="#000000">CVE&#45;2013&#45;2785</text>
+</g>
+<!-- SIMATICHistorian1 -->
+<g id="node8" class="node">
+<title>SIMATICHistorian1</title>
+<ellipse fill="none" stroke="#000000" cx="824.2393" cy="-219" rx="95.5831" ry="18"/>
+<text text-anchor="middle" x="824.2393" y="-215.3" font-family="Times New Roman" font-size="14.00" fill="#000000">SIMATICHistorian1</text>
+</g>
+<!-- SIMATICWinCCSvr1&#45;&gt;SIMATICHistorian1 -->
+<g id="edge1" class="edge">
+<title>SIMATICWinCCSvr1&#45;&gt;SIMATICHistorian1</title>
+<path fill="none" stroke="#000000" d="M674.5422,-271.941C685.6459,-268.5976 696.9461,-264.6279 707.2393,-260 718.3701,-254.9956 719.1153,-250.0195 730.2393,-245 737.5909,-241.6828 745.461,-238.6999 753.4022,-236.0417"/>
+<polygon fill="#000000" stroke="#000000" points="754.6248,-239.3257 763.0939,-232.9597 752.5034,-232.6549 754.6248,-239.3257"/>
+<text text-anchor="middle" x="786.2393" y="-248.8" font-family="Times New Roman" font-size="14.00" fill="#000000">CVE&#45;2012&#45;1856</text>
+</g>
+<!-- KUKAConnBox1 -->
+<g id="node3" class="node">
+<title>KUKAConnBox1</title>
+<ellipse fill="none" stroke="#000000" cx="455.2393" cy="-152" rx="81.7856" ry="18"/>
+<text text-anchor="middle" x="455.2393" y="-148.3" font-family="Times New Roman" font-size="14.00" fill="#000000">KUKAConnBox1</text>
+</g>
+<!-- GECimplicity1&#45;&gt;KUKAConnBox1 -->
+<g id="edge7" class="edge">
+<title>GECimplicity1&#45;&gt;KUKAConnBox1</title>
+<path fill="none" stroke="#000000" d="M589.6312,-201.093C584.3541,-192.8828 577.0772,-183.7246 568.2393,-178 561.1421,-173.4029 546.5334,-169.0229 530.1077,-165.2127"/>
+<polygon fill="#000000" stroke="#000000" points="530.7893,-161.779 520.2695,-163.0378 529.2783,-168.614 530.7893,-161.779"/>
+<text text-anchor="middle" x="648.2393" y="-181.8" font-family="Times New Roman" font-size="14.00" fill="#000000">Unused Open Port</text>
+</g>
+<!-- SE_XBTGT1 -->
+<g id="node4" class="node">
+<title>SE_XBTGT1</title>
+<ellipse fill="none" stroke="#000000" cx="735.2393" cy="-85" rx="64.189" ry="18"/>
+<text text-anchor="middle" x="735.2393" y="-81.3" font-family="Times New Roman" font-size="14.00" fill="#000000">SE_XBTGT1</text>
+</g>
+<!-- GECimplicity1&#45;&gt;SE_XBTGT1 -->
+<g id="edge5" class="edge">
+<title>GECimplicity1&#45;&gt;SE_XBTGT1</title>
+<path fill="none" stroke="#000000" d="M666.0553,-210.8695C688.4422,-206.7952 709.6558,-200.9863 717.2393,-193 737.1925,-171.9871 739.7651,-137.7038 738.5813,-113.4055"/>
+<polygon fill="#000000" stroke="#000000" points="742.0663,-113.0707 737.8531,-103.3496 735.0846,-113.5763 742.0663,-113.0707"/>
+<text text-anchor="middle" x="794.2393" y="-148.3" font-family="Times New Roman" font-size="14.00" fill="#000000">CVE&#45;2019&#45;6833</text>
+</g>
+<!-- KRC4_2 -->
+<g id="node5" class="node">
+<title>KRC4_2</title>
+<ellipse fill="none" stroke="#000000" cx="1054.2393" cy="-18" rx="45.4919" ry="18"/>
+<text text-anchor="middle" x="1054.2393" y="-14.3" font-family="Times New Roman" font-size="14.00" fill="#000000">KRC4_2</text>
+</g>
+<!-- GECimplicity1&#45;&gt;KRC4_2 -->
+<g id="edge6" class="edge">
+<title>GECimplicity1&#45;&gt;KRC4_2</title>
+<path fill="none" stroke="#000000" d="M659.807,-208.4487C678.7779,-205.5388 699.8284,-202.7135 719.2393,-201 784.3437,-195.2529 949.0359,-205.2282 1013.2393,-193 1098.7331,-176.7169 1147.3257,-197.2948 1197.2393,-126 1227.7266,-82.4531 1153.8134,-48.9245 1101.2808,-31.4402"/>
+<polygon fill="#000000" stroke="#000000" points="1102.3423,-28.1051 1091.7506,-28.3634 1100.1916,-34.7665 1102.3423,-28.1051"/>
+<text text-anchor="middle" x="1285.7393" y="-114.8" font-family="Times New Roman" font-size="14.00" fill="#000000">Insecure Protocol Used</text>
+</g>
+<!-- SimaticS71510SPF1PN2 -->
+<g id="node12" class="node">
+<title>SimaticS71510SPF1PN2</title>
+<ellipse fill="none" stroke="#000000" cx="120.2393" cy="-18" rx="120.4791" ry="18"/>
+<text text-anchor="middle" x="120.2393" y="-14.3" font-family="Times New Roman" font-size="14.00" fill="#000000">SimaticS71510SPF1PN2</text>
+</g>
+<!-- GECimplicity1&#45;&gt;SimaticS71510SPF1PN2 -->
+<g id="edge4" class="edge">
+<title>GECimplicity1&#45;&gt;SimaticS71510SPF1PN2</title>
+<path fill="none" stroke="#000000" d="M528.7763,-212.9689C379.7793,-199.5029 43.6342,-165.0815 10.2393,-126 -17.0773,-94.0318 30.571,-60.6229 71.4558,-39.5834"/>
+<polygon fill="#000000" stroke="#000000" points="73.1971,-42.6261 80.5808,-35.0279 70.0705,-36.3631 73.1971,-42.6261"/>
+<text text-anchor="middle" x="143.2393" y="-114.8" font-family="Times New Roman" font-size="14.00" fill="#000000">Not Separated Safety Related Device</text>
+</g>
+<!-- SimaticS71516F_2 -->
+<g id="node15" class="node">
+<title>SimaticS71516F_2</title>
+<ellipse fill="none" stroke="#000000" cx="739.2393" cy="-18" rx="96.3833" ry="18"/>
+<text text-anchor="middle" x="739.2393" y="-14.3" font-family="Times New Roman" font-size="14.00" fill="#000000">SimaticS71516F_2</text>
+</g>
+<!-- GECimplicity1&#45;&gt;SimaticS71516F_2 -->
+<g id="edge3" class="edge">
+<title>GECimplicity1&#45;&gt;SimaticS71516F_2</title>
+<path fill="none" stroke="#000000" d="M661.4299,-208.9799C679.997,-206.1754 700.4166,-203.2752 719.2393,-201 887.2719,-180.6888 1004.338,-250.5631 1087.2393,-103 1095.0761,-89.0506 1095.463,-80.7248 1087.2393,-67 1076.0998,-48.4086 1065.0193,-50.1581 1044.2393,-44 1024.9383,-38.2802 921.6391,-30.223 840.5356,-24.5991"/>
+<polygon fill="#000000" stroke="#000000" points="840.4763,-21.0868 830.2594,-23.8912 839.9952,-28.0702 840.4763,-21.0868"/>
+<text text-anchor="middle" x="1137.2393" y="-114.8" font-family="Times New Roman" font-size="14.00" fill="#000000">CVE&#45;2014&#45;5074</text>
+</g>
+<!-- KUKAConnBox1&#45;&gt;GECimplicity1 -->
+<g id="edge10" class="edge">
+<title>KUKAConnBox1&#45;&gt;GECimplicity1</title>
+<path fill="none" stroke="#000000" d="M448.6684,-170.0956C447.0341,-177.9536 447.0111,-186.7659 452.2393,-193 461.1033,-203.5693 488.0126,-209.8443 516.4274,-213.5688"/>
+<polygon fill="#000000" stroke="#000000" points="516.1672,-217.0627 526.5138,-214.7827 517.0037,-210.1128 516.1672,-217.0627"/>
+<text text-anchor="middle" x="508.2393" y="-181.8" font-family="Times New Roman" font-size="14.00" fill="#000000">CVE&#45;2013&#45;2785</text>
+</g>
+<!-- KUKAConnBox1&#45;&gt;SE_XBTGT1 -->
+<g id="edge12" class="edge">
+<title>KUKAConnBox1&#45;&gt;SE_XBTGT1</title>
+<path fill="none" stroke="#000000" d="M450.7078,-133.6264C449.8956,-125.7122 450.6998,-116.9329 456.2393,-111 456.6832,-110.5247 581.1831,-99.0687 663.7002,-91.5236"/>
+<polygon fill="#000000" stroke="#000000" points="664.1543,-94.9968 673.7941,-90.601 663.517,-88.0258 664.1543,-94.9968"/>
+<text text-anchor="middle" x="512.2393" y="-114.8" font-family="Times New Roman" font-size="14.00" fill="#000000">CVE&#45;2019&#45;6833</text>
+</g>
+<!-- KUKAConnBox1&#45;&gt;KRC4_2 -->
+<g id="edge11" class="edge">
+<title>KUKAConnBox1&#45;&gt;KRC4_2</title>
+<path fill="none" stroke="#000000" d="M533.8058,-146.8019C587.8348,-142.6486 661.126,-135.8727 725.2393,-126 866.7038,-104.2162 933.168,-153.9866 1040.2393,-59 1044.2166,-55.4716 1047.0649,-50.7657 1049.1044,-45.8017"/>
+<polygon fill="#000000" stroke="#000000" points="1052.4693,-46.7682 1052.1139,-36.1793 1045.7884,-44.6786 1052.4693,-46.7682"/>
+<text text-anchor="middle" x="1111.7393" y="-81.3" font-family="Times New Roman" font-size="14.00" fill="#000000">Insecure Protocol Used</text>
+</g>
+<!-- KUKAConnBox1&#45;&gt;SimaticS71510SPF1PN2 -->
+<g id="edge9" class="edge">
+<title>KUKAConnBox1&#45;&gt;SimaticS71510SPF1PN2</title>
+<path fill="none" stroke="#000000" d="M404.7504,-137.785C370.0249,-128.5988 322.6905,-117.2335 280.2393,-111 265.9211,-108.8975 161.7908,-111.7175 150.2393,-103 132.7438,-89.7967 125.4124,-65.5971 122.3602,-46.386"/>
+<polygon fill="#000000" stroke="#000000" points="125.8138,-45.8002 121.0674,-36.328 118.8709,-46.6926 125.8138,-45.8002"/>
+<text text-anchor="middle" x="283.2393" y="-81.3" font-family="Times New Roman" font-size="14.00" fill="#000000">Not Separated Safety Related Device</text>
+</g>
+<!-- KUKAConnBox1&#45;&gt;SimaticS71516F_2 -->
+<g id="edge8" class="edge">
+<title>KUKAConnBox1&#45;&gt;SimaticS71516F_2</title>
+<path fill="none" stroke="#000000" d="M442.7201,-133.8381C428.0604,-110.1289 408.493,-68.7474 431.2393,-44 444.9358,-29.0986 549.4586,-22.7308 632.9983,-20.0138"/>
+<polygon fill="#000000" stroke="#000000" points="633.1883,-23.5097 643.0746,-19.7003 632.9705,-16.5131 633.1883,-23.5097"/>
+<text text-anchor="middle" x="482.2393" y="-81.3" font-family="Times New Roman" font-size="14.00" fill="#000000">CVE&#45;2014&#45;5074</text>
+</g>
+<!-- SE_XBTGT1&#45;&gt;GECimplicity1 -->
+<g id="edge13" class="edge">
+<title>SE_XBTGT1&#45;&gt;GECimplicity1</title>
+<path fill="none" stroke="#000000" d="M791.3801,-93.9691C814.9183,-100.8052 840.0665,-112.8368 854.2393,-134 863.1424,-147.2942 864.4134,-157.6514 854.2393,-170 848.353,-177.1444 745.0198,-195.2965 671.7254,-207.3873"/>
+<polygon fill="#000000" stroke="#000000" points="670.8962,-203.9766 661.5959,-209.0514 672.031,-210.884 670.8962,-203.9766"/>
+<text text-anchor="middle" x="917.2393" y="-148.3" font-family="Times New Roman" font-size="14.00" fill="#000000">CVE&#45;2013&#45;2785</text>
+</g>
+<!-- SE_XBTGT1&#45;&gt;KUKAConnBox1 -->
+<g id="edge17" class="edge">
+<title>SE_XBTGT1&#45;&gt;KUKAConnBox1</title>
+<path fill="none" stroke="#000000" d="M673.8467,-90.6026C647.7223,-94.3713 617.3265,-100.6328 591.2393,-111 579.8981,-115.5071 579.4703,-121.2248 568.2393,-126 556.3554,-131.0529 543.332,-135.206 530.4862,-138.593"/>
+<polygon fill="#000000" stroke="#000000" points="529.5713,-135.2139 520.7195,-141.0359 531.2699,-142.0047 529.5713,-135.2139"/>
+<text text-anchor="middle" x="656.2393" y="-114.8" font-family="Times New Roman" font-size="14.00" fill="#000000">Unused Open Port</text>
+</g>
+<!-- SE_XBTGT1&#45;&gt;KRC4_2 -->
+<g id="edge14" class="edge">
+<title>SE_XBTGT1&#45;&gt;KRC4_2</title>
+<path fill="none" stroke="#000000" d="M792.4501,-76.5512C811.8926,-72.5725 833.4436,-66.9087 852.2393,-59 863.4881,-54.2668 863.8222,-48.3114 875.2393,-44 897.3837,-35.6377 955.5232,-28.1077 999.5836,-23.3298"/>
+<polygon fill="#000000" stroke="#000000" points="1000.0263,-26.8025 1009.5999,-22.2642 999.2857,-19.8418 1000.0263,-26.8025"/>
+<text text-anchor="middle" x="957.7393" y="-47.8" font-family="Times New Roman" font-size="14.00" fill="#000000">Insecure Protocol Used</text>
+</g>
+<!-- SE_XBTGT1&#45;&gt;SimaticS71510SPF1PN2 -->
+<g id="edge16" class="edge">
+<title>SE_XBTGT1&#45;&gt;SimaticS71510SPF1PN2</title>
+<path fill="none" stroke="#000000" d="M673.7693,-79.4392C619.2216,-74.4139 537.3805,-66.6522 466.2393,-59 384.4099,-50.1982 291.8271,-39.1711 223.0357,-30.7703"/>
+<polygon fill="#000000" stroke="#000000" points="223.4139,-27.2905 213.0629,-29.5505 222.564,-34.2388 223.4139,-27.2905"/>
+<text text-anchor="middle" x="599.2393" y="-47.8" font-family="Times New Roman" font-size="14.00" fill="#000000">Not Separated Safety Related Device</text>
+</g>
+<!-- SE_XBTGT1&#45;&gt;SimaticS71516F_2 -->
+<g id="edge15" class="edge">
+<title>SE_XBTGT1&#45;&gt;SimaticS71516F_2</title>
+<path fill="none" stroke="#000000" d="M736.3323,-66.692C736.7027,-60.4879 737.1258,-53.4019 737.5323,-46.5924"/>
+<polygon fill="#000000" stroke="#000000" points="741.0454,-46.4768 738.1476,-36.2859 734.0578,-46.0595 741.0454,-46.4768"/>
+<text text-anchor="middle" x="793.2393" y="-47.8" font-family="Times New Roman" font-size="14.00" fill="#000000">CVE&#45;2014&#45;5074</text>
+</g>
+<!-- AVSvr1 -->
+<g id="node6" class="node">
+<title>AVSvr1</title>
+<ellipse fill="none" stroke="#000000" cx="513.2393" cy="-487" rx="44.393" ry="18"/>
+<text text-anchor="middle" x="513.2393" y="-483.3" font-family="Times New Roman" font-size="14.00" fill="#000000">AVSvr1</text>
+</g>
+<!-- JumpSvr1 -->
+<g id="node7" class="node">
+<title>JumpSvr1</title>
+<ellipse fill="none" stroke="#000000" cx="709.2393" cy="-420" rx="55.7903" ry="18"/>
+<text text-anchor="middle" x="709.2393" y="-416.3" font-family="Times New Roman" font-size="14.00" fill="#000000">JumpSvr1</text>
+</g>
+<!-- AVSvr1&#45;&gt;JumpSvr1 -->
+<g id="edge18" class="edge">
+<title>AVSvr1&#45;&gt;JumpSvr1</title>
+<path fill="none" stroke="#000000" d="M517.3837,-468.9308C520.2052,-460.6821 524.8215,-451.5384 532.2393,-446 549.6346,-433.012 600.8113,-426.4557 643.6885,-423.1797"/>
+<polygon fill="#000000" stroke="#000000" points="644.095,-426.6597 653.8191,-422.4535 643.5944,-419.6776 644.095,-426.6597"/>
+<text text-anchor="middle" x="616.2393" y="-449.8" font-family="Times New Roman" font-size="14.00" fill="#000000">IT&#45;OT Cross Connection</text>
+</g>
+<!-- MES1 -->
+<g id="node13" class="node">
+<title>MES1</title>
+<ellipse fill="none" stroke="#000000" cx="739.2393" cy="-353" rx="36.2938" ry="18"/>
+<text text-anchor="middle" x="739.2393" y="-349.3" font-family="Times New Roman" font-size="14.00" fill="#000000">MES1</text>
+</g>
+<!-- JumpSvr1&#45;&gt;MES1 -->
+<g id="edge19" class="edge">
+<title>JumpSvr1&#45;&gt;MES1</title>
+<path fill="none" stroke="#000000" d="M717.2788,-402.0452C720.238,-395.4363 723.6616,-387.7902 726.9122,-380.5306"/>
+<polygon fill="#000000" stroke="#000000" points="730.2854,-381.5615 731.1777,-371.0043 723.8966,-378.7008 730.2854,-381.5615"/>
+<text text-anchor="middle" x="810.2393" y="-382.8" font-family="Times New Roman" font-size="14.00" fill="#000000">IT&#45;OT Cross Connection</text>
+</g>
+<!-- SIMATICHistorian1&#45;&gt;SIMATICWinCCSvr1 -->
+<g id="edge20" class="edge">
+<title>SIMATICHistorian1&#45;&gt;SIMATICWinCCSvr1</title>
+<path fill="none" stroke="#000000" d="M840.1597,-236.7495C845.2197,-244.5376 848.1434,-253.3909 842.2393,-260 833.5421,-269.7358 774.4112,-276.287 718.2887,-280.378"/>
+<polygon fill="#000000" stroke="#000000" points="717.9525,-276.893 708.2238,-281.0885 718.4454,-283.8756 717.9525,-276.893"/>
+<text text-anchor="middle" x="901.2393" y="-248.8" font-family="Times New Roman" font-size="14.00" fill="#000000">CVE&#45;2013&#45;3957</text>
+</g>
+<!-- MailSvr1 -->
+<g id="node9" class="node">
+<title>MailSvr1</title>
+<ellipse fill="none" stroke="#000000" cx="903.2393" cy="-554" rx="50.0912" ry="18"/>
+<text text-anchor="middle" x="903.2393" y="-550.3" font-family="Times New Roman" font-size="14.00" fill="#000000">MailSvr1</text>
+</g>
+<!-- WebSvr2 -->
+<g id="node10" class="node">
+<title>WebSvr2</title>
+<ellipse fill="none" stroke="#000000" cx="1315.2393" cy="-420" rx="51.9908" ry="18"/>
+<text text-anchor="middle" x="1315.2393" y="-416.3" font-family="Times New Roman" font-size="14.00" fill="#000000">WebSvr2</text>
+</g>
+<!-- MailSvr1&#45;&gt;WebSvr2 -->
+<g id="edge22" class="edge">
+<title>MailSvr1&#45;&gt;WebSvr2</title>
+<path fill="none" stroke="#000000" d="M910.685,-536.1821C914.3842,-528.5582 919.3334,-519.8538 925.2393,-513 946.5926,-488.2197 954.3371,-482.262 984.2393,-469 1059.6476,-435.5556 1085.3487,-447.9429 1167.2393,-438 1196.4032,-434.459 1228.799,-430.5197 1255.8281,-427.2312"/>
+<polygon fill="#000000" stroke="#000000" points="1256.4026,-430.6872 1265.9066,-426.005 1255.557,-423.7385 1256.4026,-430.6872"/>
+<text text-anchor="middle" x="1040.2393" y="-483.3" font-family="Times New Roman" font-size="14.00" fill="#000000">CVE&#45;2017&#45;3167</text>
+</g>
+<!-- AppSvr1 -->
+<g id="node11" class="node">
+<title>AppSvr1</title>
+<ellipse fill="none" stroke="#000000" cx="1301.2393" cy="-487" rx="50.0912" ry="18"/>
+<text text-anchor="middle" x="1301.2393" y="-483.3" font-family="Times New Roman" font-size="14.00" fill="#000000">AppSvr1</text>
+</g>
+<!-- MailSvr1&#45;&gt;AppSvr1 -->
+<g id="edge21" class="edge">
+<title>MailSvr1&#45;&gt;AppSvr1</title>
+<path fill="none" stroke="#000000" d="M918.9491,-536.8566C928.2472,-527.9695 940.8117,-517.9598 954.2393,-513 981.5598,-502.9086 1187.3227,-508.4751 1216.2393,-505 1227.247,-503.6771 1238.9406,-501.6301 1250.0188,-499.3838"/>
+<polygon fill="#000000" stroke="#000000" points="1250.9212,-502.7705 1259.9824,-497.2799 1249.475,-495.9215 1250.9212,-502.7705"/>
+<text text-anchor="middle" x="1036.7393" y="-516.8" font-family="Times New Roman" font-size="14.00" fill="#000000">Insecure Protocol Used</text>
+</g>
+<!-- WebSvr2&#45;&gt;AppSvr1 -->
+<g id="edge23" class="edge">
+<title>WebSvr2&#45;&gt;AppSvr1</title>
+<path fill="none" stroke="#000000" d="M1365.734,-424.4021C1395.1126,-428.1265 1428.1111,-434.7214 1437.2393,-446 1441.4334,-451.1821 1441.4878,-455.8624 1437.2393,-461 1427.3558,-472.952 1392.8836,-479.4609 1361.1212,-482.9773"/>
+<polygon fill="#000000" stroke="#000000" points="1360.5313,-479.5193 1350.9386,-484.017 1361.2424,-486.4831 1360.5313,-479.5193"/>
+<text text-anchor="middle" x="1560.7393" y="-449.8" font-family="Times New Roman" font-size="14.00" fill="#000000">Untrusted Cross Zone Connection</text>
+</g>
+<!-- AppSvr1&#45;&gt;JumpSvr1 -->
+<g id="edge25" class="edge">
+<title>AppSvr1&#45;&gt;JumpSvr1</title>
+<path fill="none" stroke="#000000" d="M1259.0405,-477.0863C1245.4368,-474.1532 1230.2539,-471.1542 1216.2393,-469 1214.88,-468.7911 909.0762,-439.2791 773.118,-426.1622"/>
+<polygon fill="#000000" stroke="#000000" points="773.1362,-422.6478 762.8462,-425.1712 772.4639,-429.6154 773.1362,-422.6478"/>
+<text text-anchor="middle" x="1214.2393" y="-449.8" font-family="Times New Roman" font-size="14.00" fill="#000000">IT&#45;OT Cross Connection</text>
+</g>
+<!-- AppSvr1&#45;&gt;WebSvr2 -->
+<g id="edge24" class="edge">
+<title>AppSvr1&#45;&gt;WebSvr2</title>
+<path fill="none" stroke="#000000" d="M1304.9911,-469.0452C1306.3407,-462.5865 1307.8972,-455.1372 1309.3831,-448.0261"/>
+<polygon fill="#000000" stroke="#000000" points="1312.8578,-448.5088 1311.4772,-438.0043 1306.0058,-447.077 1312.8578,-448.5088"/>
+<text text-anchor="middle" x="1365.2393" y="-449.8" font-family="Times New Roman" font-size="14.00" fill="#000000">CVE&#45;2017&#45;3167</text>
+</g>
+<!-- MES1&#45;&gt;SIMATICWinCCSvr1 -->
+<g id="edge27" class="edge">
+<title>MES1&#45;&gt;SIMATICWinCCSvr1</title>
+<path fill="none" stroke="#000000" d="M702.9184,-351.0223C667.5573,-348.2473 617.4138,-341.7637 605.2393,-327 602.2115,-323.3283 601.2067,-318.8296 601.3838,-314.1733"/>
+<polygon fill="#000000" stroke="#000000" points="604.891,-314.4672 603.3332,-303.9876 598.0158,-313.1514 604.891,-314.4672"/>
+<text text-anchor="middle" x="661.2393" y="-315.8" font-family="Times New Roman" font-size="14.00" fill="#000000">CVE&#45;2013&#45;3958</text>
+</g>
+<!-- SIMATICFieldPGM6 -->
+<g id="node16" class="node">
+<title>SIMATICFieldPGM6</title>
+<ellipse fill="none" stroke="#000000" cx="1090.2393" cy="-286" rx="96.3833" ry="18"/>
+<text text-anchor="middle" x="1090.2393" y="-282.3" font-family="Times New Roman" font-size="14.00" fill="#000000">SIMATICFieldPGM6</text>
+</g>
+<!-- MES1&#45;&gt;SIMATICFieldPGM6 -->
+<g id="edge26" class="edge">
+<title>MES1&#45;&gt;SIMATICFieldPGM6</title>
+<path fill="none" stroke="#000000" d="M734.7014,-334.9944C733.8071,-326.963 734.5462,-317.9838 740.2393,-312 748.7157,-303.091 885.717,-295.0777 985.7544,-290.374"/>
+<polygon fill="#000000" stroke="#000000" points="986.0972,-293.8619 995.9238,-289.9012 985.772,-286.8695 986.0972,-293.8619"/>
+<text text-anchor="middle" x="904.2393" y="-315.8" font-family="Times New Roman" font-size="14.00" fill="#000000">Not Separated Temporarily Connected Device</text>
+</g>
+<!-- FileSvr2 -->
+<g id="node14" class="node">
+<title>FileSvr2</title>
+<ellipse fill="none" stroke="#000000" cx="1117.2393" cy="-554" rx="47.3916" ry="18"/>
+<text text-anchor="middle" x="1117.2393" y="-550.3" font-family="Times New Roman" font-size="14.00" fill="#000000">FileSvr2</text>
+</g>
+<!-- FileSvr2&#45;&gt;WebSvr2 -->
+<g id="edge29" class="edge">
+<title>FileSvr2&#45;&gt;WebSvr2</title>
+<path fill="none" stroke="#000000" d="M1110.0197,-535.8103C1101.9275,-512.0703 1092.5683,-470.6548 1114.2393,-446 1115.4265,-444.6494 1197.1243,-434.4138 1255.984,-427.1964"/>
+<polygon fill="#000000" stroke="#000000" points="1256.4494,-430.6656 1265.95,-425.9764 1255.5988,-423.7175 1256.4494,-430.6656"/>
+<text text-anchor="middle" x="1158.2393" y="-483.3" font-family="Times New Roman" font-size="14.00" fill="#000000">CVE&#45;2017&#45;7668</text>
+</g>
+<!-- FileSvr2&#45;&gt;AppSvr1 -->
+<g id="edge28" class="edge">
+<title>FileSvr2&#45;&gt;AppSvr1</title>
+<path fill="none" stroke="#000000" d="M1120.3636,-535.8204C1122.7498,-527.5456 1126.9325,-518.4118 1134.2393,-513 1148.952,-502.1029 1198.1444,-507.7897 1216.2393,-505 1226.9685,-503.3459 1238.3829,-501.1992 1249.2493,-498.9676"/>
+<polygon fill="#000000" stroke="#000000" points="1249.9751,-502.3916 1259.0393,-496.9061 1248.5326,-495.5419 1249.9751,-502.3916"/>
+<text text-anchor="middle" x="1216.7393" y="-516.8" font-family="Times New Roman" font-size="14.00" fill="#000000">Insecure Protocol Used</text>
+</g>
+<!-- SIMATICFieldPGM6&#45;&gt;MES1 -->
+<g id="edge30" class="edge">
+<title>SIMATICFieldPGM6&#45;&gt;MES1</title>
+<path fill="none" stroke="#000000" d="M1084.9101,-304.3533C1081.5176,-312.6692 1076.2199,-321.7875 1068.2393,-327 1045.1857,-342.0575 871.244,-349.1618 786.0191,-351.7668"/>
+<polygon fill="#000000" stroke="#000000" points="785.727,-348.2739 775.8355,-352.0696 785.9351,-355.2708 785.727,-348.2739"/>
+<text text-anchor="middle" x="1165.2393" y="-315.8" font-family="Times New Roman" font-size="14.00" fill="#000000">IT&#45;OT Cross Connection</text>
+</g>
+<!-- ERP1 -->
+<g id="node17" class="node">
+<title>ERP1</title>
+<ellipse fill="none" stroke="#000000" cx="1720.2393" cy="-487" rx="34.394" ry="18"/>
+<text text-anchor="middle" x="1720.2393" y="-483.3" font-family="Times New Roman" font-size="14.00" fill="#000000">ERP1</text>
+</g>
+<!-- WebSvr1 -->
+<g id="node18" class="node">
+<title>WebSvr1</title>
+<ellipse fill="none" stroke="#000000" cx="1653.2393" cy="-554" rx="51.9908" ry="18"/>
+<text text-anchor="middle" x="1653.2393" y="-550.3" font-family="Times New Roman" font-size="14.00" fill="#000000">WebSvr1</text>
+</g>
+<!-- ERP1&#45;&gt;WebSvr1 -->
+<g id="edge31" class="edge">
+<title>ERP1&#45;&gt;WebSvr1</title>
+<path fill="none" stroke="#000000" d="M1713.3572,-504.7456C1709.7115,-512.533 1704.6479,-521.3867 1698.2393,-528 1696.4263,-529.871 1694.4497,-531.6507 1692.3696,-533.3358"/>
+<polygon fill="#000000" stroke="#000000" points="1690.051,-530.6913 1683.9602,-539.3604 1694.1277,-536.3818 1690.051,-530.6913"/>
+<text text-anchor="middle" x="1764.2393" y="-516.8" font-family="Times New Roman" font-size="14.00" fill="#000000">CVE&#45;2017&#45;7668</text>
+</g>
+<!-- WebSvr1&#45;&gt;AppSvr1 -->
+<g id="edge33" class="edge">
+<title>WebSvr1&#45;&gt;AppSvr1</title>
+<path fill="none" stroke="#000000" d="M1601.3675,-552.0613C1516.7785,-548.5624 1356.2054,-540.3849 1333.2393,-528 1326.8317,-524.5445 1321.2861,-519.1989 1316.6951,-513.4964"/>
+<polygon fill="#000000" stroke="#000000" points="1319.3279,-511.1611 1310.6626,-505.0649 1313.6349,-515.2343 1319.3279,-511.1611"/>
+<text text-anchor="middle" x="1453.7393" y="-516.8" font-family="Times New Roman" font-size="14.00" fill="#000000">Untrusted Cross Zone Connection</text>
+</g>
+<!-- WebSvr1&#45;&gt;ERP1 -->
+<g id="edge32" class="edge">
+<title>WebSvr1&#45;&gt;ERP1</title>
+<path fill="none" stroke="#000000" d="M1609.5019,-544.1763C1588.639,-537.4351 1570.519,-527.1347 1582.2393,-513 1593.9951,-498.8226 1639.9418,-492.3235 1675.6273,-489.3777"/>
+<polygon fill="#000000" stroke="#000000" points="1676.1445,-492.8487 1685.8524,-488.6053 1675.6171,-485.8686 1676.1445,-492.8487"/>
+<text text-anchor="middle" x="1638.2393" y="-516.8" font-family="Times New Roman" font-size="14.00" fill="#000000">CVE&#45;2013&#45;6822</text>
+</g>
+<!-- PatchSvr1 -->
+<g id="node19" class="node">
+<title>PatchSvr1</title>
+<ellipse fill="none" stroke="#000000" cx="704.2393" cy="-487" rx="56.59" ry="18"/>
+<text text-anchor="middle" x="704.2393" y="-483.3" font-family="Times New Roman" font-size="14.00" fill="#000000">PatchSvr1</text>
+</g>
+<!-- PatchSvr1&#45;&gt;JumpSvr1 -->
+<g id="edge34" class="edge">
+<title>PatchSvr1&#45;&gt;JumpSvr1</title>
+<path fill="none" stroke="#000000" d="M704.186,-468.6029C704.2692,-463.2949 704.4519,-457.3838 705.1958,-448.3353"/>
+<polygon fill="#000000" stroke="#000000" points="708.7021,-448.4286 706.1438,-438.1473 701.7322,-447.7799 708.7021,-448.4286"/>
+<text text-anchor="middle" x="789.2393" y="-449.8" font-family="Times New Roman" font-size="14.00" fill="#000000">IT&#45;OT Cross Connection</text>
+</g>
+<!-- AnalyticsSvr1 -->
+<g id="node20" class="node">
+<title>AnalyticsSvr1</title>
+<ellipse fill="none" stroke="#000000" cx="1085.2393" cy="-420" rx="73.387" ry="18"/>
+<text text-anchor="middle" x="1085.2393" y="-416.3" font-family="Times New Roman" font-size="14.00" fill="#000000">AnalyticsSvr1</text>
+</g>
+<!-- AnalyticsSvr1&#45;&gt;MES1 -->
+<g id="edge36" class="edge">
+<title>AnalyticsSvr1&#45;&gt;MES1</title>
+<path fill="none" stroke="#000000" d="M1031.7931,-407.4815C994.478,-398.938 943.4524,-387.6467 898.2393,-379 859.9388,-371.6753 816.1996,-364.6176 784.3039,-359.7084"/>
+<polygon fill="#000000" stroke="#000000" points="784.8003,-356.2437 774.3862,-358.1924 783.7425,-363.1633 784.8003,-356.2437"/>
+<text text-anchor="middle" x="1054.2393" y="-382.8" font-family="Times New Roman" font-size="14.00" fill="#000000">IT&#45;OT Cross Connection</text>
+</g>
+<!-- AnalyticsSvr1&#45;&gt;SIMATICFieldPGM6 -->
+<g id="edge35" class="edge">
+<title>AnalyticsSvr1&#45;&gt;SIMATICFieldPGM6</title>
+<path fill="none" stroke="#000000" d="M1139.0449,-407.6944C1201.7622,-390.9126 1292.1716,-357.6345 1253.2393,-312 1248.1828,-306.0729 1218.0075,-300.4896 1184.9671,-296.0276"/>
+<polygon fill="#000000" stroke="#000000" points="1185.0149,-292.5042 1174.6458,-294.6797 1184.1084,-299.4453 1185.0149,-292.5042"/>
+<text text-anchor="middle" x="1426.2393" y="-349.3" font-family="Times New Roman" font-size="14.00" fill="#000000">Not Separated Temporarily Connected Device</text>
+</g>
+<!-- FileSvr1 -->
+<g id="node21" class="node">
+<title>FileSvr1</title>
+<ellipse fill="none" stroke="#000000" cx="1783.2393" cy="-621" rx="47.3916" ry="18"/>
+<text text-anchor="middle" x="1783.2393" y="-617.3" font-family="Times New Roman" font-size="14.00" fill="#000000">FileSvr1</text>
+</g>
+<!-- FileSvr1&#45;&gt;ERP1 -->
+<g id="edge38" class="edge">
+<title>FileSvr1&#45;&gt;ERP1</title>
+<path fill="none" stroke="#000000" d="M1818.6921,-608.8858C1824.4886,-605.3195 1829.7358,-600.7707 1833.2393,-595 1844.795,-575.9664 1863.4308,-556.8221 1824.2393,-513 1816.0338,-503.8249 1788.542,-497.1899 1763.8851,-492.9196"/>
+<polygon fill="#000000" stroke="#000000" points="1764.3467,-489.4487 1753.9129,-491.2888 1763.2168,-496.3569 1764.3467,-489.4487"/>
+<text text-anchor="middle" x="1903.2393" y="-550.3" font-family="Times New Roman" font-size="14.00" fill="#000000">CVE&#45;2013&#45;6822</text>
+</g>
+<!-- FileSvr1&#45;&gt;WebSvr1 -->
+<g id="edge37" class="edge">
+<title>FileSvr1&#45;&gt;WebSvr1</title>
+<path fill="none" stroke="#000000" d="M1750.0137,-608.1127C1740.586,-604.1757 1730.3978,-599.6502 1721.2393,-595 1709.7159,-589.1489 1697.5129,-582.0848 1686.6736,-575.4807"/>
+<polygon fill="#000000" stroke="#000000" points="1688.2805,-572.3594 1677.9341,-570.0783 1684.5998,-578.3136 1688.2805,-572.3594"/>
+<text text-anchor="middle" x="1777.2393" y="-583.8" font-family="Times New Roman" font-size="14.00" fill="#000000">CVE&#45;2017&#45;3167</text>
+</g>
+</g>
+</svg>

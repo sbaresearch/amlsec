@@ -1,25 +1,80 @@
-# Automated Security Risk Identification Based on Engineering Data
+# Automated Security Risk Identification Using AutomationML-based Engineering Data
 
 This prototype identifies security risk sources (i.e., threats and vulnerabilities) and types of attack consequences based on AutomationML (AML) artifacts.
 The results of the risk identification process can be used to generate cyber-physical attack graphs, which model multistage cyber attacks that potentially lead to physical damage.
 
 ## Installation
 
+1. Build AML2OWL
+
 This prototype depends on a forked version of the [implementation of the bidirectional translation between AML and OWL](https://github.com/sbaresearch/ETFA2019) for the ETFA 2019 paper ["Interpreting OWL Complex Classes in AutomationML based on Bidirectional Translation"](https://arxiv.org/abs/1906.04240) by Hua and Hein.
-Clone the aforementioned repository, compile the projects, and run the AML2OWL application to transform your AMLsec-augmented plant know-how (i.e., AML artifact) to OWL.
+Clone the [repository](https://github.com/sbaresearch/ETFA2019), compile the projects, and assemble an application bundle of `aml_owl`:
+```
+$ cd aml_models
+$ mvn clean compile install
+$ cd ../aml_io
+$ mvn clean compile install
+$ cd ../aml_owl
+$ mvn clean compile install assembly:single
+```
 
-After that, convert the generated OWL file (RDF/XML syntax) to the Turtle syntax (e.g., by using [Protégé](https://protege.stanford.edu/)).
+2. Setup the AMLsec Base Directory
 
-Then, clone this repository, place this file in the app's `resources` directory, and adapt the AML file name (`aml.fileName`) in the application [configuration file](https://github.com/sbaresearch/amlsec/blob/master/amlsec/src/main/resources/application.conf). 
+Clone this repository, create the application base directory (usually located in the user's home directory), and place the files located in [amlsec-base-dir](https://github.com/sbaresearch/amlsec/blob/master/amlsec-base-dir) and the assembled AML2OWL JAR (located in `aml_owl/target/`) there.
+The AMLsec base directory and the path to the AML2OWL JAR must be set in the [configuration file](https://github.com/sbaresearch/amlsec/blob/master/amlsec/src/main/resources/application.conf) using the keys `baseDir` and `amlToOwlProgram`, respectively.
 
-Finally, start the app by using [sbt](https://www.scala-sbt.org/).
+3. Setup Apache Jena Fuseki
+
+Install and start [Apache Jena Fuseki](https://jena.apache.org/documentation/fuseki2/):
+```
+$ java -jar <path_to_apache-jena-fuseki-X.Y.Z>/fuseki-server.jar --update
+```
+
+4. Build AMLsec
+
+Finally, build and start the app by using [sbt](https://www.scala-sbt.org/).
+```
+$ sbt "runMain org.sba_research.worker.Main"
+```
 
 ## Usage
 
 The implemented method utilizes a semantic information mapping mechanism realized by means of AML libraries.
-These [AML security extension libraries](https://github.com/sbaresearch/amlsec/tree/master/amlsec-libs) (named AMLsec) can be easily reused in engineering projects by importing them into AML files.
+These [AML security extension libraries](https://github.com/sbaresearch/amlsec/tree/master/amlsec-libs) can be easily reused in engineering projects by importing them into AML files.
 
-The capabilities of this prototype are demonstrated in a [case study](https://github.com/sbaresearch/amlsec/blob/master/case-study/CaseStudy.aml).
-Running this prototype as is will yield the [knowledge base](https://github.com/sbaresearch/amlsec/blob/master/amlsec/src/main/resources/amlsec.ttl), which also includes the results of the risk identification process, and the following pruned cyber-physical attack graph:
+The capabilities of this prototype are demonstrated in a [case study](https://github.com/sbaresearch/amlsec/blob/master/amlsec-base-dir/case-study/CaseStudy_A.aml).
+Running this prototype as is will yield the knowledge base (can be accessed via Fuseki), which also includes the results of the risk identification process, and the following pruned cyber-physical attack graph:
 
-![Cyber-Physical Attack Graph](https://github.com/sbaresearch/amlsec/blob/master/case-study/pruned_ag.svg?sanitize=true)
+![Cyber-Physical Attack Graph](https://github.com/sbaresearch/amlsec/blob/master/amlsec-base-dir/pruned_ag.svg?sanitize=true)
+
+### Cluster
+
+The prototype utilizes the [Akka](https://akka.io/) framework and is able to distribute the risk identification workload among multiple nodes. The [Akka distributed workers sample](https://github.com/akka/akka-samples/tree/2.6/akka-sample-distributed-workers-scala) was used as a template.
+
+To run the cluster with multiple nodes:
+
+1. Start Cassandra:
+```
+$ sbt "runMain org.sba_research.worker.Main cassandra"
+```
+
+2. Start the first seed node:
+```
+$ sbt "runMain org.sba_research.worker.Main 2551"
+```
+
+3. Start a front-end node:
+```
+$ sbt "runMain org.sba_research.worker.Main 3001"
+```
+
+4. Start a worker node (the second parameter denotes the number of worker actors, e.g., 3):
+```
+$ sbt "runMain org.sba_research.worker.Main 5001 3"
+```
+
+If you run the nodes on separate machines, you will have to adapt the Akka settings in the [configuration file](https://github.com/sbaresearch/amlsec/blob/master/amlsec/src/main/resources/application.conf).
+
+## Performance Assessment
+
+The measurements and log files obtained during the performance assessment are available upon request.

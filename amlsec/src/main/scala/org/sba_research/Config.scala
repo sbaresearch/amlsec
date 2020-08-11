@@ -2,34 +2,68 @@ package org.sba_research
 
 import com.typesafe.config.ConfigFactory
 
-case class Config(amlConfig: AmlConfig, secOntConfig: OntConfig, icsSecOntConfig: OntConfig, agOnt: OntConfig, engValFileName: String, secValFileName: String, outputPathEngValReport: String, outputPathSecValReport: String, agConfig: AGConfig)
+case class Config(baseDir: String,
+                  amlToOwlProgram: String,
+                  reasonerUri: String,
+                  debugConfig: DebugConfig,
+                  fusekiConfig: FusekiConfig,
+                  amlConfig: AmlConfig,
+                  secOntConfig: OntConfig,
+                  icsSecOntConfig: OntConfig,
+                  agOnt: OntConfig,
+                  engValFilePath: String,
+                  secValFilePath: String,
+                  outputPathEngValReport: String,
+                  outputPathSecValReport: String,
+                  agConfig: AGConfig)
 
-case class AmlConfig(fileName: String, nsOnt: String, nsImp: String)
+case class AmlConfig(filePath: String, ontFilePath: String, nsOnt: String, nsImp: String)
 
-case class OntConfig(fileName: String, ns: String)
+case class OntConfig(filePath: String, ns: String)
 
 case class AGConfig(fullPath: String, prunedPath: String, agShortestPath: String)
+
+case class DebugConfig(writeKb: Boolean,
+                       outputPathAmlsecKb: String,
+                       writePerformanceReport: Boolean,
+                       outputPathPerformanceReport: String)
+
+case class FusekiConfig(uri: String, dbPath: String)
 
 object Config {
 
   def apply(): Config = {
     val conf = ConfigFactory.load()
 
-    val amlFileName = conf.getString("aml.fileName")
+    val baseDir = conf.getString("baseDir")
+    val amlToOwlProgram = conf.getString("amlToOwlProgram")
+    val reasonerUri = conf.getString("reasonerUri")
+
+    val writeKb = conf.getBoolean("debug.kb.writeKb")
+    val outputPathAmlsecKb = conf.getString("debug.kb.outputPathAmlsecKb")
+
+    val fusekiUri = conf.getString("fuseki.uri")
+    val fusekiDbPath = conf.getString("fuseki.tdbDir")
+
+    val writePerformanceReport = conf.getBoolean("debug.performance.writePerformanceReport")
+    val outputPathPerformanceReport = conf.getString("debug.performance.outputPathPerformanceReport")
+
+    val amlFilePath = conf.getString("aml.filePath")
+    val amlOntFilePath = conf.getString("aml.ontFilePath")
     val amlNsOnt = conf.getString("aml.nsOnt")
     val amlNsImp = conf.getString("aml.nsImp")
 
-    val secOntFileName = conf.getString("secOnt.fileName")
+    val secOntFilePath = conf.getString("secOnt.filePath")
     val secOntNs = conf.getString("secOnt.ns")
 
-    val icsSecOntFileName = conf.getString("icsSecOnt.fileName")
+    val icsSecOntFilePath = conf.getString("icsSecOnt.filePath")
     val icsSecOntNs = conf.getString("icsSecOnt.ns")
 
-    val agOntFileName = conf.getString("agOnt.fileName")
+    val agOntFilePath = conf.getString("agOnt.filePath")
     val agOntNs = conf.getString("agOnt.ns")
 
-    val engValFileName = conf.getString("validation.eng.fileName")
-    val secFileName = conf.getString("validation.sec.fileName")
+    val engValFilePath = conf.getString("validation.eng.filePath")
+    val secFilePath = conf.getString("validation.sec.filePath")
     val outputPathEngValReport = conf.getString("outputPathEngValReport")
     val outputPathSecValReport = conf.getString("outputPathSecValReport")
 
@@ -38,12 +72,17 @@ object Config {
     val agShortestPath = conf.getString("ag.shortestPath.path")
 
     this (
-      AmlConfig(amlFileName, amlNsOnt, amlNsImp),
-      OntConfig(secOntFileName, secOntNs),
-      OntConfig(icsSecOntFileName, icsSecOntNs),
-      OntConfig(agOntFileName, agOntNs),
-      engValFileName,
-      secFileName,
+      baseDir,
+      amlToOwlProgram,
+      reasonerUri,
+      DebugConfig(writeKb, outputPathAmlsecKb, writePerformanceReport, outputPathPerformanceReport),
+      FusekiConfig(fusekiUri, fusekiDbPath),
+      AmlConfig(amlFilePath, amlOntFilePath, amlNsOnt, amlNsImp),
+      OntConfig(secOntFilePath, secOntNs),
+      OntConfig(icsSecOntFilePath, icsSecOntNs),
+      OntConfig(agOntFilePath, agOntNs),
+      engValFilePath,
+      secFilePath,
       outputPathEngValReport,
       outputPathSecValReport,
       AGConfig(agFullPath, agPrunedPath, agShortestPath)

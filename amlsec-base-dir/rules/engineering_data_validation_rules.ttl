@@ -1,0 +1,145 @@
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh:    <http://www.w3.org/ns/shacl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix amlImp: <http://www.ipr.kit.edu/aml_importer#>
+@prefix amlOnt: <http://www.ipr.kit.edu/aml_ontology#>
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+
+# Check whether individuals with class Link have hasRefPartnerSideA and hasRefPartnerSideB object properties
+amlImp:LinkHasRefPartnerSides
+    a sh:NodeShape ;
+    sh:targetClass amlImp:Link ;
+    sh:message "Individuals with class Link must have a hasRefPartnerSideA and a hasRefPartnerSideB." ;
+    sh:property [
+        sh:path amlOnt:hasRefPartnerSideA ;
+        sh:minCount 2 ;
+    ] ;
+    sh:property [
+        sh:path amlOnt:hasRefPartnerSideB ;
+        sh:minCount 2 ;
+    ] .
+
+
+# Check whether individuals that are not with class Link have hasRefPartnerSideA and hasRefPartnerSideB object properties
+amlImp:NotLinkHasRefPartnerSides
+    a sh:NodeShape ;
+    sh:message "Object property 'hasRefPartnerSideA/B' is only applicable to individuals with class Link." ;
+    sh:targetSubjectsOf amlOnt:hasRefPartnerSideA ;
+    sh:targetSubjectsOf amlOnt:hasRefPartnerSideB ;
+    sh:class amlImp:Link .
+
+# Check whether individuals that are not with class PLCProgram have hasCopyProtection/hasKnowHowProtection data properties
+amlImp:NotPLCProgramHasCopyKnowHowProtection
+    a sh:NodeShape ;
+    sh:message "Data property 'hasCopyProtection/hasKnowHowProtection' is only applicable to individuals with class PLCProgram." ;
+    sh:targetSubjectsOf amlImp:hasCopyProtection ;
+    sh:targetSubjectsOf amlImp:hasKnowHowProtection ;
+    sh:class amlImp:PLCProgram .
+
+# Check whether there are non PLC individuals that have 'hasIE' --> 'PLCProgram'
+amlImp:NotPLCHasIEPLCProgram
+    a sh:NodeShape ;
+    sh:targetClass amlImp:PLCProgram ;
+    sh:message "Object property 'hasIE' --> 'PLCProgram' is only applicable to individuals with class PLC." ;
+    sh:property [
+            sh:path amlOnt:hasIEInv ;
+            sh:class amlImp:PLC ;
+    ] .
+
+# Check whether there are non Host/NetworkDevice/Robot individuals that have 'hasIE' --> 'PortList'
+amlImp:PortListHasIEInv
+    a sh:NodeShape ;
+    sh:targetClass amlImp:PortList ;
+    sh:message "Object property 'hasIE' --> 'PortList' is only applicable to individuals with class Host or NetworkDevice or Robot." ;
+    sh:property [
+            sh:path amlOnt:hasIEInv ;
+            sh:or (
+                    [ sh:class amlImp:Host ]
+                    [ sh:class amlImp:NetworkDevice ]
+                    [ sh:class amlImp:Robot ]
+                )
+    ] .
+
+# Check whether individuals with class Conduit also have class Wire or Wireless
+amlImp:ConduitClassWireOrWireless
+    a sh:NodeShape ;
+    sh:message "Individual with class Conduit must also be a subclass of Wire or Wireless." ;
+    sh:targetClass amlImp:Conduit ;
+    sh:or (
+        [ sh:class amlImp:Wire ]
+        [ sh:class amlImp:Wireless ]
+    ) .
+
+# Check whether individuals with class Ethernet have also two 'hasEI' --> 'EthernetPlug'
+amlImp:EthernetWirePlugs
+    a sh:NodeShape ;
+    sh:message "Individual with class EthernetWire must have min./max. 2 'hasEI' --> 'EthernetPlug' individuals." ;
+    sh:targetClass amlImp:EthernetWire ;
+        sh:property [
+                sh:path amlOnt:hasEI ;
+                sh:class amlImp:EthernetPlug ;
+                sh:minCount 2 ;
+                sh:maxCount 2 ;
+        ] .
+
+# Check whether individuals with class WirelessConnection have also two 'hasEI' --> 'WirelessPlug'
+amlImp:WirelessConnectionPlugs
+    a sh:NodeShape ;
+    sh:message "Individual with class WirelessConnection must have min./max. 2 'hasEI' --> 'WirelessPlug' individuals." ;
+    sh:targetClass amlImp:WirelessConnection ;
+        sh:property [
+                sh:path amlOnt:hasEI ;
+                sh:class amlImp:WirelessPlug ;
+                sh:minCount 2 ;
+                sh:maxCount 2 ;
+        ] .
+
+# Check whether individuals with class MotorWire have also two 'hasEI' --> 'MotorPlug'
+amlImp:MotorConnectionPlugs
+    a sh:NodeShape ;
+    sh:message "Individual with class MotorWire must have min./max. 2 'hasEI' --> 'MotorPlug' individuals." ;
+    sh:targetClass amlImp:MotorWire ;
+        sh:property [
+                sh:path amlOnt:hasEI ;
+                sh:class amlImp:MotorPlug ;
+                sh:minCount 2 ;
+                sh:maxCount 2 ;
+        ] .
+
+# Check whether individuals with class DataWire have also two 'hasEI' --> 'DataPlug'
+amlImp:DataConnectionPlugs
+    a sh:NodeShape ;
+    sh:message "Individual with class DataWire must have min./max. 2 'hasEI' --> 'DataPlug' individuals." ;
+    sh:targetClass amlImp:DataWire ;
+        sh:property [
+                sh:path amlOnt:hasEI ;
+                sh:class amlImp:DataPlug ;
+                sh:minCount 2 ;
+                sh:maxCount 2 ;
+        ] .
+
+# Check whether individuals with class PortList have also 'hasEI' --> 'EthernetSocket' or 'WirelessInterface' or 'MotorSocket' or 'DataSocket'
+amlImp:PortListEIs
+    a sh:NodeShape ;
+    sh:message "Individual with class PortList must have 'hasEI' --> 'EthernetSocket' or 'WirelessInterface' or 'MotorSocket' or 'DataSocket' individuals." ;
+    sh:targetClass amlImp:PortList ;
+        sh:property [
+                sh:path amlOnt:hasEI ;
+                sh:or (
+                    [ sh:class amlImp:EthernetSocket ]
+                    [ sh:class amlImp:WirelessInterface ]
+                    [ sh:class amlImp:MotorSocket ]
+                    [ sh:class amlImp:DataSocket ]
+                )
+        ] .
+
+# Check whether individuals with class LogicalPortList have also 'hasEI' --> 'LogicalEndpoint'
+amlImp:LogicalPortListEIs
+    a sh:NodeShape ;
+    sh:message "Individual with class LogicalPortList must have 'hasEI' --> 'LogicalEndpoint' individuals." ;
+    sh:targetClass amlImp:LogicalPortList ;
+        sh:property [
+                sh:path amlOnt:hasEI ;
+                sh:class amlImp:LogicalEndpoint
+        ] .

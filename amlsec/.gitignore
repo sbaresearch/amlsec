@@ -37,7 +37,7 @@ build/*.jar
 develop-eggs/
 dist/
 eggs/
-lib/
+test/
 lib64/
 parts/
 sdist/
@@ -100,7 +100,7 @@ build/
 develop-eggs/
 dist/
 eggs/
-lib/
+test/
 lib64/
 parts/
 sdist/
@@ -157,6 +157,5 @@ out
 # Python
 venv
 
-# OWL / Test
+# Protege 
 **/catalog-v001.xml
-test.owl

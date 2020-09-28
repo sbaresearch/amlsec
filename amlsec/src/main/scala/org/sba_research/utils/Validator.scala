@@ -38,10 +38,10 @@ object Validator {
 
   val logger = Logger(getClass)
 
-  // var classesCache: Option[ClassesCache] = None
-
+  @Deprecated
   def validate(ontModels: OntModels, shapesModelPath: String, reportPath: Option[String], reasonerUri: String): ValidationReport = {
-    val infModel = OntModelUtils.getInfModel(ontModels.aml, reasonerUri)
+    val amlModel = ontModels.aml.getOrElse(throw new IllegalStateException("Could not obtain AutomationML model. Path to corresponding OWL file may be wrong."))
+    val infModel = OntModelUtils.getInfModel(amlModel, reasonerUri)
     validateUsingValidationUtil(infModel = infModel, shapesModelPath = shapesModelPath, reportPath)
   }
 

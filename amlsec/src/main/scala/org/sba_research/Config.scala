@@ -17,7 +17,7 @@ case class Config(baseDir: String,
                   outputPathSecValReport: String,
                   agConfig: AGConfig)
 
-case class AmlConfig(filePath: String, ontFilePath: String, nsOnt: String, nsImp: String)
+case class AmlConfig(filePath: String, ontFilePath: Option[String], nsOnt: String, nsImp: String)
 
 case class OntConfig(filePath: String, ns: String)
 
@@ -49,7 +49,7 @@ object Config {
     val outputPathPerformanceReport = conf.getString("debug.performance.outputPathPerformanceReport")
 
     val amlFilePath = conf.getString("aml.filePath")
-    val amlOntFilePath = conf.getString("aml.ontFilePath")
+    val amlOntFilePath = if (conf.hasPath("aml.ontFilePath")) Some(conf.getString("aml.ontFilePath")) else None
     val amlNsOnt = conf.getString("aml.nsOnt")
     val amlNsImp = conf.getString("aml.nsImp")
 

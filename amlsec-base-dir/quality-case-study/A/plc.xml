@@ -1,0 +1,1775 @@
+<?xml version='1.0' encoding='utf-8'?>
+<project xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.plcopen.org/xml/tc6_0201" xsi:schemaLocation="http://www.plcopen.org/xml/tc6_0201 tc6_xml_v201.xsd">
+  <fileHeader companyName="AutomationML" productName="AutomationML" productVersion="AutomationML" creationDateTime="2017-02-14T12:09:57" companyURL="AutomationML" productRelease="AutomationML"/>
+  <contentHeader name="AutomationML" language="en-US" author="AutomationML" version="AutomationML" organization="AutomationML" modificationDateTime="2021-10-02T22:10:29">
+    <coordinateInfo>
+      <fbd>
+        <scaling x="0" y="0"/>
+      </fbd>
+      <ld>
+        <scaling x="0" y="0"/>
+      </ld>
+      <sfc>
+        <scaling x="0" y="0"/>
+      </sfc>
+    </coordinateInfo>
+    <addDataInfo>
+      <info name="http://www.automationml.org/IEC62714-4Ed1/AML_addData.xsd" vendor="AutomationML">
+        <description>
+          <xhtml:p>Schema to integrate logic model specific information required by AML.</xhtml:p>
+        </description>
+      </info>
+    </addDataInfo>
+  </contentHeader>
+  <types>
+    <dataTypes/>
+    <pous>
+      <pou name="Sequencing_Station_ActivityOnNodeNetwork" pouType="program" globalId="UUID_001">
+        <interface>
+          <localVars>
+            <variable name="TA_030RB_300_takes_over_good">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="TA_005RB_002_positions_workpiece1">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="TA_005RB_001_takes_over_workpiece1">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="TA_004CT_001_execute_trimming">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="TA_003RB_002_positions_workpiece1">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="TA_001RB_001_takes_over_blank">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="TA_001RB_002_positions_blank">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="TA_030GST100_declamps_good">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="TA_Execute_manufacturing_030RB_200">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="TA_Execute_manufacturing_030RB_100">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="TA_030GST100_clamps_goods">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="TA_010RB_100_positions_workpiece1">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="TA_010RB_100_takes_over_workpiece1">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="TA_002DDP_001_execute_forming">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="TA_003RB_001_takes_over_workpiece1">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="TA_006CMM_001_execute_cmm">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="TA_007RB_001_takes_over_hinge_reinforcement">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="TA_007RB_001_positions_hinge_reinforcement">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="TA_030RB_300_positions_good">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="TA_010UT_001_execute_inspection">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+          </localVars>
+        </interface>
+        <actions>
+          <action name="DA_010RB_100_takes_over_workpiece1">
+            <body>
+              <ST>
+                <xhtml:p><![CDATA[]]></xhtml:p>
+              </ST>
+            </body>
+          </action>
+          <action name="TA_010RB_100_takes_over_workpiece1">
+            <body>
+              <ST>
+                <xhtml:p><![CDATA[TA_010RB_100_takes_over_workpiece1 := TRUE;]]></xhtml:p>
+              </ST>
+            </body>
+          </action>
+          <action name="DA_010RB_100_positions_goods">
+            <body>
+              <ST>
+                <xhtml:p><![CDATA[]]></xhtml:p>
+              </ST>
+            </body>
+          </action>
+          <action name="TA_010RB_100_positions_workpiece1">
+            <body>
+              <ST>
+                <xhtml:p><![CDATA[TA_010RB_100_positions_workpiece1 := TRUE;]]></xhtml:p>
+              </ST>
+            </body>
+          </action>
+          <action name="DA_030GST100_clamps_goods">
+            <body>
+              <ST>
+                <xhtml:p><![CDATA[]]></xhtml:p>
+              </ST>
+            </body>
+          </action>
+          <action name="TA_030GST100_clamps_goods">
+            <body>
+              <ST>
+                <xhtml:p><![CDATA[TA_030GST100_clamps_goods := TRUE;]]></xhtml:p>
+              </ST>
+            </body>
+          </action>
+          <action name="DA_Execute_manufacturing_030RB_100">
+            <body>
+              <ST>
+                <xhtml:p><![CDATA[]]></xhtml:p>
+              </ST>
+            </body>
+          </action>
+          <action name="TA_Execute_manufacturing_030RB_100">
+            <body>
+              <ST>
+                <xhtml:p><![CDATA[TA_EXECUTE_MANUFACTURING_030RB_100 := TRUE;]]></xhtml:p>
+              </ST>
+            </body>
+          </action>
+          <action name="DA_Execute_manufacturing_030RB_200">
+            <body>
+              <ST>
+                <xhtml:p><![CDATA[]]></xhtml:p>
+              </ST>
+            </body>
+          </action>
+          <action name="TA_Execute_manufacturing_030RB_200">
+            <body>
+              <ST>
+                <xhtml:p><![CDATA[TA_EXECUTE_MANUFACTURING_030RB_200 := TRUE;]]></xhtml:p>
+              </ST>
+            </body>
+          </action>
+          <action name="DA_030GST100_declamps_good">
+            <body>
+              <ST>
+                <xhtml:p><![CDATA[]]></xhtml:p>
+              </ST>
+            </body>
+          </action>
+          <action name="TA_030GST100_declamps_good">
+            <body>
+              <ST>
+                <xhtml:p><![CDATA[TA_030GST100_DECLAMPS_GOOD := TRUE;]]></xhtml:p>
+              </ST>
+            </body>
+          </action>
+          <action name="DA_030RB_300_takes_over_good">
+            <body>
+              <ST>
+                <xhtml:p><![CDATA[]]></xhtml:p>
+              </ST>
+            </body>
+          </action>
+          <action name="TA_030RB_300_takes_over_good">
+            <body>
+              <ST>
+                <xhtml:p><![CDATA[TA_030RB_300_TAKES_OVER_GOOD := TRUE;]]></xhtml:p>
+              </ST>
+            </body>
+          </action>
+          <action name="TA_RESET">
+            <body>
+              <ST>
+                <xhtml:p><![CDATA[TA_010RB_100_takes_over_workpiece1 := FALSE;
+TA_010RB_100_positions_workpiece1 := FALSE;
+TA_EXECUTE_MANUFACTURING_030RB_100 := FALSE;
+TA_EXECUTE_MANUFACTURING_030RB_200 := FALSE;
+TA_030GST100_clamps_goods := FALSE;
+TA_030GST100_DECLAMPS_GOOD := FALSE;
+TA_030RB_300_TAKES_OVER_GOOD := FALSE;]]></xhtml:p>
+              </ST>
+            </body>
+          </action>
+          <action name="TA_001RB_001_takes_over_blank">
+            <body>
+              <ST>
+                <xhtml:p><![CDATA[TA_001RB_001_takes_over_blank := TRUE;]]></xhtml:p>
+              </ST>
+            </body>
+          </action>
+          <action name="TA_001RB_002_positions_blank">
+            <body>
+              <ST>
+                <xhtml:p><![CDATA[TA_001RB_002_positions_blank := TRUE;]]></xhtml:p>
+              </ST>
+            </body>
+          </action>
+          <action name="TA_002DDP_001_execute_forming">
+            <body>
+              <ST>
+                <xhtml:p><![CDATA[TA_002DDP_001_execute_forming := TRUE;
+]]></xhtml:p>
+              </ST>
+            </body>
+          </action>
+          <action name="TA_003RB_001_takes_over_workpiece1">
+            <body>
+              <ST>
+                <xhtml:p><![CDATA[TA_003RB_001_takes_over_workpiece1 := TRUE;]]></xhtml:p>
+              </ST>
+            </body>
+          </action>
+          <action name="TA_003RB_002_positions_workpiece1">
+            <body>
+              <ST>
+                <xhtml:p><![CDATA[TA_003RB_002_positions_workpiece1 := TRUE;]]></xhtml:p>
+              </ST>
+            </body>
+          </action>
+          <action name="TA_004CT_001_execute_trimming">
+            <body>
+              <ST>
+                <xhtml:p><![CDATA[TA_004CT_001_EXECUTE_TRIMMING := TRUE;]]></xhtml:p>
+              </ST>
+            </body>
+          </action>
+          <action name="TA_005RB_001_takes_over_workpiece1">
+            <body>
+              <ST>
+                <xhtml:p><![CDATA[TA_005RB_001_takes_over_workpiece1 := TRUE;]]></xhtml:p>
+              </ST>
+            </body>
+          </action>
+          <action name="TA_005RB_002_positions_workpiece1">
+            <body>
+              <ST>
+                <xhtml:p><![CDATA[TA_005RB_002_positions_workpiece1 := TRUE;]]></xhtml:p>
+              </ST>
+            </body>
+          </action>
+          <action name="TA_006CMM_001_execute_cmm">
+            <body>
+              <ST>
+                <xhtml:p><![CDATA[TA_006CMM_001_execute_cmm := TRUE;]]></xhtml:p>
+              </ST>
+            </body>
+          </action>
+          <action name="TA_007RB_001_takes_over_hinge_reinforcement">
+            <body>
+              <ST>
+                <xhtml:p><![CDATA[TA_007RB_001_TAKES_OVER_HINGE_REINFORCEMENT := TRUE;]]></xhtml:p>
+              </ST>
+            </body>
+          </action>
+          <action name="TA_007RB_001_positions_hinge_reinforcement">
+            <body>
+              <ST>
+                <xhtml:p><![CDATA[TA_007RB_001_POSITIONS_HINGE_REINFORCEMENT := TRUE;]]></xhtml:p>
+              </ST>
+            </body>
+          </action>
+          <action name="TA_030RB_300_positions_good">
+            <body>
+              <ST>
+                <xhtml:p><![CDATA[TA_030RB_300_positions_good := TRUE;]]></xhtml:p>
+              </ST>
+            </body>
+          </action>
+          <action name="TA_010UT_001_execute_inspection">
+            <body>
+              <ST>
+                <xhtml:p><![CDATA[TA_010UT_001_execute_inspection := TRUE;]]></xhtml:p>
+              </ST>
+            </body>
+          </action>
+        </actions>
+        <transitions>
+          <transition name="transition_TRUE">
+            <body>
+              <ST>
+                <xhtml:p><![CDATA[:=TRUE;]]></xhtml:p>
+              </ST>
+            </body>
+          </transition>
+          <transition name="transition_TRUE2">
+            <body>
+              <ST>
+                <xhtml:p><![CDATA[:=TRUE;]]></xhtml:p>
+              </ST>
+            </body>
+          </transition>
+          <transition name="T_010RB_100_positions_goods">
+            <body>
+              <ST>
+                <xhtml:p><![CDATA[:= TA_010RB_100_positions_workpiece1;]]></xhtml:p>
+              </ST>
+            </body>
+          </transition>
+          <transition name="T_030GST100_clamps_goods">
+            <body>
+              <ST>
+                <xhtml:p><![CDATA[:= TA_030GST100_clamps_goods;]]></xhtml:p>
+              </ST>
+            </body>
+          </transition>
+          <transition name="T_Execute_manufacturing_030RB_100">
+            <body>
+              <ST>
+                <xhtml:p><![CDATA[:= TA_Execute_manufacturing_030RB_100;]]></xhtml:p>
+              </ST>
+            </body>
+          </transition>
+          <transition name="T_Execute_manufacturing_030RB_200">
+            <body>
+              <ST>
+                <xhtml:p><![CDATA[:= TA_Execute_manufacturing_030RB_200;]]></xhtml:p>
+              </ST>
+            </body>
+          </transition>
+          <transition name="T_030GST100_declamps_good">
+            <body>
+              <ST>
+                <xhtml:p><![CDATA[:= TA_030GST100_declamps_good;]]></xhtml:p>
+              </ST>
+            </body>
+          </transition>
+          <transition name="T_030RB_300_takes_over_good">
+            <body>
+              <ST>
+                <xhtml:p><![CDATA[:= TA_030RB_300_takes_over_good;]]></xhtml:p>
+              </ST>
+            </body>
+          </transition>
+          <transition name="T_001RB_001_takes_over_blank">
+            <body>
+              <ST>
+                <xhtml:p><![CDATA[:= TA_001RB_001_takes_over_blank;]]></xhtml:p>
+              </ST>
+            </body>
+          </transition>
+          <transition name="T_001RB_002_positions_blank">
+            <body>
+              <ST>
+                <xhtml:p><![CDATA[:= TA_001RB_002_positions_blank;]]></xhtml:p>
+              </ST>
+            </body>
+          </transition>
+          <transition name="T_002DDP_001_execute_forming">
+            <body>
+              <ST>
+                <xhtml:p><![CDATA[:= TA_002DDP_001_EXECUTE_FORMING;]]></xhtml:p>
+              </ST>
+            </body>
+          </transition>
+          <transition name="T_003RB_001_takes_over_workpiece1">
+            <body>
+              <ST>
+                <xhtml:p><![CDATA[:= TA_003RB_001_takes_over_workpiece1;]]></xhtml:p>
+              </ST>
+            </body>
+          </transition>
+          <transition name="T_003RB_002_positions_workpiece1">
+            <body>
+              <ST>
+                <xhtml:p><![CDATA[:= TA_003RB_002_positions_workpiece1;]]></xhtml:p>
+              </ST>
+            </body>
+          </transition>
+          <transition name="T_004CT_001_execute_trimming">
+            <body>
+              <ST>
+                <xhtml:p><![CDATA[:= TA_004CT_001_execute_trimming;]]></xhtml:p>
+              </ST>
+            </body>
+          </transition>
+          <transition name="T_005RB_001_takes_over_workpiece1">
+            <body>
+              <ST>
+                <xhtml:p><![CDATA[:= TA_005RB_001_takes_over_workpiece1;]]></xhtml:p>
+              </ST>
+            </body>
+          </transition>
+          <transition name="T_005RB_002_positions_workpiece1">
+            <body>
+              <ST>
+                <xhtml:p><![CDATA[:= TA_005RB_002_positions_workpiece1;]]></xhtml:p>
+              </ST>
+            </body>
+          </transition>
+          <transition name="T_006CMM_001_execute_cmm">
+            <body>
+              <ST>
+                <xhtml:p><![CDATA[:= TA_006CMM_001_execute_cmm;]]></xhtml:p>
+              </ST>
+            </body>
+          </transition>
+          <transition name="T_010RB_100_positions_workpiece1">
+            <body>
+              <ST>
+                <xhtml:p><![CDATA[:= TA_010RB_100_positions_workpiece1;]]></xhtml:p>
+              </ST>
+            </body>
+          </transition>
+          <transition name="T_010RB_100_takes_over_workpiece1">
+            <body>
+              <ST>
+                <xhtml:p><![CDATA[:= TA_010RB_100_TAKES_OVER_WORKPIECE1;]]></xhtml:p>
+              </ST>
+            </body>
+          </transition>
+          <transition name="T_007RB_001_takes_over_hinge_reinforcement">
+            <body>
+              <ST>
+                <xhtml:p><![CDATA[:= TA_007RB_001_TAKES_OVER_HINGE_REINFORCEMENT;]]></xhtml:p>
+              </ST>
+            </body>
+          </transition>
+          <transition name="T_030RB_300_positions_good">
+            <body>
+              <ST>
+                <xhtml:p><![CDATA[:= TA_030RB_300_POSITIONS_GOOD;]]></xhtml:p>
+              </ST>
+            </body>
+          </transition>
+          <transition name="T_010UT_001_execute_inspection">
+            <body>
+              <ST>
+                <xhtml:p><![CDATA[:= TA_010UT_001_execute_inspection;]]></xhtml:p>
+              </ST>
+            </body>
+          </transition>
+        </transitions>
+        <body>
+          <SFC>
+            <step localId="1" name="InitialStep_ActivityOnNodeNetwork" initialStep="true" height="31" width="278" globalId="UUID_002">
+              <position x="404" y="54"/>
+              <connectionPointOut formalParameter="">
+                <relPosition x="139" y="31"/>
+              </connectionPointOut>
+            </step>
+            <step localId="2" name="Step_010RB_100_takes_over_workpiece1" initialStep="false" height="27" width="298" globalId="UUID_003">
+              <position x="720" y="1006"/>
+              <connectionPointIn>
+                <relPosition x="149" y="0"/>
+                <connection refLocalId="62">
+                  <position x="869" y="1006"/>
+                  <position x="869" y="993"/>
+                  <position x="699" y="993"/>
+                  <position x="699" y="997"/>
+                  <position x="566" y="997"/>
+                  <position x="566" y="987"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut formalParameter="">
+                <relPosition x="149" y="27"/>
+              </connectionPointOut>
+              <connectionPointOutAction formalParameter="">
+                <relPosition x="298" y="13"/>
+              </connectionPointOutAction>
+            </step>
+            <step localId="3" name="Step_010RB_100_positions_workpiece1" initialStep="false" height="27" width="290" globalId="UUID_004">
+              <position x="722" y="1086"/>
+              <connectionPointIn>
+                <relPosition x="145" y="0"/>
+                <connection refLocalId="65">
+                  <position x="867" y="1086"/>
+                  <position x="867" y="1072"/>
+                  <position x="875" y="1072"/>
+                  <position x="875" y="1059"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut formalParameter="">
+                <relPosition x="145" y="27"/>
+              </connectionPointOut>
+              <connectionPointOutAction formalParameter="">
+                <relPosition x="290" y="13"/>
+              </connectionPointOutAction>
+            </step>
+            <step localId="4" name="Step_030GST100_clamps_goods" initialStep="false" height="27" width="226" globalId="UUID_005">
+              <position x="525" y="1314"/>
+              <connectionPointIn>
+                <relPosition x="113" y="0"/>
+                <connection refLocalId="23">
+                  <position x="638" y="1314"/>
+                  <position x="638" y="1280"/>
+                  <position x="635" y="1280"/>
+                  <position x="635" y="1246"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut formalParameter="">
+                <relPosition x="113" y="27"/>
+              </connectionPointOut>
+              <connectionPointOutAction formalParameter="">
+                <relPosition x="226" y="13"/>
+              </connectionPointOutAction>
+            </step>
+            <step localId="5" name="Step_Execute_manufacturing_030RB_100" initialStep="false" height="27" width="298" globalId="UUID_006">
+              <position x="141" y="1540"/>
+              <connectionPointIn>
+                <relPosition x="149" y="0"/>
+                <connection refLocalId="18">
+                  <position x="290" y="1540"/>
+                  <position x="290" y="1512"/>
+                  <position x="588" y="1512"/>
+                  <position x="588" y="1403"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut formalParameter="">
+                <relPosition x="149" y="27"/>
+              </connectionPointOut>
+              <connectionPointOutAction formalParameter="">
+                <relPosition x="298" y="13"/>
+              </connectionPointOutAction>
+            </step>
+            <step localId="7" name="Step_Execute_manufacturing_030RB_200" initialStep="false" height="27" width="298" globalId="UUID_007">
+              <position x="680" y="1460"/>
+              <connectionPointIn>
+                <relPosition x="149" y="0"/>
+                <connection refLocalId="18">
+                  <position x="829" y="1460"/>
+                  <position x="829" y="1431"/>
+                  <position x="628" y="1431"/>
+                  <position x="628" y="1403"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut formalParameter="">
+                <relPosition x="149" y="27"/>
+              </connectionPointOut>
+              <connectionPointOutAction formalParameter="">
+                <relPosition x="298" y="13"/>
+              </connectionPointOutAction>
+            </step>
+            <step localId="9" name="Step_030RB_300_takes_over_good" initialStep="false" height="27" width="250" globalId="UUID_009">
+              <position x="585" y="1947"/>
+              <connectionPointIn>
+                <relPosition x="125" y="0"/>
+                <connection refLocalId="22">
+                  <position x="710" y="1947"/>
+                  <position x="710" y="1871"/>
+                  <position x="693" y="1871"/>
+                  <position x="693" y="1795"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut formalParameter="">
+                <relPosition x="125" y="27"/>
+              </connectionPointOut>
+              <connectionPointOutAction formalParameter="">
+                <relPosition x="250" y="13"/>
+              </connectionPointOutAction>
+            </step>
+            <actionBlock localId="11" height="44" width="324">
+              <position x="1044" y="1004"/>
+              <connectionPointIn>
+                <relPosition x="0" y="15"/>
+                <connection refLocalId="2">
+                  <position x="1044" y="1019"/>
+                  <position x="1018" y="1019"/>
+                </connection>
+              </connectionPointIn>
+              <action localId="0" qualifier="SD" duration="T#3s">
+                <relPosition x="0" y="0"/>
+                <reference name="TA_010RB_100_takes_over_workpiece1"/>
+              </action>
+            </actionBlock>
+            <actionBlock localId="6" height="44" width="316" executionOrderId="0">
+              <position x="1056" y="1105"/>
+              <connectionPointIn>
+                <relPosition x="0" y="15"/>
+                <connection refLocalId="3">
+                  <position x="1056" y="1120"/>
+                  <position x="1039" y="1120"/>
+                  <position x="1039" y="1099"/>
+                  <position x="1012" y="1099"/>
+                </connection>
+              </connectionPointIn>
+              <action localId="0" qualifier="SD" duration="T#4s">
+                <relPosition x="0" y="0"/>
+                <reference name="TA_010RB_100_positions_workpiece1"/>
+              </action>
+            </actionBlock>
+            <actionBlock localId="12" height="44" width="252" executionOrderId="0">
+              <position x="784" y="1311"/>
+              <connectionPointIn>
+                <relPosition x="0" y="15"/>
+                <connection refLocalId="4">
+                  <position x="784" y="1326"/>
+                  <position x="765" y="1326"/>
+                  <position x="765" y="1327"/>
+                  <position x="751" y="1327"/>
+                </connection>
+              </connectionPointIn>
+              <action localId="0" qualifier="SD" duration="T#1s">
+                <relPosition x="0" y="0"/>
+                <reference name="TA_030GST100_clamps_goods"/>
+              </action>
+            </actionBlock>
+            <actionBlock localId="14" height="44" width="324" executionOrderId="0">
+              <position x="1050" y="1417"/>
+              <connectionPointIn>
+                <relPosition x="0" y="15"/>
+                <connection refLocalId="7">
+                  <position x="1050" y="1432"/>
+                  <position x="1023" y="1432"/>
+                  <position x="1023" y="1471"/>
+                  <position x="988" y="1471"/>
+                  <position x="988" y="1473"/>
+                  <position x="978" y="1473"/>
+                </connection>
+              </connectionPointIn>
+              <action localId="0" qualifier="SD" duration="T#8s">
+                <relPosition x="0" y="0"/>
+                <reference name="TA_Execute_manufacturing_030RB_200"/>
+              </action>
+            </actionBlock>
+            <actionBlock localId="15" height="44" width="332" executionOrderId="0">
+              <position x="130" y="1440"/>
+              <connectionPointIn>
+                <relPosition x="0" y="15"/>
+                <connection refLocalId="5">
+                  <position x="130" y="1455"/>
+                  <position x="0" y="1455"/>
+                  <position x="0" y="1500"/>
+                  <position x="469" y="1500"/>
+                  <position x="469" y="1553"/>
+                  <position x="439" y="1553"/>
+                </connection>
+              </connectionPointIn>
+              <action localId="0" qualifier="SD" duration="T#10s">
+                <relPosition x="0" y="0"/>
+                <reference name="TA_Execute_manufacturing_030RB_100"/>
+              </action>
+            </actionBlock>
+            <actionBlock localId="16" height="44" width="276" executionOrderId="0">
+              <position x="945" y="1946"/>
+              <connectionPointIn>
+                <relPosition x="0" y="15"/>
+                <connection refLocalId="9">
+                  <position x="945" y="1961"/>
+                  <position x="890" y="1961"/>
+                  <position x="890" y="1960"/>
+                  <position x="835" y="1960"/>
+                </connection>
+              </connectionPointIn>
+              <action localId="0" qualifier="SD" duration="T#3s">
+                <relPosition x="0" y="0"/>
+                <reference name="TA_030RB_300_takes_over_good"/>
+              </action>
+            </actionBlock>
+            <step localId="17" name="TerminalStep" initialStep="false" height="27" width="106" globalId="UUID_025">
+              <position x="618" y="2219"/>
+              <connectionPointIn>
+                <relPosition x="53" y="0"/>
+                <connection refLocalId="74">
+                  <position x="671" y="2219"/>
+                  <position x="671" y="2199"/>
+                  <position x="673" y="2199"/>
+                  <position x="673" y="2179"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut formalParameter="">
+                <relPosition x="53" y="27"/>
+              </connectionPointOut>
+              <connectionPointOutAction formalParameter="">
+                <relPosition x="106" y="13"/>
+              </connectionPointOutAction>
+              <addData>
+                <data name="http://www.automationml.org/IEC62714-4Ed1/AML_addData.xsd" handleUnknown="implementation">
+                  <AML>
+                    <StateStatus Current="false" ID="UUID_102" Terminal="true"/>
+                  </AML>
+                </data>
+              </addData>
+            </step>
+            <simultaneousDivergence localId="18" height="3" width="40" globalId="UUID_026">
+              <position x="588" y="1400"/>
+              <connectionPointIn>
+                <relPosition x="20" y="0"/>
+                <connection refLocalId="25">
+                  <position x="608" y="1400"/>
+                  <position x="608" y="1369"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut formalParameter="">
+                <relPosition x="0" y="3"/>
+              </connectionPointOut>
+              <connectionPointOut formalParameter="">
+                <relPosition x="40" y="3"/>
+              </connectionPointOut>
+            </simultaneousDivergence>
+            <step localId="19" name="Sys_Step_030GST100_declamps_good1" initialStep="false" height="27" width="274" globalId="UUID_027">
+              <position x="312" y="1657"/>
+              <connectionPointIn>
+                <relPosition x="137" y="0"/>
+                <connection refLocalId="26">
+                  <position x="449" y="1657"/>
+                  <position x="449" y="1637"/>
+                  <position x="408" y="1637"/>
+                  <position x="408" y="1617"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut formalParameter="">
+                <relPosition x="137" y="27"/>
+              </connectionPointOut>
+            </step>
+            <step localId="20" name="Sys_Step_030GST100_declamps_good2" initialStep="false" height="27" width="274" globalId="UUID_028">
+              <position x="775" y="1672"/>
+              <connectionPointIn>
+                <relPosition x="137" y="0"/>
+                <connection refLocalId="27">
+                  <position x="912" y="1672"/>
+                  <position x="912" y="1649"/>
+                  <position x="878" y="1649"/>
+                  <position x="878" y="1630"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut formalParameter="">
+                <relPosition x="137" y="27"/>
+              </connectionPointOut>
+            </step>
+            <simultaneousConvergence localId="21" height="3" width="40" globalId="UUID_029">
+              <position x="674" y="1752"/>
+              <connectionPointIn>
+                <relPosition x="0" y="0"/>
+                <connection refLocalId="19">
+                  <position x="674" y="1752"/>
+                  <position x="674" y="1716"/>
+                  <position x="449" y="1716"/>
+                  <position x="449" y="1684"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointIn>
+                <relPosition x="40" y="0"/>
+                <connection refLocalId="20">
+                  <position x="714" y="1752"/>
+                  <position x="714" y="1722"/>
+                  <position x="912" y="1722"/>
+                  <position x="912" y="1699"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="20" y="3"/>
+              </connectionPointOut>
+            </simultaneousConvergence>
+            <transition localId="22" height="2" width="20" executionOrderId="0" globalId="UUID_030">
+              <position x="683" y="1793"/>
+              <connectionPointIn>
+                <relPosition x="10" y="0"/>
+                <connection refLocalId="21">
+                  <position x="693" y="1793"/>
+                  <position x="693" y="1774"/>
+                  <position x="694" y="1774"/>
+                  <position x="694" y="1755"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="10" y="2"/>
+              </connectionPointOut>
+              <condition>
+                <inline name="">
+                  <ST>
+                    <xhtml:p><![CDATA[TRUE]]></xhtml:p>
+                  </ST>
+                </inline>
+              </condition>
+            </transition>
+            <transition localId="23" height="2" width="20" globalId="UUID_031">
+              <position x="625" y="1244"/>
+              <connectionPointIn>
+                <relPosition x="10" y="0"/>
+                <connection refLocalId="68">
+                  <position x="635" y="1244"/>
+                  <position x="635" y="1198"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="10" y="2"/>
+              </connectionPointOut>
+              <condition>
+                <inline name="">
+                  <ST>
+                    <xhtml:p><![CDATA[TRUE]]></xhtml:p>
+                  </ST>
+                </inline>
+              </condition>
+            </transition>
+            <transition localId="25" height="2" width="20" globalId="UUID_033">
+              <position x="598" y="1367"/>
+              <connectionPointIn>
+                <relPosition x="10" y="0"/>
+                <connection refLocalId="4">
+                  <position x="608" y="1367"/>
+                  <position x="608" y="1352"/>
+                  <position x="638" y="1352"/>
+                  <position x="638" y="1341"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="10" y="2"/>
+              </connectionPointOut>
+              <condition>
+                <reference name="T_030GST100_clamps_goods"/>
+              </condition>
+            </transition>
+            <transition localId="26" height="2" width="20" globalId="UUID_034">
+              <position x="398" y="1615"/>
+              <connectionPointIn>
+                <relPosition x="10" y="0"/>
+                <connection refLocalId="5">
+                  <position x="408" y="1615"/>
+                  <position x="408" y="1588"/>
+                  <position x="290" y="1588"/>
+                  <position x="290" y="1567"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="10" y="2"/>
+              </connectionPointOut>
+              <condition>
+                <reference name="T_Execute_manufacturing_030RB_100"/>
+              </condition>
+            </transition>
+            <transition localId="27" height="2" width="20" globalId="UUID_035">
+              <position x="868" y="1628"/>
+              <connectionPointIn>
+                <relPosition x="10" y="0"/>
+                <connection refLocalId="7">
+                  <position x="878" y="1628"/>
+                  <position x="878" y="1597"/>
+                  <position x="829" y="1597"/>
+                  <position x="829" y="1487"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="10" y="2"/>
+              </connectionPointOut>
+              <condition>
+                <reference name="T_Execute_manufacturing_030RB_200"/>
+              </condition>
+            </transition>
+            <transition localId="29" height="2" width="20" globalId="UUID_037">
+              <position x="666" y="2010"/>
+              <connectionPointIn>
+                <relPosition x="10" y="0"/>
+                <connection refLocalId="9">
+                  <position x="676" y="2010"/>
+                  <position x="676" y="1992"/>
+                  <position x="710" y="1992"/>
+                  <position x="710" y="1974"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="10" y="2"/>
+              </connectionPointOut>
+              <condition>
+                <reference name="T_030RB_300_takes_over_good"/>
+              </condition>
+            </transition>
+            <jumpStep localId="30" targetName="InitialStep_ActivityOnNodeNetwork" height="69" width="27">
+              <position x="657" y="2359"/>
+              <connectionPointIn>
+                <relPosition x="13" y="0"/>
+                <connection refLocalId="31">
+                  <position x="670" y="2359"/>
+                  <position x="670" y="2324"/>
+                </connection>
+              </connectionPointIn>
+            </jumpStep>
+            <transition localId="31" height="39" width="20">
+              <position x="660" y="2285"/>
+              <connectionPointIn>
+                <relPosition x="10" y="0"/>
+                <connection refLocalId="17">
+                  <position x="670" y="2285"/>
+                  <position x="670" y="2268"/>
+                  <position x="671" y="2268"/>
+                  <position x="671" y="2246"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="10" y="39"/>
+              </connectionPointOut>
+              <condition>
+                <inline name="">
+                  <ST>
+                    <xhtml:p><![CDATA[TRUE]]></xhtml:p>
+                  </ST>
+                </inline>
+              </condition>
+            </transition>
+            <actionBlock localId="32" height="462" width="372">
+              <position x="1025" y="2212"/>
+              <connectionPointIn>
+                <relPosition x="0" y="15"/>
+                <connection refLocalId="17">
+                  <position x="1025" y="2227"/>
+                  <position x="776" y="2227"/>
+                  <position x="776" y="2232"/>
+                  <position x="724" y="2232"/>
+                </connection>
+              </connectionPointIn>
+              <action localId="0" qualifier="P">
+                <relPosition x="0" y="0"/>
+                <reference name="TA_RESET"/>
+              </action>
+              <action localId="0" qualifier="R">
+                <relPosition x="0" y="0"/>
+                <reference name="TA_010RB_100_takes_over_workpiece1"/>
+              </action>
+              <action localId="0" qualifier="R">
+                <relPosition x="0" y="0"/>
+                <reference name="TA_010RB_100_positions_workpiece1"/>
+              </action>
+              <action localId="0" qualifier="R">
+                <relPosition x="0" y="0"/>
+                <reference name="TA_030GST100_clamps_goods"/>
+              </action>
+              <action localId="0" qualifier="R">
+                <relPosition x="0" y="0"/>
+                <reference name="TA_Execute_manufacturing_030RB_100"/>
+              </action>
+              <action localId="0" qualifier="R">
+                <relPosition x="0" y="0"/>
+                <reference name="TA_Execute_manufacturing_030RB_200"/>
+              </action>
+              <action localId="0" qualifier="R">
+                <relPosition x="0" y="0"/>
+                <reference name="TA_030GST100_declamps_good"/>
+              </action>
+              <action localId="0" qualifier="R">
+                <relPosition x="0" y="0"/>
+                <reference name="TA_030RB_300_takes_over_good"/>
+              </action>
+              <action localId="0" qualifier="R">
+                <relPosition x="0" y="0"/>
+                <reference name="TA_001RB_001_takes_over_blank"/>
+              </action>
+              <action localId="0" qualifier="R">
+                <relPosition x="0" y="0"/>
+                <reference name="TA_001RB_002_positions_blank"/>
+              </action>
+              <action localId="0" qualifier="R">
+                <relPosition x="0" y="0"/>
+                <reference name="TA_002DDP_001_execute_forming"/>
+              </action>
+              <action localId="0" qualifier="R">
+                <relPosition x="0" y="0"/>
+                <reference name="TA_003RB_001_takes_over_workpiece1"/>
+              </action>
+              <action localId="0" qualifier="R">
+                <relPosition x="0" y="0"/>
+                <reference name="TA_003RB_002_positions_workpiece1"/>
+              </action>
+              <action localId="0" qualifier="R">
+                <relPosition x="0" y="0"/>
+                <reference name="TA_004CT_001_execute_trimming"/>
+              </action>
+              <action localId="0" qualifier="R">
+                <relPosition x="0" y="0"/>
+                <reference name="TA_005RB_001_takes_over_workpiece1"/>
+              </action>
+              <action localId="0" qualifier="R">
+                <relPosition x="0" y="0"/>
+                <reference name="TA_005RB_002_positions_workpiece1"/>
+              </action>
+              <action localId="0" qualifier="R">
+                <relPosition x="0" y="0"/>
+                <reference name="TA_006CMM_001_execute_cmm"/>
+              </action>
+              <action localId="0" qualifier="R">
+                <relPosition x="0" y="0"/>
+                <reference name="TA_007RB_001_takes_over_hinge_reinforcement"/>
+              </action>
+              <action localId="0" qualifier="R">
+                <relPosition x="0" y="0"/>
+                <reference name="TA_007RB_001_positions_hinge_reinforcement"/>
+              </action>
+              <action localId="0" qualifier="R">
+                <relPosition x="0" y="0"/>
+                <reference name="TA_030RB_300_positions_good"/>
+              </action>
+              <action localId="0" qualifier="R">
+                <relPosition x="0" y="0"/>
+                <reference name="TA_010UT_001_execute_inspection"/>
+              </action>
+            </actionBlock>
+            <step localId="33" name="Step_001RB_001_takes_over_blank" initialStep="false" height="27" width="258" globalId="UUID_500">
+              <position x="414" y="151"/>
+              <connectionPointIn>
+                <relPosition x="129" y="0"/>
+                <connection refLocalId="34">
+                  <position x="543" y="151"/>
+                  <position x="543" y="123"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut formalParameter="">
+                <relPosition x="129" y="27"/>
+              </connectionPointOut>
+              <connectionPointOutAction formalParameter="">
+                <relPosition x="258" y="13"/>
+              </connectionPointOutAction>
+            </step>
+            <transition localId="34" height="2" width="20">
+              <position x="533" y="121"/>
+              <connectionPointIn>
+                <relPosition x="10" y="0"/>
+                <connection refLocalId="1">
+                  <position x="543" y="121"/>
+                  <position x="543" y="85"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="10" y="2"/>
+              </connectionPointOut>
+              <condition>
+                <inline name="">
+                  <ST>
+                    <xhtml:p><![CDATA[TRUE]]></xhtml:p>
+                  </ST>
+                </inline>
+              </condition>
+            </transition>
+            <actionBlock localId="35" height="30" width="284">
+              <position x="736" y="149"/>
+              <connectionPointIn>
+                <relPosition x="0" y="15"/>
+                <connection refLocalId="33">
+                  <position x="736" y="164"/>
+                  <position x="672" y="164"/>
+                </connection>
+              </connectionPointIn>
+              <action localId="0" qualifier="SD" duration="T#3s">
+                <relPosition x="0" y="0"/>
+                <reference name="TA_001RB_001_takes_over_blank"/>
+              </action>
+            </actionBlock>
+            <step localId="36" name="Step_001RB_002_positions_blank" initialStep="false" height="27" width="250" globalId="UUID_501">
+              <position x="418" y="248"/>
+              <connectionPointIn>
+                <relPosition x="125" y="0"/>
+                <connection refLocalId="37">
+                  <position x="543" y="248"/>
+                  <position x="543" y="216"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut formalParameter="">
+                <relPosition x="125" y="27"/>
+              </connectionPointOut>
+              <connectionPointOutAction formalParameter="">
+                <relPosition x="250" y="13"/>
+              </connectionPointOutAction>
+            </step>
+            <transition localId="37" height="2" width="20">
+              <position x="533" y="214"/>
+              <connectionPointIn>
+                <relPosition x="10" y="0"/>
+                <connection refLocalId="33">
+                  <position x="543" y="214"/>
+                  <position x="543" y="178"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="10" y="2"/>
+              </connectionPointOut>
+              <condition>
+                <reference name="T_001RB_001_takes_over_blank"/>
+              </condition>
+            </transition>
+            <actionBlock localId="38" height="30" width="276">
+              <position x="778" y="246"/>
+              <connectionPointIn>
+                <relPosition x="0" y="15"/>
+                <connection refLocalId="36">
+                  <position x="778" y="261"/>
+                  <position x="723" y="261"/>
+                  <position x="723" y="259"/>
+                  <position x="706" y="259"/>
+                  <position x="706" y="261"/>
+                  <position x="668" y="261"/>
+                </connection>
+              </connectionPointIn>
+              <action localId="0" qualifier="SD" duration="T#2s">
+                <relPosition x="0" y="0"/>
+                <reference name="TA_001RB_002_positions_blank"/>
+              </action>
+            </actionBlock>
+            <transition localId="39" height="2" width="20">
+              <position x="532" y="307"/>
+              <connectionPointIn>
+                <relPosition x="10" y="0"/>
+                <connection refLocalId="36">
+                  <position x="542" y="307"/>
+                  <position x="542" y="291"/>
+                  <position x="543" y="291"/>
+                  <position x="543" y="275"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="10" y="2"/>
+              </connectionPointOut>
+              <condition>
+                <reference name="T_001RB_002_positions_blank"/>
+              </condition>
+            </transition>
+            <step localId="40" name="Step_002DDP_001_execute_forming" initialStep="false" height="27" width="258" globalId="UUID_502">
+              <position x="413" y="342"/>
+              <connectionPointIn>
+                <relPosition x="129" y="0"/>
+                <connection refLocalId="39">
+                  <position x="542" y="342"/>
+                  <position x="542" y="309"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut formalParameter="">
+                <relPosition x="129" y="27"/>
+              </connectionPointOut>
+              <connectionPointOutAction formalParameter="">
+                <relPosition x="258" y="13"/>
+              </connectionPointOutAction>
+            </step>
+            <actionBlock localId="41" height="30" width="284">
+              <position x="768" y="337"/>
+              <connectionPointIn>
+                <relPosition x="0" y="15"/>
+                <connection refLocalId="40">
+                  <position x="768" y="352"/>
+                  <position x="681" y="352"/>
+                  <position x="681" y="355"/>
+                  <position x="671" y="355"/>
+                </connection>
+              </connectionPointIn>
+              <action localId="0" qualifier="SD" duration="T#6s">
+                <relPosition x="0" y="0"/>
+                <reference name="TA_002DDP_001_execute_forming"/>
+              </action>
+            </actionBlock>
+            <transition localId="42" height="2" width="20">
+              <position x="532" y="398"/>
+              <connectionPointIn>
+                <relPosition x="10" y="0"/>
+                <connection refLocalId="40">
+                  <position x="542" y="398"/>
+                  <position x="542" y="369"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="10" y="2"/>
+              </connectionPointOut>
+              <condition>
+                <reference name="T_002DDP_001_execute_forming"/>
+              </condition>
+            </transition>
+            <step localId="43" name="Step_003RB_001_takes_over_workpiece1" initialStep="false" height="27" width="298" globalId="UUID_503">
+              <position x="392" y="436"/>
+              <connectionPointIn>
+                <relPosition x="149" y="0"/>
+                <connection refLocalId="42">
+                  <position x="541" y="436"/>
+                  <position x="541" y="422"/>
+                  <position x="542" y="422"/>
+                  <position x="542" y="400"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut formalParameter="">
+                <relPosition x="149" y="27"/>
+              </connectionPointOut>
+              <connectionPointOutAction formalParameter="">
+                <relPosition x="298" y="13"/>
+              </connectionPointOutAction>
+            </step>
+            <actionBlock localId="44" height="30" width="324">
+              <position x="765" y="434"/>
+              <connectionPointIn>
+                <relPosition x="0" y="15"/>
+                <connection refLocalId="43">
+                  <position x="765" y="449"/>
+                  <position x="690" y="449"/>
+                </connection>
+              </connectionPointIn>
+              <action localId="0" qualifier="SD" duration="T#4s">
+                <relPosition x="0" y="0"/>
+                <reference name="TA_003RB_001_takes_over_workpiece1"/>
+              </action>
+            </actionBlock>
+            <transition localId="45" height="2" width="20">
+              <position x="531" y="490"/>
+              <connectionPointIn>
+                <relPosition x="10" y="0"/>
+                <connection refLocalId="43">
+                  <position x="541" y="490"/>
+                  <position x="541" y="463"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="10" y="2"/>
+              </connectionPointOut>
+              <condition>
+                <reference name="T_003RB_001_takes_over_workpiece1"/>
+              </condition>
+            </transition>
+            <step localId="46" name="Step_003RB_002_positions_workpiece1" initialStep="false" height="27" width="290" globalId="UUID_504">
+              <position x="396" y="527"/>
+              <connectionPointIn>
+                <relPosition x="145" y="0"/>
+                <connection refLocalId="45">
+                  <position x="541" y="527"/>
+                  <position x="541" y="492"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut formalParameter="">
+                <relPosition x="145" y="27"/>
+              </connectionPointOut>
+              <connectionPointOutAction formalParameter="">
+                <relPosition x="290" y="13"/>
+              </connectionPointOutAction>
+            </step>
+            <actionBlock localId="47" height="30" width="316">
+              <position x="769" y="523"/>
+              <connectionPointIn>
+                <relPosition x="0" y="15"/>
+                <connection refLocalId="46">
+                  <position x="769" y="538"/>
+                  <position x="696" y="538"/>
+                  <position x="696" y="540"/>
+                  <position x="686" y="540"/>
+                </connection>
+              </connectionPointIn>
+              <action localId="0" qualifier="SD" duration="T#2s">
+                <relPosition x="0" y="0"/>
+                <reference name="TA_003RB_002_positions_workpiece1"/>
+              </action>
+            </actionBlock>
+            <transition localId="48" height="2" width="20">
+              <position x="530" y="577"/>
+              <connectionPointIn>
+                <relPosition x="10" y="0"/>
+                <connection refLocalId="46">
+                  <position x="540" y="577"/>
+                  <position x="540" y="564"/>
+                  <position x="541" y="564"/>
+                  <position x="541" y="554"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="10" y="2"/>
+              </connectionPointOut>
+              <condition>
+                <reference name="T_003RB_002_positions_workpiece1"/>
+              </condition>
+            </transition>
+            <step localId="49" name="Step_004CT_001_execute_trimming" initialStep="false" height="27" width="258" globalId="UUID_505">
+              <position x="411" y="612"/>
+              <connectionPointIn>
+                <relPosition x="129" y="0"/>
+                <connection refLocalId="48">
+                  <position x="540" y="612"/>
+                  <position x="540" y="579"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut formalParameter="">
+                <relPosition x="129" y="27"/>
+              </connectionPointOut>
+              <connectionPointOutAction formalParameter="">
+                <relPosition x="258" y="13"/>
+              </connectionPointOutAction>
+            </step>
+            <actionBlock localId="50" height="30" width="284">
+              <position x="740" y="610"/>
+              <connectionPointIn>
+                <relPosition x="0" y="15"/>
+                <connection refLocalId="49">
+                  <position x="740" y="625"/>
+                  <position x="669" y="625"/>
+                </connection>
+              </connectionPointIn>
+              <action localId="0" qualifier="SD" duration="T#3s">
+                <relPosition x="0" y="0"/>
+                <reference name="TA_004CT_001_execute_trimming"/>
+              </action>
+            </actionBlock>
+            <transition localId="51" height="2" width="20">
+              <position x="530" y="662"/>
+              <connectionPointIn>
+                <relPosition x="10" y="0"/>
+                <connection refLocalId="49">
+                  <position x="540" y="662"/>
+                  <position x="540" y="639"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="10" y="2"/>
+              </connectionPointOut>
+              <condition>
+                <reference name="T_004CT_001_execute_trimming"/>
+              </condition>
+            </transition>
+            <step localId="52" name="Step_005RB_001_takes_over_workpiece1" initialStep="false" height="27" width="298" globalId="UUID_506">
+              <position x="384" y="697"/>
+              <connectionPointIn>
+                <relPosition x="149" y="0"/>
+                <connection refLocalId="51">
+                  <position x="533" y="697"/>
+                  <position x="533" y="680"/>
+                  <position x="540" y="680"/>
+                  <position x="540" y="664"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut formalParameter="">
+                <relPosition x="149" y="27"/>
+              </connectionPointOut>
+              <connectionPointOutAction formalParameter="">
+                <relPosition x="298" y="13"/>
+              </connectionPointOutAction>
+            </step>
+            <actionBlock localId="53" height="30" width="324">
+              <position x="749" y="695"/>
+              <connectionPointIn>
+                <relPosition x="0" y="15"/>
+                <connection refLocalId="52">
+                  <position x="749" y="710"/>
+                  <position x="682" y="710"/>
+                </connection>
+              </connectionPointIn>
+              <action localId="0" qualifier="SD" duration="T#2s">
+                <relPosition x="0" y="0"/>
+                <reference name="TA_005RB_001_takes_over_workpiece1"/>
+              </action>
+            </actionBlock>
+            <transition localId="54" height="2" width="20">
+              <position x="523" y="753"/>
+              <connectionPointIn>
+                <relPosition x="10" y="0"/>
+                <connection refLocalId="52">
+                  <position x="533" y="753"/>
+                  <position x="533" y="724"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="10" y="2"/>
+              </connectionPointOut>
+              <condition>
+                <reference name="T_005RB_001_takes_over_workpiece1"/>
+              </condition>
+            </transition>
+            <step localId="55" name="Step_005RB_002_positions_workpiece1" initialStep="false" height="27" width="290" globalId="UUID_507">
+              <position x="389" y="790"/>
+              <connectionPointIn>
+                <relPosition x="145" y="0"/>
+                <connection refLocalId="54">
+                  <position x="534" y="790"/>
+                  <position x="534" y="772"/>
+                  <position x="533" y="772"/>
+                  <position x="533" y="755"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut formalParameter="">
+                <relPosition x="145" y="27"/>
+              </connectionPointOut>
+              <connectionPointOutAction formalParameter="">
+                <relPosition x="290" y="13"/>
+              </connectionPointOutAction>
+            </step>
+            <actionBlock localId="56" height="30" width="316">
+              <position x="753" y="787"/>
+              <connectionPointIn>
+                <relPosition x="0" y="15"/>
+                <connection refLocalId="55">
+                  <position x="753" y="802"/>
+                  <position x="689" y="802"/>
+                  <position x="689" y="803"/>
+                  <position x="679" y="803"/>
+                </connection>
+              </connectionPointIn>
+              <action localId="0" qualifier="SD" duration="T#4s">
+                <relPosition x="0" y="0"/>
+                <reference name="TA_005RB_002_positions_workpiece1"/>
+              </action>
+            </actionBlock>
+            <transition localId="57" height="2" width="20">
+              <position x="524" y="843"/>
+              <connectionPointIn>
+                <relPosition x="10" y="0"/>
+                <connection refLocalId="55">
+                  <position x="534" y="843"/>
+                  <position x="534" y="817"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="10" y="2"/>
+              </connectionPointOut>
+              <condition>
+                <reference name="T_005RB_002_positions_workpiece1"/>
+              </condition>
+            </transition>
+            <step localId="58" name="Step_006CMM_001_execute_cmm" initialStep="false" height="27" width="226" globalId="UUID_508">
+              <position x="433" y="886"/>
+              <connectionPointIn>
+                <relPosition x="113" y="0"/>
+                <connection refLocalId="57">
+                  <position x="546" y="886"/>
+                  <position x="546" y="865"/>
+                  <position x="534" y="865"/>
+                  <position x="534" y="845"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut formalParameter="">
+                <relPosition x="113" y="27"/>
+              </connectionPointOut>
+              <connectionPointOutAction formalParameter="">
+                <relPosition x="226" y="13"/>
+              </connectionPointOutAction>
+            </step>
+            <actionBlock localId="59" height="30" width="260">
+              <position x="822" y="884"/>
+              <connectionPointIn>
+                <relPosition x="0" y="15"/>
+                <connection refLocalId="58">
+                  <position x="822" y="899"/>
+                  <position x="659" y="899"/>
+                </connection>
+              </connectionPointIn>
+              <action localId="0" qualifier="SD" duration="T#10s">
+                <relPosition x="0" y="0"/>
+                <reference name="TA_006CMM_001_execute_cmm"/>
+              </action>
+            </actionBlock>
+            <transition localId="60" height="2" width="20">
+              <position x="536" y="954"/>
+              <connectionPointIn>
+                <relPosition x="10" y="0"/>
+                <connection refLocalId="58">
+                  <position x="546" y="954"/>
+                  <position x="546" y="913"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="10" y="2"/>
+              </connectionPointOut>
+              <condition>
+                <reference name="T_006CMM_001_execute_cmm"/>
+              </condition>
+            </transition>
+            <simultaneousDivergence localId="62" height="3" width="40">
+              <position x="526" y="984"/>
+              <connectionPointIn>
+                <relPosition x="20" y="0"/>
+                <connection refLocalId="60">
+                  <position x="546" y="984"/>
+                  <position x="546" y="956"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut formalParameter="">
+                <relPosition x="0" y="3"/>
+              </connectionPointOut>
+              <connectionPointOut formalParameter="">
+                <relPosition x="40" y="3"/>
+              </connectionPointOut>
+            </simultaneousDivergence>
+            <step localId="63" name="Step_007RB_001_takes_over_hinge_reinforcement" initialStep="false" height="27" width="370" globalId="UUID_509">
+              <position x="141" y="1019"/>
+              <connectionPointIn>
+                <relPosition x="185" y="0"/>
+                <connection refLocalId="62">
+                  <position x="326" y="1019"/>
+                  <position x="326" y="998"/>
+                  <position x="520" y="998"/>
+                  <position x="520" y="997"/>
+                  <position x="526" y="997"/>
+                  <position x="526" y="987"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut formalParameter="">
+                <relPosition x="185" y="27"/>
+              </connectionPointOut>
+              <connectionPointOutAction formalParameter="">
+                <relPosition x="370" y="13"/>
+              </connectionPointOutAction>
+            </step>
+            <actionBlock localId="64" height="30" width="396">
+              <position x="49" y="928"/>
+              <connectionPointIn>
+                <relPosition x="0" y="15"/>
+                <connection refLocalId="63">
+                  <position x="49" y="943"/>
+                  <position x="39" y="943"/>
+                  <position x="39" y="1010"/>
+                  <position x="521" y="1010"/>
+                  <position x="521" y="1032"/>
+                  <position x="511" y="1032"/>
+                </connection>
+              </connectionPointIn>
+              <action localId="0" qualifier="SD" duration="T#8s">
+                <relPosition x="0" y="0"/>
+                <reference name="TA_007RB_001_takes_over_hinge_reinforcement"/>
+              </action>
+            </actionBlock>
+            <transition localId="65" height="2" width="20">
+              <position x="865" y="1057"/>
+              <connectionPointIn>
+                <relPosition x="10" y="0"/>
+                <connection refLocalId="2">
+                  <position x="875" y="1057"/>
+                  <position x="875" y="1047"/>
+                  <position x="869" y="1047"/>
+                  <position x="869" y="1033"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="10" y="2"/>
+              </connectionPointOut>
+              <condition>
+                <reference name="T_010RB_100_takes_over_workpiece1"/>
+              </condition>
+            </transition>
+            <transition localId="66" height="2" width="20">
+              <position x="317" y="1068"/>
+              <connectionPointIn>
+                <relPosition x="10" y="0"/>
+                <connection refLocalId="63">
+                  <position x="327" y="1068"/>
+                  <position x="327" y="1056"/>
+                  <position x="326" y="1056"/>
+                  <position x="326" y="1046"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="10" y="2"/>
+              </connectionPointOut>
+              <condition>
+                <reference name="T_007RB_001_takes_over_hinge_reinforcement"/>
+              </condition>
+            </transition>
+            <step localId="67" name="Step_007RB_002_positions_hinge_reinforcement" initialStep="false" height="27" width="362" globalId="UUID_510">
+              <position x="148" y="1093"/>
+              <connectionPointIn>
+                <relPosition x="181" y="0"/>
+                <connection refLocalId="66">
+                  <position x="329" y="1093"/>
+                  <position x="329" y="1080"/>
+                  <position x="327" y="1080"/>
+                  <position x="327" y="1070"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut formalParameter="">
+                <relPosition x="181" y="27"/>
+              </connectionPointOut>
+              <connectionPointOutAction formalParameter="">
+                <relPosition x="362" y="13"/>
+              </connectionPointOutAction>
+            </step>
+            <simultaneousConvergence localId="68" height="3" width="40">
+              <position x="615" y="1195"/>
+              <connectionPointIn>
+                <relPosition x="0" y="0"/>
+                <connection refLocalId="67">
+                  <position x="615" y="1195"/>
+                  <position x="615" y="1157"/>
+                  <position x="329" y="1157"/>
+                  <position x="329" y="1120"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointIn>
+                <relPosition x="40" y="0"/>
+                <connection refLocalId="3">
+                  <position x="655" y="1195"/>
+                  <position x="655" y="1149"/>
+                  <position x="867" y="1149"/>
+                  <position x="867" y="1113"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="20" y="3"/>
+              </connectionPointOut>
+            </simultaneousConvergence>
+            <actionBlock localId="69" height="30" width="388">
+              <position x="16" y="1196"/>
+              <connectionPointIn>
+                <relPosition x="0" y="15"/>
+                <connection refLocalId="67">
+                  <position x="16" y="1211"/>
+                  <position x="-10" y="1211"/>
+                  <position x="-10" y="1136"/>
+                  <position x="522" y="1136"/>
+                  <position x="522" y="1106"/>
+                  <position x="510" y="1106"/>
+                </connection>
+              </connectionPointIn>
+              <action localId="0" qualifier="SD" duration="T#4s">
+                <relPosition x="0" y="0"/>
+                <reference name="TA_007RB_001_positions_hinge_reinforcement"/>
+              </action>
+            </actionBlock>
+            <step localId="70" name="Step_030RB_300_positions_good" initialStep="false" height="27" width="242" globalId="UUID_511">
+              <position x="552" y="2057"/>
+              <connectionPointIn>
+                <relPosition x="121" y="0"/>
+                <connection refLocalId="29">
+                  <position x="673" y="2057"/>
+                  <position x="673" y="2034"/>
+                  <position x="676" y="2034"/>
+                  <position x="676" y="2012"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut formalParameter="">
+                <relPosition x="121" y="27"/>
+              </connectionPointOut>
+              <connectionPointOutAction formalParameter="">
+                <relPosition x="242" y="13"/>
+              </connectionPointOutAction>
+            </step>
+            <actionBlock localId="71" height="30" width="268">
+              <position x="893" y="2055"/>
+              <connectionPointIn>
+                <relPosition x="0" y="15"/>
+                <connection refLocalId="70">
+                  <position x="893" y="2070"/>
+                  <position x="794" y="2070"/>
+                </connection>
+              </connectionPointIn>
+              <action localId="0" qualifier="SD" duration="T#4s">
+                <relPosition x="0" y="0"/>
+                <reference name="TA_030RB_300_positions_good"/>
+              </action>
+            </actionBlock>
+            <transition localId="72" height="2" width="20">
+              <position x="663" y="2105"/>
+              <connectionPointIn>
+                <relPosition x="10" y="0"/>
+                <connection refLocalId="70">
+                  <position x="673" y="2105"/>
+                  <position x="673" y="2094"/>
+                  <position x="673" y="2094"/>
+                  <position x="673" y="2084"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="10" y="2"/>
+              </connectionPointOut>
+              <condition>
+                <reference name="T_030RB_300_positions_good"/>
+              </condition>
+            </transition>
+            <step localId="73" name="Step_010UT_001_execute_inspection" initialStep="false" height="27" width="274" globalId="UUID_512">
+              <position x="536" y="2128"/>
+              <connectionPointIn>
+                <relPosition x="137" y="0"/>
+                <connection refLocalId="72">
+                  <position x="673" y="2128"/>
+                  <position x="673" y="2107"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut formalParameter="">
+                <relPosition x="137" y="27"/>
+              </connectionPointOut>
+              <connectionPointOutAction formalParameter="">
+                <relPosition x="274" y="13"/>
+              </connectionPointOutAction>
+            </step>
+            <transition localId="74" height="2" width="20">
+              <position x="663" y="2177"/>
+              <connectionPointIn>
+                <relPosition x="10" y="0"/>
+                <connection refLocalId="73">
+                  <position x="673" y="2177"/>
+                  <position x="673" y="2167"/>
+                  <position x="673" y="2167"/>
+                  <position x="673" y="2155"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="10" y="2"/>
+              </connectionPointOut>
+              <condition>
+                <reference name="T_010UT_001_execute_inspection"/>
+              </condition>
+            </transition>
+            <actionBlock localId="75" height="30" width="308">
+              <position x="887" y="2126"/>
+              <connectionPointIn>
+                <relPosition x="0" y="15"/>
+                <connection refLocalId="73">
+                  <position x="887" y="2141"/>
+                  <position x="820" y="2141"/>
+                  <position x="820" y="2141"/>
+                  <position x="810" y="2141"/>
+                </connection>
+              </connectionPointIn>
+              <action localId="0" qualifier="SD" duration="T#10s">
+                <relPosition x="0" y="0"/>
+                <reference name="TA_010UT_001_execute_inspection"/>
+              </action>
+            </actionBlock>
+          </SFC>
+        </body>
+        <addData>
+          <data name="http://www.automationml.org/IEC62714-4Ed1/AML_addData.xsd" handleUnknown="implementation">
+            <AML>
+              <ChartType ChartType="ActivityOnNodeNetwork" ID="UUID_101"/>
+            </AML>
+          </data>
+        </addData>
+      </pou>
+    </pous>
+  </types>
+  <instances>
+    <configurations>
+      <configuration name="Config0">
+        <resource name="Res0">
+          <task name="task0" priority="0" interval="T#20ms">
+            <pouInstance name="instance0" typeName="Sequencing_Station_ActivityOnNodeNetwork"/>
+          </task>
+        </resource>
+      </configuration>
+    </configurations>
+  </instances>
+</project>

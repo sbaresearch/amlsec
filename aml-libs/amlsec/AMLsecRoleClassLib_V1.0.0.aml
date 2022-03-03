@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CAEXFile FileName="AMLsecRoleClassLib_V1.0.0.aml" SchemaVersion="3.0" xmlns="http://www.dke.de/CAEX" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.dke.de/CAEX CAEX_ClassModel_V.3.0.xsd">
+	<Version>2.0</Version>
+	<AdditionalInformation AutomationMLVersion="2.0" />
+	<SuperiorStandardVersion>AutomationML 2.10</SuperiorStandardVersion>
+	<RoleClassLib Name="AMLsecRoleClassLib">
+		<Description>AMLsec Role Class Library</Description>
+		<Version>1.0.0</Version>
+		<Copyright>Matthias Eckhart</Copyright>
+		<RoleClass Name="Zone">
+			<RoleClass Name="ITZone" RefBaseClassPath="AMLsecRoleClassLib/Zone">
+				<RoleClass Name="EnterpriseZone" RefBaseClassPath="AMLsecRoleClassLib/Zone/ITZone" />
+				<RoleClass Name="EnterpriseDmzZone" RefBaseClassPath="AMLsecRoleClassLib/Zone/ITZone" />
+				<RoleClass Name="BusinessZone" RefBaseClassPath="AMLsecRoleClassLib/Zone/ITZone" />
+				<RoleClass Name="DmzZone" RefBaseClassPath="AMLsecRoleClassLib/Zone/ITZone" />
+			</RoleClass>
+			<RoleClass Name="OTZone" RefBaseClassPath="AMLsecRoleClassLib/Zone">
+				<RoleClass Name="OperationsSupportZone" RefBaseClassPath="AMLsecRoleClassLib/Zone/OTZone" />
+				<RoleClass Name="SCADAZone" RefBaseClassPath="AMLsecRoleClassLib/Zone/OTZone" />
+				<RoleClass Name="ControlZone" RefBaseClassPath="AMLsecRoleClassLib/Zone/OTZone" />
+				<RoleClass Name="ProcessZone" RefBaseClassPath="AMLsecRoleClassLib/Zone/OTZone" />
+				<RoleClass Name="SafetyZone" RefBaseClassPath="AMLsecRoleClassLib/Zone/OTZone" />
+				<RoleClass Name="AutomationCellZone" RefBaseClassPath="AMLsecRoleClassLib/Zone/OTZone" />
+			</RoleClass>
+			<RoleClass Name="WirelessZone" RefBaseClassPath="AMLsecRoleClassLib/Zone" />
+		</RoleClass>
+		<RoleClass Name="SecurityDevice">
+			<RoleClass Name="Firewall" RefBaseClassPath="AMLsecRoleClassLib/SecurityDevice" />
+		</RoleClass>
+		<RoleClass Name="PortList" />
+		<RoleClass Name="NetworkDevice">
+			<RoleClass Name="Switch" RefBaseClassPath="AMLsecRoleClassLib/NetworkDevice" />
+			<RoleClass Name="Router" RefBaseClassPath="AMLsecRoleClassLib/NetworkDevice" />
+			<RoleClass Name="WirelessHARTGateway" RefBaseClassPath="AMLsecRoleClassLib/NetworkDevice" />
+		</RoleClass>
+		<RoleClass Name="Wire">
+			<RoleClass Name="EthernetWire" RefBaseClassPath="AMLsecRoleClassLib/Wire">
+				<ExternalInterface ID="5f732ef9-5765-4177-bb21-8799e15b3685" Name="EthernetPlug1" RefBaseClassPath="AMLsecInterfaceClassLib/Ethernet/EthernetPlug" />
+				<ExternalInterface ID="a24b814a-47fd-4ecd-93f5-984fc4f33eac" Name="EthernetPlug2" RefBaseClassPath="AMLsecInterfaceClassLib/Ethernet/EthernetPlug" />
+			</RoleClass>
+			<RoleClass Name="MotorWire" RefBaseClassPath="AMLsecRoleClassLib/Wire">
+				<ExternalInterface ID="905724e7-2a7b-4eba-9d64-a92b85a1499b" Name="MotorPlug1" RefBaseClassPath="AMLsecInterfaceClassLib/Motor/MotorPlug" />
+				<ExternalInterface ID="7c42fda3-2ce4-4320-b771-457cd556db0b" Name="MotorPlug2" RefBaseClassPath="AMLsecInterfaceClassLib/Motor/MotorPlug" />
+			</RoleClass>
+			<RoleClass Name="DataWire" RefBaseClassPath="AMLsecRoleClassLib/Wire">
+				<ExternalInterface ID="dfaf616e-ef9f-4d14-a968-40c78e062cd8" Name="DataPlug1" RefBaseClassPath="AMLsecInterfaceClassLib/Data/DataPlug" />
+				<ExternalInterface ID="de656c75-7b06-4d6a-b491-33c6a3276252" Name="DataPlug2" RefBaseClassPath="AMLsecInterfaceClassLib/Data/DataPlug" />
+			</RoleClass>
+		</RoleClass>
+		<RoleClass Name="Host">
+			<RoleClass Name="ERP" RefBaseClassPath="AMLsecRoleClassLib/Host" />
+			<RoleClass Name="Webserver" RefBaseClassPath="AMLsecRoleClassLib/Host" />
+			<RoleClass Name="Fileserver" RefBaseClassPath="AMLsecRoleClassLib/Host" />
+			<RoleClass Name="JumpServer" RefBaseClassPath="AMLsecRoleClassLib/Host" />
+			<RoleClass Name="AVServer" RefBaseClassPath="AMLsecRoleClassLib/Host" />
+			<RoleClass Name="PatchManagementServer" RefBaseClassPath="AMLsecRoleClassLib/Host" />
+			<RoleClass Name="MES" RefBaseClassPath="AMLsecRoleClassLib/Host" />
+			<RoleClass Name="EngineeringWorkstation" RefBaseClassPath="AMLsecRoleClassLib/Host">
+				<RoleClass Name="MobileEngineeringWorkstation" RefBaseClassPath="AMLsecRoleClassLib/Host/EngineeringWorkstation" />
+			</RoleClass>
+			<RoleClass Name="SCADASystem" RefBaseClassPath="AMLsecRoleClassLib/Host" />
+			<RoleClass Name="Historian" RefBaseClassPath="AMLsecRoleClassLib/Host" />
+			<RoleClass Name="WirelessHARTSensor" RefBaseClassPath="AMLsecRoleClassLib/Host" />
+			<RoleClass Name="SIS" RefBaseClassPath="AMLsecRoleClassLib/Host" />
+			<RoleClass Name="Server" RefBaseClassPath="AMLsecRoleClassLib/Host" />
+			<RoleClass Name="MailServer" RefBaseClassPath="AMLsecRoleClassLib/Host" />
+			<RoleClass Name="RemoteManagementSystem" RefBaseClassPath="AMLsecRoleClassLib/Host" />
+		</RoleClass>
+		<RoleClass Name="WirelessConnection">
+			<ExternalInterface ID="e988c23a-05ac-4b9b-a4af-b79bada5ffe8" Name="WirelessPlug1" RefBaseClassPath="AMLsecInterfaceClassLib/Wireless/WirelessPlug" />
+			<ExternalInterface ID="a72b0bc4-c8a7-4a0b-8349-f52a99b8db89" Name="WirelessPlug2" RefBaseClassPath="AMLsecInterfaceClassLib/Wireless/WirelessPlug" />
+		</RoleClass>
+		<RoleClass Name="Program">
+			<RoleClass Name="PLCProgram" RefBaseClassPath="AMLsecRoleClassLib/Program" />
+		</RoleClass>
+		<RoleClass Name="LogicalPortList" />
+		<RoleClass Name="Protocol">
+			<RoleClass Name="OPC-UA" RefBaseClassPath="AMLsecRoleClassLib/Protocol" />
+			<RoleClass Name="OPC" RefBaseClassPath="AMLsecRoleClassLib/Protocol" />
+			<RoleClass Name="Profinet" RefBaseClassPath="AMLsecRoleClassLib/Protocol" />
+			<RoleClass Name="PROFIsafe" RefBaseClassPath="AMLsecRoleClassLib/Protocol" />
+			<RoleClass Name="Modbus" RefBaseClassPath="AMLsecRoleClassLib/Protocol" /><RoleClass Name="HTTP" RefBaseClassPath="AMLsecRoleClassLib/Protocol" /><RoleClass Name="HTTPS" RefBaseClassPath="AMLsecRoleClassLib/Protocol" />
+		</RoleClass>
+		<RoleClass Name="Conduit" />
+		<RoleClass Name="OPCUASecurityPolicy">
+			<RoleClass Name="Basic128RSA15" RefBaseClassPath="AMLsecRoleClassLib/OPCUASecurityPolicy" />
+			<RoleClass Name="Basic256" RefBaseClassPath="AMLsecRoleClassLib/OPCUASecurityPolicy" />
+			<RoleClass Name="Basic256SHA256" RefBaseClassPath="AMLsecRoleClassLib/OPCUASecurityPolicy" />
+		</RoleClass>
+	</RoleClassLib>
+</CAEXFile>

@@ -159,3 +159,6 @@ venv
 
 # Protege 
 **/catalog-v001.xml
+
+# scalaxb
+src/main/scala/sbt-scalaxb

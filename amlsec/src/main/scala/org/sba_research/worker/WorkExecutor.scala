@@ -4,20 +4,23 @@ import akka.actor.typed.scaladsl.{ActorContext, Behaviors}
 import akka.actor.typed.{ActorRef, Behavior, DispatcherSelector}
 import akka.http.scaladsl.Http
 import akka.http.scaladsl.model._
+import com.typesafe.scalalogging.Logger
 import org.apache.jena.ontology.{OntModel, OntModelSpec}
 import org.apache.jena.rdf.model.{InfModel, Model, ModelFactory}
 import org.apache.jena.rdfconnection.{RDFConnection, RDFConnectionFactory}
 import org.apache.jena.reasoner.rulesys.OWLMicroReasonerFactory
 import org.apache.jena.reasoner.{InfGraph, ValidityReport}
 import org.apache.jena.vocabulary.OWL2
-import org.sba_research.casestudy.CaseStudy
+import org.sba_research.Config
+import org.sba_research.ag.AttackGraph
+import org.sba_research.casestudy.{CaseStudy, QualityCaseStudy}
 import org.sba_research.model.{AmlOntExtension, OntModels}
+import org.sba_research.qopn.{LoLAWriter, PnmlWriter, QOPNGenerator}
+import org.sba_research.sfc.{OntoPlcSemanticLifting, SfcParser}
 import org.sba_research.utils.{OntModelUtils, PerformanceMeasurement, ValidationReport, Validator}
+import org.sba_research.vuln.{CveChecker, VulnerabilityModeling}
 import org.sba_research.worker.WorkExecutor.ExecuteWork
 import org.sba_research.worker.Worker.{Message, ValidationWorkResult, WorkComplete, WorkFailed}
-import org.sba_research._
-import org.sba_research.ag.AttackGraph
-import org.sba_research.vuln.{CveChecker, VulnerabilityModeling}
 
 import scala.util.{Failure, Success, Using}
 
@@ -26,6 +29,8 @@ import scala.util.{Failure, Success, Using}
   * cf. https://github.com/akka/akka-samples/tree/2.6/akka-sample-distributed-workers-scala
   */
 object WorkExecutor {
+
+  val logger: Logger = Logger(getClass)
 
   sealed trait ExecuteWork {
     def work: Work
@@ -41,17 +46,21 @@ object WorkExecutor {
 
   case class FailedToSendHttpRequestToFuseki(work: Work, replyTo: ActorRef[Message]) extends ExecuteWork
 
-  case class PushModelToRemoteDataset(work: Work, replyTo: ActorRef[Message], amlFilePath: String) extends ExecuteWork
+  case class PushModelToRemoteDataset(work: Work, replyTo: ActorRef[Message], amlFilePath: String, sfcFilePath: Option[String]) extends ExecuteWork
 
   case class PushModelToRemoteDatasetSuccessful(work: Work, replyTo: ActorRef[Message]) extends ExecuteWork
 
   case class PushModelToRemoteDatasetFailed(work: Work, replyTo: ActorRef[Message], e: Throwable) extends ExecuteWork
 
-  case class ConvertAmlToOntologySuccessful(work: Work, replyTo: ActorRef[Message]) extends ExecuteWork
+  case class ConvertAmlToOntologySuccessful(work: Work, replyTo: ActorRef[Message], sfcFilePath: Option[String]) extends ExecuteWork
 
   case class ConvertAmlToOntologyFailed(work: Work, replyTo: ActorRef[Message], e: Throwable) extends ExecuteWork
 
-  case class AugmentModel(work: Work, replyTo: ActorRef[Message]) extends ExecuteWork
+  case class ConvertSfcToOntologySuccessful(work: Work, replyTo: ActorRef[Message]) extends ExecuteWork
+
+  case class ConvertSfcToOntologyFailed(work: Work, replyTo: ActorRef[Message], e: Throwable) extends ExecuteWork
+
+  case class AugmentModel(work: Work, replyTo: ActorRef[Message], doAMLqual: Boolean) extends ExecuteWork
 
   case class ModelAugmentationSuccessful(work: Work, replyTo: ActorRef[Message], model: Model) extends ExecuteWork
 
@@ -86,6 +95,16 @@ object WorkExecutor {
   case class AttackGraphGenerationSuccessful(work: Work, replyTo: ActorRef[Message], model: Model) extends ExecuteWork
 
   case class AttackGraphGenerationFailed(work: Work, replyTo: ActorRef[Message], e: Throwable) extends ExecuteWork
+
+  case class GenerateQOPN(work: Work, replyTo: ActorRef[Message]) extends ExecuteWork
+
+  case class QOPNGenerationSuccessful(work: Work, replyTo: ActorRef[Message]) extends ExecuteWork
+
+  case class QOPNGenerationFailed(work: Work, replyTo: ActorRef[Message], e: Throwable) extends ExecuteWork
+
+  case class ExecutionOfQualityCaseStudySuccessful(work: Work, replyTo: ActorRef[Message]) extends ExecuteWork
+
+  case class ExecutionOfQualityCaseStudyFailed(work: Work, replyTo: ActorRef[Message], e: Throwable) extends ExecuteWork
 
   case class ExecuteCaseStudy(work: Work, replyTo: ActorRef[Message]) extends ExecuteWork
 
@@ -122,9 +141,9 @@ class WorkExecutor private(config: Config, ctx: ActorContext[ExecuteWork]) {
         ctx.log.error("Failed to send HTTP request to Fuseki server ({}) to create dataset '{}'.", config.fusekiConfig.uri, work.jobId)
         replyTo ! WorkFailed("Could not sent HTTP request to Fuseki to create remote dataset.", new IllegalStateException())
         Behaviors.same
-      case pmtrd@PushModelToRemoteDataset(work, replyTo, amlFilePath) =>
+      case pmtrd@PushModelToRemoteDataset(work, replyTo, amlFilePath, sfcFilePath) =>
         ctx.log.info("Doing work (pushing model to remote dataset) {}", pmtrd)
-        convertAmlFileToOntology(config, work, ctx, replyTo, amlFilePath)
+        convertAmlFileToOntology(config, work, ctx, replyTo, amlFilePath, sfcFilePath)
         Behaviors.same
       case PushModelToRemoteDatasetSuccessful(work, replyTo) =>
         ctx.log.info("Successfully pushed model to dataset '{}' on Fuseki server ({}).", work.jobId, config.fusekiConfig.uri)
@@ -134,17 +153,27 @@ class WorkExecutor private(config: Config, ctx: ActorContext[ExecuteWork]) {
         ctx.log.error("Could not push model to dataset '{}' on Fuseki server ({}), exception ({}).", work.jobId, config.fusekiConfig.uri, e)
         replyTo ! WorkFailed("Could not push model to remote dataset.", e)
         Behaviors.same
-      case ConvertAmlToOntologySuccessful(work, replyTo) =>
+      case ConvertAmlToOntologySuccessful(work, replyTo, sfcFilePath) =>
         ctx.log.info("Successfully converted AML file to ontology (jobId '{}').", work.jobId, config.fusekiConfig.uri)
-        pushModelToFusekiSrv(config, work, ctx, replyTo)
+        if (sfcFilePath.isDefined)
+          convertSfcToOntology(config, work, ctx, replyTo, sfcFilePath)
+        else pushModelToFusekiSrv(config, work, ctx, replyTo)
         Behaviors.same
       case ConvertAmlToOntologyFailed(work, replyTo, e) =>
-        ctx.log.error("Could not convert AML file to onotlogy (jobId '{}'), exception ({}).", work.jobId, config.fusekiConfig.uri, e)
+        ctx.log.error("Could not convert AML file to ontology (jobId '{}'), exception ({}).", work.jobId, config.fusekiConfig.uri, e)
         replyTo ! WorkFailed("Could not convert AML file to ontology.", e)
         Behaviors.same
-      case aoa@AugmentModel(work, replyTo) =>
+      case ConvertSfcToOntologySuccessful(work, replyTo) =>
+        ctx.log.info("Successfully converted SFC file to ontology (jobId '{}').", work.jobId, config.fusekiConfig.uri)
+        pushModelToFusekiSrv(config, work, ctx, replyTo, pushSfcOnt = true)
+        Behaviors.same
+      case ConvertSfcToOntologyFailed(work, replyTo, e) =>
+        ctx.log.error("Could not convert SFC file to ontology (jobId '{}'), exception ({}).", work.jobId, config.fusekiConfig.uri, e)
+        replyTo ! WorkFailed("Could not convert SFC file to ontology.", e)
+        Behaviors.same
+      case aoa@AugmentModel(work, replyTo, doAMLqual) =>
         ctx.log.info("Doing work (augmenting model) {}", aoa)
-        augmentModel(config, work, ctx, replyTo)
+        augmentModel(config, work, ctx, replyTo, doAMLqual)
         Behaviors.same
       case ModelAugmentationSuccessful(work, replyTo, model) =>
         ctx.log.info("Successfully augmented model (dataset '{}' on Fuseki server {}).", work.jobId, config.fusekiConfig.uri)
@@ -216,7 +245,27 @@ class WorkExecutor private(config: Config, ctx: ActorContext[ExecuteWork]) {
         main(cachedModels + (work.jobId -> model))
       case AttackGraphGenerationFailed(work, replyTo, e) =>
         ctx.log.error("Could not generate attack graph (dataset '{}' on Fuseki server {}), exception ({}).", work.jobId, config.fusekiConfig.uri, e)
-        replyTo ! WorkFailed("Could not instantiate vulnerabilities.", e)
+        replyTo ! WorkFailed("Could not generate attack graph.", e)
+        Behaviors.same
+      case q@GenerateQOPN(work, replyTo) =>
+        ctx.log.info("Doing work (generate QOPN) {}", q)
+        generateQOPN(config, work, ctx, replyTo)
+        Behaviors.same
+      case QOPNGenerationSuccessful(work, replyTo) =>
+        ctx.log.info("Successfully generated QOPN (dataset '{}' on Fuseki server {}).", work.jobId, config.fusekiConfig.uri)
+        executeQualityCaseStudy(config, work, ctx, replyTo)
+        Behaviors.same
+      case QOPNGenerationFailed(work, replyTo, e) =>
+        ctx.log.error("Could not generate QOPN (dataset '{}' on Fuseki server {}), exception ({}).", work.jobId, config.fusekiConfig.uri, e)
+        replyTo ! WorkFailed("Could not generate QOPN.", e)
+        Behaviors.same
+      case ExecutionOfQualityCaseStudySuccessful(work, replyTo) =>
+        ctx.log.info("Successfully executed quality case study (dataset '{}' on Fuseki server {}).", work.jobId, config.fusekiConfig.uri)
+        replyTo ! WorkComplete(work)
+        Behaviors.same
+      case ExecutionOfQualityCaseStudyFailed(work, replyTo, e) =>
+        ctx.log.error("Could not execute quality case study (dataset '{}' on Fuseki server {}), exception ({}).", work.jobId, config.fusekiConfig.uri, e)
+        replyTo ! WorkFailed("Could not execute quality case study.", e)
         Behaviors.same
       case ec@ExecuteCaseStudy(work, replyTo) =>
         ctx.log.info("Doing work (execute case study) {}", ec)
@@ -251,7 +300,7 @@ class WorkExecutor private(config: Config, ctx: ActorContext[ExecuteWork]) {
     }
   }
 
-  private def convertAmlFileToOntology(config: Config, work: Work, ctx: ActorContext[WorkExecutor.ExecuteWork], replyTo: ActorRef[Message], amlFilePath: String): Unit = {
+  private def convertAmlFileToOntology(config: Config, work: Work, ctx: ActorContext[WorkExecutor.ExecuteWork], replyTo: ActorRef[Message], amlFilePath: String, sfcFilePath: Option[String]): Unit = {
     PerformanceMeasurement.writeElapsedTimeToFile(Some("[Main] AML-to-OWL Transformation START"), System.nanoTime(), config.debugConfig.outputPathPerformanceReport)
     val pb = new ProcessBuilder("java", "-jar", config.amlToOwlProgram, amlFilePath, s"${config.baseDir + work.jobId}.owl")
     pb.inheritIO()
@@ -263,19 +312,42 @@ class WorkExecutor private(config: Config, ctx: ActorContext[ExecuteWork]) {
       case Success(process) =>
         PerformanceMeasurement.writeElapsedTimeToFile(Some("[Main] AML-to-OWL Transformation END"), System.nanoTime(), config.debugConfig.outputPathPerformanceReport)
         if (process.exitValue() == 0)
-          ctx.self ! ConvertAmlToOntologySuccessful(work, replyTo)
+          ctx.self ! ConvertAmlToOntologySuccessful(work, replyTo, sfcFilePath)
         else ctx.self ! ConvertAmlToOntologyFailed(work, replyTo, throw new IllegalStateException("Could not convert AML file to ontology."))
       case Failure(e) => ctx.self ! ConvertAmlToOntologyFailed(work, replyTo, e)
     }
   }
 
-  private def pushModelToFusekiSrv(config: Config, work: Work, ctx: ActorContext[WorkExecutor.ExecuteWork], replyTo: ActorRef[Message]): Unit = {
+  private def convertSfcToOntology(config: Config, work: Work, ctx: ActorContext[WorkExecutor.ExecuteWork], replyTo: ActorRef[Message], sfcFilePath: Option[String]): Unit = sfcFilePath match {
+    case Some(filePath) =>
+      ctx.log.info(s"Converting SFC file $filePath to ontology.")
+      PerformanceMeasurement.writeElapsedTimeToFile(Some("[Main] SFC-to-OWL Transformation START"), System.nanoTime(), config.debugConfig.outputPathPerformanceReport)
+      val parserResult = SfcParser(filePath)
+      parserResult match {
+        case Right(parsRes) =>
+          OntoPlcSemanticLifting(config, parsRes) match {
+            case Right(m) =>
+              // Finally, write the ontology model to disk
+              OntModelUtils.write(m.model, s"${config.baseDir + work.jobId}_sfc.owl")
+              PerformanceMeasurement.writeElapsedTimeToFile(Some("[Main] SFC-to-OWL Transformation END"), System.nanoTime(), config.debugConfig.outputPathPerformanceReport)
+              ctx.self ! ConvertSfcToOntologySuccessful(work, replyTo)
+            case Left(err) => ctx.self ! ConvertSfcToOntologyFailed(work, replyTo, throw new IllegalStateException(err.message))
+          }
+        case Left(err) => ctx.self ! ConvertSfcToOntologyFailed(work, replyTo, throw new IllegalStateException(err.message))
+      }
+    case None => ctx.self ! ConvertSfcToOntologyFailed(work, replyTo, throw new IllegalStateException("SFC file path is None, even though method to convert SFC file was called."))
+  }
+
+  private def pushModelToFusekiSrv(config: Config, work: Work, ctx: ActorContext[WorkExecutor.ExecuteWork], replyTo: ActorRef[Message], pushSfcOnt: Boolean = false): Unit = {
     ctx.log.info("Pushing model to dataset '{}' on Fuseki server ({}).", work.jobId, config.fusekiConfig.uri)
     val ontModels = OntModels(config)
     val amlOntModel = OntModelUtils.createModel(s"${config.baseDir + work.jobId}.owl", "aml")
+    val sfcModelOpt = if (pushSfcOnt) Some(OntModelUtils.createModel(s"${config.baseDir + work.jobId}_sfc.owl", "sfc", Some("Turtle"))) else None
     Using(RDFConnectionFactory.connect(s"${config.fusekiConfig.uri}/${work.jobId}")) { rdfConn =>
       val mergedModel = amlOntModel.union(ontModels.sec).union(ontModels.icssec).union(ontModels.ag)
-      rdfConn.put(mergedModel)
+      // Optionally, merge model with translated SFC model and quality ontology
+      val mergedSfcModel = sfcModelOpt.map(sfc => mergedModel.union(sfc).union(ontModels.quality))
+      rdfConn.put(mergedSfcModel.getOrElse(mergedModel))
     } match {
       case Success(_) => ctx.self ! PushModelToRemoteDatasetSuccessful(work, replyTo)
       case Failure(e) => ctx.self ! PushModelToRemoteDatasetFailed(work, replyTo, e)
@@ -290,7 +362,7 @@ class WorkExecutor private(config: Config, ctx: ActorContext[ExecuteWork]) {
     rdfConn.put(model)
   }
 
-  private def augmentModel(config: Config, work: Work, ctx: ActorContext[WorkExecutor.ExecuteWork], replyTo: ActorRef[Message]): Unit = {
+  private def augmentModel(config: Config, work: Work, ctx: ActorContext[WorkExecutor.ExecuteWork], replyTo: ActorRef[Message], doAMLqual: Boolean = false, doValidityCheck: Boolean = false): Unit = {
 
     /**
       * Used to obtain an inference model that is supported by the selected reasoner.
@@ -317,6 +389,10 @@ class WorkExecutor private(config: Config, ctx: ActorContext[ExecuteWork]) {
       * Property http://www.w3.org/2000/01/rdf-schema#comment has a typed range Datatype[http://www.w3.org/2000/01/rdf-schema#Literal]that is not compatible with "text"@en
       * ```
       *
+      * Furthermore, we suppress various warnings (e.g., range checks for literals).
+      *
+      * Needs to be fixed in a future release.
+      *
       * @param validityReport the validity report
       * @param reasonerUri    the reasoner URI
       * @return true, if the model is valid
@@ -324,54 +400,65 @@ class WorkExecutor private(config: Config, ctx: ActorContext[ExecuteWork]) {
     def isModelValid(validityReport: ValidityReport, reasonerUri: String): Boolean = reasonerUri match {
       case OWLMicroReasonerFactory.URI =>
         import scala.jdk.CollectionConverters._
-        /* Suppress dtRange errors. Needs to be fixed in a future release. */
+        /* Suppress dtRange errors and warnings. Needs to be fixed in a future release. */
         !validityReport.getReports.asScala.toList
-          .exists(r => r.`type` != "dtRange" && (!r.description.contains("label") || !r.description.contains("comment")))
+          .exists(r => r.`type` != "dtRange" && (!r.description.contains("label") || !r.description.contains("comment")) && r.isError)
       case _ => validityReport.isValid
+    }
+
+    def addConnectedToAsset(infModel: InfModel, rdfConn: RDFConnection): Option[Model] = {
+      ctx.log.info("Adding asset physically connected to asset roles...")
+      PerformanceMeasurement.writeElapsedTimeToFile(Some("[Main] Add Asset Physically Connected to Asset Roles START"), System.nanoTime(), config.debugConfig.outputPathPerformanceReport)
+      val physicallyConnAugModel = AmlOntExtension.addAssetPhysicallyConnectedToAssetRoles(config, infModel, withInference = false)
+      PerformanceMeasurement.writeElapsedTimeToFile(Some("[Main] Add Asset Physically Connected to Asset Roles END"), System.nanoTime(), config.debugConfig.outputPathPerformanceReport)
+      ctx.log.info("Adding asset logically connected to asset roles...")
+      PerformanceMeasurement.writeElapsedTimeToFile(Some("[Main] Add Asset Logically Connected to Asset Roles START"), System.nanoTime(), config.debugConfig.outputPathPerformanceReport)
+      val logicallyConnAugModel = AmlOntExtension.addAssetLogicallyConnectedToAssetRoles(config, infModel, withInference = false)
+      PerformanceMeasurement.writeElapsedTimeToFile(Some("[Main] Add Asset Logically Connected to Asset Roles END"), System.nanoTime(), config.debugConfig.outputPathPerformanceReport)
+      for {
+        pm <- physicallyConnAugModel
+        lm <- logicallyConnAugModel
+      } yield {
+        val resultModel = infModel.add(pm).add(lm)
+        pushUpdatedModelToRemoteDataset(rdfConn, resultModel)
+        resultModel
+      }
     }
 
     Using(RDFConnectionFactory.connect(s"${config.fusekiConfig.uri}/${work.jobId}")) { rdfConn =>
       val model = getOntModelFromRemoteDataset(rdfConn)
-      PerformanceMeasurement.writeElapsedTimeToFile(Some("[Main] Adding axioms START"), System.nanoTime(), config.debugConfig.outputPathPerformanceReport)
+      PerformanceMeasurement.writeElapsedTimeToFile(Some("[Main] Adding AMLsec axioms START"), System.nanoTime(), config.debugConfig.outputPathPerformanceReport)
       val augmentedModel = AmlOntExtension.addOntAxioms(config, model)
-      PerformanceMeasurement.writeElapsedTimeToFile(Some("[Main] Adding axioms END"), System.nanoTime(), config.debugConfig.outputPathPerformanceReport)
+      PerformanceMeasurement.writeElapsedTimeToFile(Some("[Main] Adding AMLsec axioms END"), System.nanoTime(), config.debugConfig.outputPathPerformanceReport)
+      PerformanceMeasurement.writeElapsedTimeToFile(Some("[Main] Adding AMLqual axioms START"), System.nanoTime(), config.debugConfig.outputPathPerformanceReport)
+      val augmentedModelQuality = if (doAMLqual) augmentedModel.flatMap(m => AmlOntExtension.addOntAxiomsSFCQuality(config, m)) else augmentedModel
+      PerformanceMeasurement.writeElapsedTimeToFile(Some("[Main] Adding AMLqual axioms END"), System.nanoTime(), config.debugConfig.outputPathPerformanceReport)
+
       /*
       augmentedModel.foreach { m =>
         OntModelUtils.write(m, "/home/meckhart/amlsec/augmented_model.owl")
       }
        */
-      augmentedModel.flatMap { m =>
+      augmentedModelQuality.flatMap { m =>
         ctx.log.info("Obtaining inference model...")
         PerformanceMeasurement.writeElapsedTimeToFile(Some("[Main] Reasoner Get Inferences START"), System.nanoTime(), config.debugConfig.outputPathPerformanceReport)
-        val infModel = OntModelUtils.getInfModel(m, config.reasonerUri)
+        val infModel = getInfModelForReasonerValidityCheck(OntModelUtils.getInfModel(m, config.reasonerUri), config.reasonerUri)
         PerformanceMeasurement.writeElapsedTimeToFile(Some("[Main] Reasoner Get Inferences END"), System.nanoTime(), config.debugConfig.outputPathPerformanceReport)
-        ctx.log.info("Testing the validity of data using the reasoner...")
-        PerformanceMeasurement.writeElapsedTimeToFile(Some("[Main] Reasoner Validate Data START"), System.nanoTime(), config.debugConfig.outputPathPerformanceReport)
-        val validityReport = getInfModelForReasonerValidityCheck(infModel, config.reasonerUri).validate()
-        PerformanceMeasurement.writeElapsedTimeToFile(Some("[Main] Reasoner Validate Data END"), System.nanoTime(), config.debugConfig.outputPathPerformanceReport)
-        ctx.log.info("Finished validity test with reasoner.")
-        if (isModelValid(validityReport, config.reasonerUri)) {
-          ctx.log.info("Adding asset physically connected to asset roles...")
-          PerformanceMeasurement.writeElapsedTimeToFile(Some("[Main] Add Asset Physically Connected to Asset Roles START"), System.nanoTime(), config.debugConfig.outputPathPerformanceReport)
-          val physicallyConnAugModel = AmlOntExtension.addAssetPhysicallyConnectedToAssetRoles(config, infModel, withInference = false)
-          PerformanceMeasurement.writeElapsedTimeToFile(Some("[Main] Add Asset Physically Connected to Asset Roles END"), System.nanoTime(), config.debugConfig.outputPathPerformanceReport)
-          ctx.log.info("Adding asset logically connected to asset roles...")
-          PerformanceMeasurement.writeElapsedTimeToFile(Some("[Main] Add Asset Logically Connected to Asset Roles START"), System.nanoTime(), config.debugConfig.outputPathPerformanceReport)
-          val logicallyConnAugModel = AmlOntExtension.addAssetLogicallyConnectedToAssetRoles(config, infModel, withInference = false)
-          PerformanceMeasurement.writeElapsedTimeToFile(Some("[Main] Add Asset Logically Connected to Asset Roles END"), System.nanoTime(), config.debugConfig.outputPathPerformanceReport)
-          for {
-            pm <- physicallyConnAugModel
-            lm <- logicallyConnAugModel
-          } yield {
-            val resultModel = infModel.add(pm).add(lm)
-            pushUpdatedModelToRemoteDataset(rdfConn, resultModel)
-            resultModel
+        if (doValidityCheck) {
+          ctx.log.info("Testing the validity of data using the reasoner...")
+          PerformanceMeasurement.writeElapsedTimeToFile(Some("[Main] Reasoner Validate Data START"), System.nanoTime(), config.debugConfig.outputPathPerformanceReport)
+          // val validityReport = getInfModelForReasonerValidityCheck(infModel, config.reasonerUri).validate()
+          val validityReport = infModel.validate()
+          PerformanceMeasurement.writeElapsedTimeToFile(Some("[Main] Reasoner Validate Data END"), System.nanoTime(), config.debugConfig.outputPathPerformanceReport)
+          ctx.log.info("Finished validity test with reasoner.")
+          if (isModelValid(validityReport, config.reasonerUri)) {
+            addConnectedToAsset(infModel, rdfConn)
+          } else {
+            import scala.jdk.CollectionConverters._
+            validityReport.getReports.asScala.toList.foreach(x => println(x.description))
+            Some(Validator.processReasonerValidityReports(validityReport.getReports.asScala.toList))
           }
-        } else {
-          import scala.jdk.CollectionConverters._
-          validityReport.getReports.asScala.toList.foreach(x => println(x.description))
-          Some(Validator.processReasonerValidityReports(validityReport.getReports.asScala.toList))
-        }
+        } else addConnectedToAsset(infModel, rdfConn)
       }
     } match {
       case Success(Some(result)) =>
@@ -514,6 +601,27 @@ class WorkExecutor private(config: Config, ctx: ActorContext[ExecuteWork]) {
       case Failure(e) => ctx.self ! AttackGraphGenerationFailed(work, replyTo, e)
     }
 
+  private def generateQOPN(config: Config, work: Work, ctx: ActorContext[WorkExecutor.ExecuteWork], replyTo: ActorRef[Message]): Unit =
+    Using(RDFConnectionFactory.connect(s"${config.fusekiConfig.uri}/${work.jobId}")) { rdfConn =>
+      val model = getOntModelFromRemoteDataset(rdfConn)
+      ctx.log.info("Starting QOPN generation.")
+      PerformanceMeasurement.writeElapsedTimeToFile(Some(s"[Main] QOPN generation START."), System.nanoTime(), config.debugConfig.outputPathPerformanceReport)
+      QOPNGenerator(config, model)
+    } match {
+      case Success(qopnGenerationResult) =>
+        PerformanceMeasurement.writeElapsedTimeToFile(Some(s"[Main] QOPN generation END."), System.nanoTime(), config.debugConfig.outputPathPerformanceReport)
+        ctx.log.info("Finished generation of QOPN.")
+        qopnGenerationResult match {
+          case Right(r) =>
+            LoLAWriter(config.qopnConfig.lolaConfig.filePath, r.qopn)
+            PnmlWriter(config.qopnConfig.pnmlFilePath, r.qopn)
+            ctx.self ! QOPNGenerationSuccessful(work, replyTo)
+          case Left(e) =>
+            ctx.self ! QOPNGenerationFailed(work, replyTo, throw new RuntimeException(e.message))
+        }
+      case Failure(e) => ctx.self ! QOPNGenerationFailed(work, replyTo, e)
+    }
+
   private def executeCaseStudy(config: Config, work: Work, ctx: ActorContext[WorkExecutor.ExecuteWork], replyTo: ActorRef[Message]): Unit = {
     Using(RDFConnectionFactory.connect(s"${config.fusekiConfig.uri}/${work.jobId}")) { rdfConn =>
       val model = getOntModelFromRemoteDataset(rdfConn)
@@ -525,6 +633,35 @@ class WorkExecutor private(config: Config, ctx: ActorContext[ExecuteWork]) {
     } match {
       case Success(_) => ctx.self ! ExecutionOfCaseStudySuccessful(work, replyTo)
       case Failure(e) => ctx.self ! ExecutionOfCaseStudyFailed(work, replyTo, e)
+    }
+  }
+
+  private def executeQualityCaseStudy(config: Config, work: Work, ctx: ActorContext[WorkExecutor.ExecuteWork], replyTo: ActorRef[Message]): Unit = {
+    Using(RDFConnectionFactory.connect(s"${config.fusekiConfig.uri}/${work.jobId}")) { rdfConn =>
+      val model = getOntModelFromRemoteDataset(rdfConn)
+      ctx.log.info("Starting quality case study.")
+      PerformanceMeasurement.writeElapsedTimeToFile(Some(s"[Main] Quality case study START."), System.nanoTime(), config.debugConfig.outputPathPerformanceReport)
+      QualityCaseStudy.answerQuestions2To4(config, model)(ctx.executionContext)
+    } match {
+      case Success(f) =>
+        f.onComplete {
+          case Success(res) =>
+            logger.info("Q2: Given a set of vulnerable assets, which quality characteristics of the workpiece or product can" +
+              " attackers deliberately alter and would these defects remain undetected due to insufficient QC? " +
+              "Answer: " +
+              res.q2)
+            logger.info("Q3: What are the consequences of an attack that targets a certain quality characteristic in terms of " +
+              "cascading effects relating to product quality? " +
+              "Answer: " + res.q3)
+            logger.info("Q4: How can attackers disguise their malicious actions to evade QC? " +
+              "Answer: " + res.q4.mkString(", "))
+            PerformanceMeasurement.writeElapsedTimeToFile(Some(s"[Main] Quality case study END."), System.nanoTime(), config.debugConfig.outputPathPerformanceReport)
+            logger.info("Finished quality case study.")
+            ctx.self ! ExecutionOfQualityCaseStudySuccessful(work, replyTo)
+          case Failure(e) => logger.error("Could not execute quality case study.", e)
+            ctx.self ! ExecutionOfQualityCaseStudyFailed(work, replyTo, e)
+        }(ctx.executionContext)
+      case Failure(e) => ctx.self ! ExecutionOfQualityCaseStudyFailed(work, replyTo, e)
     }
   }
 

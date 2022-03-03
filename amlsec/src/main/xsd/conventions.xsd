@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.pnml.org/version-2009/grammar/pnml" xmlns:pnml="http://www.pnml.org/version-2009/grammar/pnml">
+  <xs:complexType name="nonnegativeintegerlabel.content">
+    <xs:annotation>
+      <xs:documentation>
+			A non negative integer label is an annotation with a 
+			natural number as its value.
+			Its sub-elements occur in any order.
+			It contains the standard annotation content.
+		</xs:documentation>
+    </xs:annotation>
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="text" type="xs:nonNegativeInteger"/>
+      <xs:group ref="pnml:annotationstandard.content"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="positiveintegerlabel.content">
+    <xs:annotation>
+      <xs:documentation>
+			A positive integer label is an annotation with a natural
+			number as its value, zero excluded.
+			Its sub-elements occur in any order.
+			It contains the standard annotation content.
+		</xs:documentation>
+    </xs:annotation>
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="text" type="xs:positiveInteger"/>
+      <xs:group ref="pnml:annotationstandard.content"/>
+    </xs:choice>
+  </xs:complexType>
+</xs:schema>

@@ -18,9 +18,9 @@ trait Work extends CborSerializable {
 
 case class WorkCreateRemoteDataset(jobId: String, workId: String) extends Work
 
-case class WorkPushModelToRemoteDataset(jobId: String, workId: String, amlFilePath: String) extends Work
+case class WorkPushModelToRemoteDataset(jobId: String, workId: String, amlFilePath: String, sfcFilePath: Option[String] = None) extends Work
 
-case class WorkAugmentModel(jobId: String, workId: String) extends Work
+case class WorkAugmentModel(jobId: String, workId: String, doAMLqual: Boolean = false) extends Work
 
 case class WorkValidateEngineeringData(jobId: String, workId: String, shapeUri: String) extends Work
 
@@ -31,6 +31,8 @@ case class WorkCveCheck(jobId: String, workId: String) extends Work
 case class WorkInstantiateVulnerabilities(jobId: String, workId: String, reports: List[ValidationReport]) extends Work
 
 case class WorkGenerateAttackGraph(jobId: String, workId: String) extends Work
+
+case class WorkGenerateQOPN(jobId: String, workId: String) extends Work
 
 case class WorkExecuteCaseStudy(jobId: String, workId: String) extends Work
 
@@ -51,14 +53,20 @@ class WorkSerializer extends JsonSerializer[Work] {
       case WorkCreateRemoteDataset(_, _) =>
         json.writeFieldName("work_type")
         json.writeString("create_remote_dataset")
-      case WorkPushModelToRemoteDataset(_, _, amlFileContent) =>
+      case WorkPushModelToRemoteDataset(_, _, amlFileContent, sfcFilePath) =>
         json.writeFieldName("work_type")
         json.writeString("push_model_to_remote_dataset")
         json.writeFieldName("aml_file_content")
         json.writeString(amlFileContent)
-      case WorkAugmentModel(_, _) =>
+        sfcFilePath.foreach { p =>
+          json.writeFieldName("sfc_file_path")
+          json.writeString(p)
+        }
+      case WorkAugmentModel(_, _, doAMLqual) =>
         json.writeFieldName("work_type")
         json.writeString("augment_model")
+        json.writeFieldName("do_aml_qual")
+        json.writeBoolean(doAMLqual)
       case WorkValidateEngineeringData(_, _, shapeUri) =>
         json.writeFieldName("work_type")
         json.writeString("validate_engineering_data")
@@ -118,6 +126,9 @@ class WorkSerializer extends JsonSerializer[Work] {
       case WorkGenerateAttackGraph(_, _) =>
         json.writeFieldName("work_type")
         json.writeString("generate_attack_graph")
+      case WorkGenerateQOPN(_, _) =>
+        json.writeFieldName("work_type")
+        json.writeString("generate_qopn")
       case WorkExecuteCaseStudy(_, _) =>
         json.writeFieldName("work_type")
         json.writeString("execute_case_study")
@@ -143,8 +154,13 @@ class WorkDeserializer extends JsonDeserializer[Work] {
       case "push_model_to_remote_dataset" =>
         val amlFileContentField = node.get("aml_file_content")
         val amlFileContent = amlFileContentField.asText()
-        WorkPushModelToRemoteDataset(jobId, workId, amlFileContent)
-      case "augment_model" => WorkAugmentModel(jobId, workId)
+        val sfcFilePathField = if (node.has("sfc_file_path")) Option(node.get("sfc_file_path")) else None
+        val sfcFilePath = sfcFilePathField.map(_.asText())
+        WorkPushModelToRemoteDataset(jobId, workId, amlFileContent, sfcFilePath)
+      case "augment_model" =>
+        val doAMLqualField = node.get("do_aml_qual")
+        val doAMLqual = doAMLqualField.asBoolean(false)
+        WorkAugmentModel(jobId, workId, doAMLqual)
       case "validate_engineering_data" =>
         val shapeUriField = node.get("shape_uri")
         val shapeUri = shapeUriField.asText()
@@ -189,6 +205,7 @@ class WorkDeserializer extends JsonDeserializer[Work] {
         }.toList
         WorkInstantiateVulnerabilities(jobId, workId, reports)
       case "generate_attack_graph" => WorkGenerateAttackGraph(jobId, workId)
+      case "generate_qopn" => WorkGenerateQOPN(jobId, workId)
       case "execute_case_study" => WorkExecuteCaseStudy(jobId, workId)
       case _ => throw new IllegalArgumentException(
         s"[$workType] is not a valid value for work type."
@@ -221,6 +238,8 @@ case object CveCheckSuccessful extends WorkResult
 case object InstantiationOfVulnerabilitiesSuccessful extends WorkResult
 
 case object GenerationOfAttackGraphSuccessful extends WorkResult
+
+case object GenerationOfQOPNSuccessful extends WorkResult
 
 case object ExecutionOfCaseStudySuccessful extends WorkResult
 
@@ -262,6 +281,9 @@ class WorkResultSerializer extends JsonSerializer[WorkResult] {
       case GenerationOfAttackGraphSuccessful =>
         json.writeFieldName("type")
         json.writeString("generate_attack_graph")
+      case GenerationOfQOPNSuccessful =>
+        json.writeFieldName("type")
+        json.writeString("generate_qopn")
       case ExecutionOfCaseStudySuccessful =>
         json.writeFieldName("type")
         json.writeString("execute_case_study")
@@ -295,6 +317,7 @@ class WorkResultDeserializer extends JsonDeserializer[WorkResult] {
       case "cve_check" => CveCheckSuccessful
       case "instantiate_vulnerabilities" => InstantiationOfVulnerabilitiesSuccessful
       case "generate_attack_graph" => GenerationOfAttackGraphSuccessful
+      case "generate_qopn" => GenerationOfQOPNSuccessful
       case "execute_case_study" => ExecutionOfCaseStudySuccessful
       case _ => throw new IllegalArgumentException(
         s"[$workResultType] is not a valid value for work type."

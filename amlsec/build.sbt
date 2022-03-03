@@ -4,9 +4,16 @@ version := "0.1"
 
 scalaVersion := "2.13.1"
 
+enablePlugins(ScalaxbPlugin)
+
 val jenaVersion = "3.16.0"
 val akkaVersion = "2.6.6"
 val cassandraPluginVersion = "0.103"
+
+scalaxbPackageName in(Compile, scalaxb) := "generated"
+scalaxbAutoPackages in(Compile, scalaxb) := true
+sourceManaged in(Compile, scalaxb) := (sourceDirectory in Compile).value / "scala/sbt-scalaxb"
+scalaxbProtocolPackageName in(Compile, scalaxb) := Some("xmlprotocol")
 
 Global / cancelable := true
 
@@ -31,10 +38,15 @@ libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-persistence-query" % akkaVersion,
   "com.typesafe.akka" %% "akka-serialization-jackson" % akkaVersion,
   "com.typesafe.akka" %% "akka-cluster-tools" % akkaVersion, // this is probably not necessary
-    "com.typesafe.akka" %% "akka-persistence-cassandra" % cassandraPluginVersion,
+  "com.typesafe.akka" %% "akka-persistence-cassandra" % cassandraPluginVersion,
   // this allows us to start cassandra from the sample
   "com.typesafe.akka" %% "akka-persistence-cassandra-launcher" % cassandraPluginVersion,
   "ch.qos.logback" % "logback-classic" % "1.2.3",
+  // XML
+  "org.scala-lang.modules" %% "scala-xml" % "1.3.0",
+  "org.scala-lang.modules" %% "scala-parser-combinators" % "1.2.0-M1",
+  // https://mvnrepository.com/artifact/org.glassfish.jaxb/jaxb-runtime
+  "org.glassfish.jaxb" % "jaxb-runtime" % "2.3.3",
   // test dependencies
   "com.typesafe.akka" %% "akka-actor-testkit-typed" % akkaVersion % Test,
   "org.scalatest" %% "scalatest" % "3.0.8" % Test,

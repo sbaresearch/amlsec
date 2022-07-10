@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CAEXFile FileName="AMLsecInterfaceClassLib_V1.0.0.aml" SchemaVersion="3.0" xmlns="http://www.dke.de/CAEX" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.dke.de/CAEX CAEX_ClassModel_V.3.0.xsd">
+	<Version>2.0</Version>
+	<AdditionalInformation AutomationMLVersion="2.0" />
+	<SuperiorStandardVersion>AutomationML 2.10</SuperiorStandardVersion>
+	<InterfaceClassLib Name="AMLsecInterfaceClassLib">
+		<Description>AMLsec Interface Class Library</Description>
+		<Version>1.0.0</Version>
+		<Copyright>Matthias Eckhart</Copyright>
+		<InterfaceClass Name="Ethernet">
+			<InterfaceClass Name="EthernetSocket" RefBaseClassPath="AMLsecInterfaceClassLib/Ethernet" />
+			<InterfaceClass Name="EthernetPlug" RefBaseClassPath="AMLsecInterfaceClassLib/Ethernet" />
+		</InterfaceClass>
+		<InterfaceClass Name="Wireless">
+			<InterfaceClass Name="WirelessInterface" RefBaseClassPath="AMLsecInterfaceClassLib/Wireless" />
+			<InterfaceClass Name="WirelessPlug" RefBaseClassPath="AMLsecInterfaceClassLib/Wireless" />
+		</InterfaceClass>
+		<InterfaceClass Name="Motor">
+			<InterfaceClass Name="MotorSocket" RefBaseClassPath="AMLsecInterfaceClassLib/Motor" />
+			<InterfaceClass Name="MotorPlug" RefBaseClassPath="AMLsecInterfaceClassLib/Motor" />
+		</InterfaceClass>
+		<InterfaceClass Name="Data">
+			<InterfaceClass Name="DataSocket" RefBaseClassPath="AMLsecInterfaceClassLib/Data" />
+			<InterfaceClass Name="DataPlug" RefBaseClassPath="AMLsecInterfaceClassLib/Data" />
+		</InterfaceClass>
+		<InterfaceClass Name="LogicalEndpoint">
+			<InterfaceClass Name="LogicalEndpointOPC-UA" RefBaseClassPath="AMLsecInterfaceClassLib/LogicalEndpoint" />
+			<InterfaceClass Name="LogicalEndpointModbus" RefBaseClassPath="AMLsecInterfaceClassLib/LogicalEndpoint" />
+			<InterfaceClass Name="LogicalEndpointOPC" RefBaseClassPath="AMLsecInterfaceClassLib/LogicalEndpoint" />
+			<InterfaceClass Name="LogicalEndpointProfinet" RefBaseClassPath="AMLsecInterfaceClassLib/LogicalEndpoint" />
+			<InterfaceClass Name="LogicalEndpointPROFIsafe" RefBaseClassPath="AMLsecInterfaceClassLib/LogicalEndpoint" />
+			<InterfaceClass Name="LogicalRemoteEndpoint" RefBaseClassPath="AMLsecInterfaceClassLib/LogicalEndpoint" /><InterfaceClass Name="LogicalEndpointHTTP" RefBaseClassPath="AMLsecInterfaceClassLib/LogicalEndpoint" /><InterfaceClass Name="LogicalEndpointHTTPS" RefBaseClassPath="AMLsecInterfaceClassLib/LogicalEndpoint" />
+		</InterfaceClass>
+	</InterfaceClassLib>
+</CAEXFile>

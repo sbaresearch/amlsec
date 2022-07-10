@@ -101,6 +101,7 @@ object OntModelUtils {
     locMgr.addAltEntry(config.secOntConfig.ns, config.secOntConfig.filePath)
     locMgr.addAltEntry(config.icsSecOntConfig.ns, config.icsSecOntConfig.filePath)
     locMgr.addAltEntry(config.agOnt.ns, config.agOnt.filePath)
+    locMgr.addAltEntry(config.sfcConfig.ontoPlcConfig.ns, config.sfcConfig.ontoPlcConfig.filePath)
     FileManager.get.setLocationMapper(locMgr)
     // Ensure that the document manager directly uses the global file manager (see JavaDoc of OntDocumentManager)
     OntDocumentManager.getInstance.setFileManager(FileManager.get)

@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.pnml.org/version-2009/grammar/pnml" xmlns:pnml="http://www.pnml.org/version-2009/grammar/pnml">
+  <xs:include schemaLocation="anyElement.xsd"/>
+  <!-- <include href="http://www.pnml.org/version-2009/grammar/anyElement.rng"/> -->
+  <xs:element name="pnml">
+    <xs:annotation>
+      <xs:documentation>
+				A PNML document consists of one or more Petri nets.
+				It has a version.
+			</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="pnml:net"/>
+        <!-- <xs:element maxOccurs="unbounded" ref="pnml:pnml.content"/> -->
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!--
+  <xs:element name="pnml.content" abstract="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="pnml:name"/>
+        <xs:element ref="pnml:page"/>
+        <xs:element ref="pnml:toolspecific"/>
+      </xs:choice>
+      <xs:attributeGroup ref="pnml:identifier.content"/>
+      <xs:attributeGroup ref="pnml:nettype.uri"/>
+    </xs:complexType>
+  </xs:element>
+  -->
+  <!-- <xs:element name="net" substitutionGroup="pnml:pnml.content"> -->
+  <xs:element name="net">
+    <xs:annotation>
+      <xs:documentation>
+				A net has a unique identifier (id) and refers to
+				its Petri Net Type Definition (PNTD) (type).
+			</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="pnml:name"/>
+        <xs:element ref="pnml:page"/>
+        <xs:element ref="pnml:toolspecific"/>
+      </xs:choice>
+      <xs:attributeGroup ref="pnml:identifier.content"/>
+      <xs:attributeGroup ref="pnml:nettype.uri"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="identifier.content">
+    <xs:annotation>
+      <xs:documentation>
+			Identifier (id) declaration shared by all objects in any PNML model.
+		</xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="id" use="required" type="xs:ID"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="nettype.uri">
+    <xs:annotation>
+      <xs:documentation>
+			The net type (nettype.uri) of a net should be redefined in the grammar
+			for a new Petri net Type.
+			An example of such a definition is in ptnet.pntd, the grammar
+			for P/T Nets. The following value is a default.
+		</xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="type" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="http://www.pnml.org/version-2009/grammar/pnmlcoremodel"/>
+          <xs:enumeration value="http://www.pnml.org/version-2009/grammar/ptnet"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:group name="basicobject.content">
+    <xs:annotation>
+      <xs:documentation>
+			Basic contents for any object of a PNML model.
+		</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="pnml:name"/>
+        <xs:element ref="pnml:toolspecific"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:element name="page" substitutionGroup="pnml:netobject.content">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:group ref="pnml:basicobject.content"/>
+        <xs:element ref="pnml:netobject.content"/>
+        <xs:element name="graphics" type="pnml:pagegraphics.content"/>
+      </xs:choice>
+      <xs:attributeGroup ref="pnml:identifier.content"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="netobject.content" abstract="true">
+    <xs:annotation>
+      <xs:documentation>
+			A net object is either a page, a node or an arc. 
+			A node is a place or a transition, a reference place of
+			a reference transition.
+		</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="place" substitutionGroup="pnml:netobject.content">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:group ref="pnml:basicobject.content"/>
+        <xs:group ref="pnml:place.labels"/>
+        <xs:group ref="pnml:node.content"/>
+      </xs:choice>
+      <xs:attributeGroup ref="pnml:identifier.content"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:group name="place.labels">
+    <xs:annotation>
+      <xs:documentation>
+			A place may have arbitrary many labels. This pattern should be used
+			within a PNTD to define the place labels.
+		</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="pnml:initialMarking"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:element name="transition" substitutionGroup="pnml:netobject.content">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:group ref="pnml:basicobject.content"/>
+        <xs:group ref="pnml:node.content"/>
+      </xs:choice>
+      <xs:attributeGroup ref="pnml:identifier.content"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:group name="node.content">
+    <xs:annotation>
+      <xs:documentation>
+			A node may have graphical information.
+		</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="graphics" type="pnml:nodegraphics.content"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:attributeGroup name="reference">
+    <xs:annotation>
+      <xs:documentation>
+			Here, we define the attribute ref including its data type.
+			Modular PNML will extend this definition in order to change
+			the behavior of references to export nodes of module instances.
+		</xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="ref" use="required" type="xs:IDREF"/>
+  </xs:attributeGroup>
+  <xs:element name="referencePlace" substitutionGroup="pnml:netobject.content" type="pnml:refnode.content"/>
+  <xs:element name="referenceTransition" substitutionGroup="pnml:netobject.content" type="pnml:refnode.content"/>
+  <xs:complexType name="refnode.content">
+    <xs:annotation>
+      <xs:documentation>
+			A reference node has the same content as a node.
+			It adds a reference (ref) to a (reference) node.
+		</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:group ref="pnml:basicobject.content"/>
+      <xs:group ref="pnml:node.content"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="pnml:identifier.content"/>
+    <xs:attributeGroup ref="pnml:reference"/>
+  </xs:complexType>
+  <xs:element name="arc" substitutionGroup="pnml:netobject.content">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="pnml:name"/>
+        <xs:group ref="pnml:arc.labels"/>
+        <xs:element name="graphics" type="pnml:edgegraphics.content"/>
+        <xs:element ref="pnml:toolspecific"/>
+      </xs:choice>
+      <xs:attributeGroup ref="pnml:identifier.content"/>
+      <xs:attribute name="source" use="required" type="xs:IDREF"/>
+      <xs:attribute name="target" use="required" type="xs:IDREF"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:group name="arc.labels">
+    <xs:annotation>
+      <xs:documentation>
+			An arc may have arbitrary many labels. This pattern should be used
+			within a PNTD to define the arc labels.
+		</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="pnml:inscription"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="pagegraphics.content">
+    <xs:annotation>
+      <xs:documentation>
+			A page graphics is actually a node graphics
+		</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="pnml:nodegraphics.content"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="nodegraphics.content">
+    <xs:annotation>
+      <xs:documentation>
+			The sub-elements of a node's graphical part occur in any order.
+			At least, there may be one position element.
+			Furthermore, there may be a dimension, a fill, and a line element.
+		</xs:documentation>
+    </xs:annotation>
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element ref="pnml:position"/>
+      <xs:element ref="pnml:dimension"/>
+      <xs:element ref="pnml:fill"/>
+      <xs:element ref="pnml:line"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="edgegraphics.content">
+    <xs:annotation>
+      <xs:documentation>
+			The sub-elements of an arc's graphical part occur in any order.
+			There may be zero or more position elements.
+			Furthermore, there may be a line element.
+		</xs:documentation>
+    </xs:annotation>
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element ref="pnml:position"/>
+      <xs:element ref="pnml:line"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:group name="simpletext.content">
+    <xs:annotation>
+      <xs:documentation>
+			This definition describes the contents of simple text labels
+			without graphics.
+		</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="text" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+					A text should have a value. 
+					If not, then there must be a default.
+				</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="annotationstandard.content">
+    <xs:annotation>
+      <xs:documentation>
+			The definition annotationstandard.content describes the 
+			standard contents of an annotation.
+			Each annotation may have graphical or tool specific information.
+		</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="graphics" type="pnml:annotationgraphics.content"/>
+        <xs:element ref="pnml:toolspecific"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="simpletextlabel.content">
+    <xs:annotation>
+      <xs:documentation>
+			A simple text label is an annotation to a net object containing 
+			arbitrary text.
+			Its sub-elements occur in any order.
+			A simple text label behaves like an attribute to a net object.
+			Furthermore, it contains the standard annotation contents which 
+			basically defines the graphics of the text.
+		</xs:documentation>
+    </xs:annotation>
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:group ref="pnml:simpletext.content"/>
+      <xs:group ref="pnml:annotationstandard.content"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:element name="name" type="pnml:simpletextlabel.content"/>
+  <xs:complexType name="annotationgraphics.content">
+    <xs:annotation>
+      <xs:documentation>
+			An annotation's graphics part requires an offset element describing
+			the offset the center point of the surrounding text box has to
+			the reference point of the net object on which the annotation occurs.
+			Furthermore, an annotation's graphic element may have a fill, a line, 
+			and font element.
+		</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element ref="pnml:offset"/>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="pnml:fill"/>
+        <xs:element ref="pnml:line"/>
+        <xs:element ref="pnml:font"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="position">
+    <xs:complexType>
+      <xs:attributeGroup ref="pnml:coordinate.attributes"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="offset">
+    <xs:complexType>
+      <xs:attributeGroup ref="pnml:coordinate.attributes"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="coordinate.attributes">
+    <xs:annotation>
+      <xs:documentation>
+			The coordinates are decimal numbers and refer to an appropriate 
+			xy-system where the x-axis runs from left to right and the y-axis
+			from top to bottom.
+		</xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="x" use="required" type="xs:decimal"/>
+    <xs:attribute name="y" use="required" type="xs:decimal"/>
+  </xs:attributeGroup>
+  <xs:element name="dimension">
+    <xs:complexType>
+      <xs:attribute name="x" use="required" type="pnml:positiveDecimal.content"/>
+      <xs:attribute name="y" use="required" type="pnml:positiveDecimal.content"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="positiveDecimal.content">
+    <xs:annotation>
+      <xs:documentation>
+			Definition of a restricted positive decimals domain with a total digits 
+			number of 4 and 1 fraction digit. Ranges from 0 to 999.9
+		</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:decimal">
+      <xs:totalDigits value="4"/>
+      <xs:fractionDigits value="1"/>
+      <xs:minExclusive value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="fill">
+    <xs:complexType>
+      <xs:attribute name="color"/>
+      <xs:attribute name="gradient-color"/>
+      <xs:attribute name="gradient-rotation">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="vertical"/>
+            <xs:enumeration value="horizontal"/>
+            <xs:enumeration value="diagonal"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="image" type="xs:anyURI"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="line">
+    <xs:complexType>
+      <xs:attribute name="shape">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="line"/>
+            <xs:enumeration value="curve"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="color"/>
+      <xs:attribute name="width" type="pnml:positiveDecimal.content"/>
+      <xs:attribute name="style">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="solid"/>
+            <xs:enumeration value="dash"/>
+            <xs:enumeration value="dot"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="font">
+    <xs:complexType>
+      <xs:attribute name="family"/>
+      <xs:attribute name="style"/>
+      <xs:attribute name="weight"/>
+      <xs:attribute name="size"/>
+      <xs:attribute name="decoration">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="underline"/>
+            <xs:enumeration value="overline"/>
+            <xs:enumeration value="line-through"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="align">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="left"/>
+            <xs:enumeration value="center"/>
+            <xs:enumeration value="right"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="rotation" type="xs:decimal"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="toolspecific">
+    <xs:complexType>
+      <xs:group minOccurs="0" maxOccurs="unbounded" ref="pnml:anyElement"/>
+      <xs:attribute name="tool" use="required"/>
+      <xs:attribute name="version" use="required"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

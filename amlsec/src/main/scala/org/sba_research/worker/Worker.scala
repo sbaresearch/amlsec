@@ -5,7 +5,6 @@ import akka.actor.typed.delivery.ConsumerController
 import akka.actor.typed.pubsub.Topic
 import akka.actor.typed.scaladsl._
 import org.sba_research.utils.ValidationReport
-import org.sba_research.worker.FrontEnd.WorkFinished
 import org.sba_research.worker.WorkExecutor.ExecuteWork
 
 /**
@@ -65,13 +64,13 @@ class Worker private(
             ctx.log.info("Got work (create remote dataset): {}", w)
             workExecutor ! WorkExecutor.CreateRemoteDataset(w, ctx.self)
             working(workExecutor, confirmTo)
-          case WorkManager.DoWork(w@WorkPushModelToRemoteDataset(_, _, amlFilePath)) =>
+          case WorkManager.DoWork(w@WorkPushModelToRemoteDataset(_, _, amlFilePath, sfcFilePath)) =>
             ctx.log.info("Got work (push model to remote dataset): {}", w)
-            workExecutor ! WorkExecutor.PushModelToRemoteDataset(w, ctx.self, amlFilePath)
+            workExecutor ! WorkExecutor.PushModelToRemoteDataset(w, ctx.self, amlFilePath, sfcFilePath)
             working(workExecutor, confirmTo)
-          case WorkManager.DoWork(w@WorkAugmentModel(_, _)) =>
+          case WorkManager.DoWork(w@WorkAugmentModel(_, _, doAMLqual)) =>
             ctx.log.info("Got work (augment model): {}", w)
-            workExecutor ! WorkExecutor.AugmentModel(w, ctx.self)
+            workExecutor ! WorkExecutor.AugmentModel(w, ctx.self, doAMLqual)
             working(workExecutor, confirmTo)
           case WorkManager.DoWork(w@WorkValidateEngineeringData(_, _, _)) =>
             ctx.log.info("Got work (validate engineering data): {}", w)
@@ -92,6 +91,10 @@ class Worker private(
           case WorkManager.DoWork(w@WorkGenerateAttackGraph(_, _)) =>
             ctx.log.info("Got work (generate attack graph): {}", w)
             workExecutor ! WorkExecutor.GenerateAttackGraph(w, ctx.self)
+            working(workExecutor, confirmTo)
+          case WorkManager.DoWork(w@WorkGenerateQOPN(_, _)) =>
+            ctx.log.info("Got work (generate QOPN): {}", w)
+            workExecutor ! WorkExecutor.GenerateQOPN(w, ctx.self)
             working(workExecutor, confirmTo)
           case WorkManager.DoWork(w@WorkExecuteCaseStudy(_, _)) =>
             ctx.log.info("Got work (execute case study): {}", w)
@@ -144,6 +147,8 @@ class Worker private(
               resultTopicActor ! Topic.Publish(WorkFinished(work, InstantiationOfVulnerabilitiesSuccessful))
             case _: WorkGenerateAttackGraph =>
               resultTopicActor ! Topic.Publish(WorkFinished(work, GenerationOfAttackGraphSuccessful))
+            case _: WorkGenerateQOPN =>
+              resultTopicActor ! Topic.Publish(WorkFinished(work, GenerationOfQOPNSuccessful))
             case _: WorkExecuteCaseStudy =>
               resultTopicActor ! Topic.Publish(WorkFinished(work, ExecutionOfCaseStudySuccessful))
             case _ =>

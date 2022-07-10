@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.pnml.org/version-2009/grammar/pnml" xmlns:pnml="http://www.pnml.org/version-2009/grammar/pnml">
+  <xs:include schemaLocation="conventions.xsd"/>
+  <xs:include schemaLocation="pnmlcoremodel.xsd"/>
+  <!--
+    <include href="http://www.pnml.org/version-2009/grammar/pnmlextensions.rng"/>
+    	We do not need to include this, because the pnmlcoremodel.rng covers any
+    	toolspecific extension.
+  -->
+  <xs:element name="initialMarking" type="pnml:nonnegativeintegerlabel.content"/>
+  <xs:element name="inscription" type="pnml:positiveintegerlabel.content"/>
+</xs:schema>

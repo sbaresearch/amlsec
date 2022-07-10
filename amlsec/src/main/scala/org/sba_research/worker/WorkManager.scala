@@ -10,7 +10,6 @@ import akka.actor.typed.pubsub.Topic
 import akka.persistence.typed.{PersistenceId, RecoveryCompleted}
 import akka.persistence.typed.scaladsl.{Effect, EventSourcedBehavior}
 import akka.util.Timeout
-import org.sba_research.worker.FrontEnd.WorkFinished
 import org.sba_research.worker.WorkState.{WorkAccepted, WorkCompleted, WorkDomainEvent, WorkInProgressReset, WorkStarted}
 
 import scala.concurrent.duration.{FiniteDuration, _}

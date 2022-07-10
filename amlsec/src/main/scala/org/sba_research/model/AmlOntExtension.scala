@@ -1,6 +1,7 @@
 package org.sba_research.model
 
-import org.apache.jena.ontology.{OntClass, OntModel, OntResource}
+import com.typesafe.scalalogging.Logger
+import org.apache.jena.ontology.{Individual, OntClass, OntModel, OntResource}
 import org.apache.jena.rdf.model.{Model, ResourceFactory}
 import org.apache.jena.util.iterator.ExtendedIterator
 import org.apache.jena.vocabulary.OWL2
@@ -8,6 +9,9 @@ import org.sba_research.Config
 import org.sba_research.utils.{OntModelUtils, QueryExecutor}
 
 object AmlOntExtension {
+
+  val logger: Logger = Logger(getClass)
+
 
   def augment(config: Config, ontModel: OntModel): Option[OntModel] =
     for {
@@ -18,6 +22,21 @@ object AmlOntExtension {
       ontModelAssetLogicallyConnectedToAssetRoles <- addAssetLogicallyConnectedToAssetRoles(config, ontModelAssetConnectedToAssetRoles).map(m => ontModel.add(m).asInstanceOf[OntModel])
     } yield ontModelAssetLogicallyConnectedToAssetRoles
 
+
+  def addOntAxiomsSFCQuality(config: Config, ontModel: OntModel): Option[OntModel] =
+    for {
+      ontModelExecutedBy <- addExecutedByObjectProperty(config, ontModel) // Add `executedBy` (domain: `Step`, range: `Asset`)
+      ontModelCorrespondsTo <- addCorrespondsToObjectProperty(config, ontModelExecutedBy) // Add `correspondsTo` (domain: `Step`)
+      ontModelHasQualityCheck <- addHasQualityCheckObjectProperty(config, ontModelCorrespondsTo) // Add `hasQualityCheck` (domain: `Step`, range: `QualityCheck`)
+      ontModelQualityCheckAppliesTo <- addQualityCheckAppliesTo(config, ontModelHasQualityCheck) // Add `qualityCheckAppliesTo` (inverse of: `hasQualityCheck`)
+      ontModelHasQualityCondition <- addHasQualityCondition(config, ontModelQualityCheckAppliesTo) // Add `hasQualityCondition` (domain: `Step`, range: `QualityCondition`)
+      ontModelQualityConditionAppliesTo <- addQualityConditionAppliesTo(config, ontModelHasQualityCondition) // Add `qualityConditionAppliesTo` (inverse of: `hasQualityCondition`)
+      ontModelHasStepRef <- addHasStepRefObjectProperty(config, ontModelQualityConditionAppliesTo) // Add `hasStepRef` object property (range: `Step`)
+      ontModelCorrespondsToInstantiation <- addCorrespondsToRelations(config, ontModelHasStepRef).map(m => ontModelHasStepRef.add(m).asInstanceOf[OntModel]) // Create `correspondsTo` relations
+      ontModelExecutedByInstantiation <- addExecutedByRelations(config, ontModelCorrespondsToInstantiation).map(m => ontModelCorrespondsToInstantiation.add(m).asInstanceOf[OntModel]) // Create `executedBy` relations
+      ontModelQualityConditionsInstantiation <- addQualityConditions(config, ontModelExecutedByInstantiation).map(m => ontModelExecutedByInstantiation.add(m).asInstanceOf[OntModel]) // Create quality condition individuals incl. relations
+      ontModelQualityChecksInstantiation <- addQualityChecks(config, ontModelQualityConditionsInstantiation).map(m => ontModelQualityConditionsInstantiation.add(m).asInstanceOf[OntModel]) // Create quality check individuals incl. relations
+    } yield ontModelQualityChecksInstantiation
 
   def addOntAxioms(config: Config, ontModel: OntModel): Option[OntModel] =
     for {
@@ -435,5 +454,361 @@ object AmlOntExtension {
       reasonerUri = if (withInference) Some(config.reasonerUri) else None
     )
   }
+
+  private def addExecutedByObjectProperty(config: Config, ontModel: OntModel): Option[OntModel] = {
+    val executedBy = ontModel.createObjectProperty(s"${config.sfcConfig.sfcTransformationOntConfig.ns}#executedBy")
+    val step = ontModel.getOntClass(s"${config.sfcConfig.ontoPlcConfig.ns}#Step")
+    val asset = ontModel.getOntClass(s"${config.secOntConfig.ns}#Asset")
+    executedBy.addDomain(step)
+    executedBy.addRange(asset)
+    Some(ontModel)
+  }
+
+  private def addCorrespondsToObjectProperty(config: Config, ontModel: OntModel): Option[OntModel] = {
+    val correspondsTo = ontModel.createObjectProperty(s"${config.sfcConfig.sfcTransformationOntConfig.ns}#correspondsTo")
+    val step = ontModel.getOntClass(s"${config.sfcConfig.ontoPlcConfig.ns}#Step")
+    correspondsTo.addDomain(step)
+    Some(ontModel)
+  }
+
+  private def addHasQualityCheckObjectProperty(config: Config, ontModel: OntModel): Option[OntModel] = {
+    val hasQualityCheck = ontModel.createObjectProperty(s"${config.sfcConfig.sfcTransformationOntConfig.ns}#hasQualityCheck")
+    val step = ontModel.getOntClass(s"${config.sfcConfig.ontoPlcConfig.ns}#Step")
+    val qualityCheck = ontModel.getOntClass(s"${config.qualOntConfig.ns}/QualityCheck")
+    hasQualityCheck.addDomain(step)
+    hasQualityCheck.addRange(qualityCheck)
+    Some(ontModel)
+  }
+
+  private def addQualityCheckAppliesTo(config: Config, ontModel: OntModel): Option[OntModel] = {
+    val hasQualityCheck = ontModel.getObjectProperty(s"${config.sfcConfig.sfcTransformationOntConfig.ns}#hasQualityCheck")
+    val qualityCheckAppliesTo = ontModel.createObjectProperty(s"${config.sfcConfig.sfcTransformationOntConfig.ns}#qualityCheckAppliesTo")
+    hasQualityCheck.addInverseOf(qualityCheckAppliesTo)
+    Some(ontModel)
+  }
+
+  private def addHasQualityCondition(config: Config, ontModel: OntModel): Option[OntModel] = {
+    val hasQualityCondition = ontModel.createObjectProperty(s"${config.sfcConfig.sfcTransformationOntConfig.ns}#hasQualityCondition")
+    val step = ontModel.getOntClass(s"${config.sfcConfig.ontoPlcConfig.ns}#Step")
+    val qualityCondition = ontModel.getOntClass(s"${config.qualOntConfig.ns}/QualityCondition")
+    hasQualityCondition.addDomain(step)
+    hasQualityCondition.addRange(qualityCondition)
+    Some(ontModel)
+  }
+
+  private def addQualityConditionAppliesTo(config: Config, ontModel: OntModel): Option[OntModel] = {
+    val hasQualityCondition = ontModel.getObjectProperty(s"${config.sfcConfig.sfcTransformationOntConfig.ns}#hasQualityCondition")
+    val qualityConditionAppliesTo = ontModel.createObjectProperty(s"${config.sfcConfig.sfcTransformationOntConfig.ns}#qualityConditionAppliesTo")
+    hasQualityCondition.addInverseOf(qualityConditionAppliesTo)
+    Some(ontModel)
+  }
+
+  private def addCorrespondsToRelations(config: Config, ontModel: OntModel, withInference: Boolean = true): Option[Model] = {
+
+    def createCorrespondsToRelation(m: OntModel, opIndvsAndUuidList: List[(Individual, String)]): Option[Model] = {
+      // Create VALUES part
+      val valuesString = opIndvsAndUuidList.map(o =>
+        s"""( <${o._1.getURI}> "${o._2}" )"""
+      ).mkString("\n")
+      logger.info(s"Adding `correspondsTo` relations for: $valuesString")
+      // This query is only executed once to construct the `correspondsTo` relations
+      QueryExecutor.construct(
+        s =
+          s"""
+             |PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+             |PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+             |PREFIX owl: <http://www.w3.org/2002/07/owl#>
+             |PREFIX sfc: <${config.sfcConfig.sfcTransformationOntConfig.ns}#>
+             |PREFIX amlImp: <${config.amlConfig.nsImp}#>
+             |PREFIX amlOnt: <${config.amlConfig.nsOnt}#>
+             |PREFIX qual: <${config.qualOntConfig.ns}/>
+             |PREFIX ontoPlc: <${config.sfcConfig.ontoPlcConfig.ns}#>
+             |CONSTRUCT {
+             |       ?step sfc:correspondsTo ?qualOpIndv .
+             |       ?ieOp sfc:hasStepRef ?step .
+             |}
+             |       WHERE {
+             |                 ?step a ontoPlc:Step ;
+             |                       ontoPlc:hasGlobalId ?globalId .
+             |                 # Performance optimized
+             |                 #?qualOpIndv rdf:type/rdfs:subClassOf* ?op .
+             |                 #FILTER (?op IN (qual:ManufacturingOperation, qual:QualityControlMethod) ) .
+             |                 VALUES ( ?ieOp ?uuid ) {
+             |                         $valuesString
+             |                 }
+             |                 FILTER (?globalId = ?uuid) .
+             |
+             |                 ?ieOp a ?ieClass .
+             |                 # Filter only direct sub-classes (e.g., amlImp:Gripping)
+             |                 # Performance optimized
+             |                 #?ieClass rdfs:subClassOf ?super .
+             |                 #FILTER NOT EXISTS {
+             |                  #     ?otherSub rdfs:subClassOf ?super.
+             |                  #     ?ieClass rdfs:subClassOf ?otherSub .
+             |                  #     FILTER (?otherSub != ?ieClass)
+             |                  # }
+             |                  ?ieClass rdfs:label ?ieOpLabel .
+             |                  ?qualOpIndv qual:hasIdentifier ?qualOpId .
+             |                  FILTER (?ieOpLabel = ?qualOpId ) .
+             |       }
+        """.stripMargin,
+        model = m,
+        reasonerUri = if (withInference) Some(config.reasonerUri) else None
+      )
+    }
+
+    val queryResult = QueryExecutor.query(
+      s =
+        s"""
+           |PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+           |PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+           |PREFIX owl: <http://www.w3.org/2002/07/owl#>
+           |PREFIX amlImp: <${config.amlConfig.nsImp}#>
+           |PREFIX amlOnt: <${config.amlConfig.nsOnt}#>
+           |PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+           |SELECT ?manufacturingOperationOrQualityControl ?logicElementInterface
+           |   WHERE {
+           |      ?manufacturingOperationOrQualityControl rdf:type/rdfs:subClassOf* ?op ;
+           |                                              amlOnt:hasEI ?logicElementInterface .
+           |      FILTER (?op IN (amlImp:ManufacturingOperation, amlImp:QualityControlMethod) ) .
+           |
+           |      ?logicElementInterface a amlImp:LogicElementInterface .
+           |   }
+        """.stripMargin,
+      model = ontModel,
+      resBinding = None
+    )
+
+    val opIndvsAndUuidList = queryResult.values.flatMap { binding =>
+      val opIndvOpt = queryResult.variables.find(_.getVarName == "manufacturingOperationOrQualityControl").map(binding.get).map(n => ontModel.getIndividual(n.getURI))
+      val logicElIndvOpt = queryResult.variables.find(_.getVarName == "logicElementInterface").map(binding.get).map(n => ontModel.getIndividual(n.getURI))
+      for {
+        opIndv <- opIndvOpt
+        logicElIndv <- logicElIndvOpt
+      } yield {
+        val hasRefUriProperty = ontModel.getDatatypeProperty(s"${config.amlConfig.nsImp}#hasRefURI")
+        val refUriOpt = Option(logicElIndv.getPropertyValue(hasRefUriProperty))
+        refUriOpt.flatMap { refUri =>
+          val refUriString = refUri.asLiteral().toString
+          refUriString.split("#").toList.lastOption.map(uuid => (opIndv, uuid))
+        }
+      }
+    }.flatten
+
+    createCorrespondsToRelation(ontModel, opIndvsAndUuidList)
+  }
+
+  private def addHasStepRefObjectProperty(config: Config, ontModel: OntModel): Option[OntModel] = {
+    val hasStepRef = ontModel.createObjectProperty(s"${config.sfcConfig.sfcTransformationOntConfig.ns}#hasStepRef")
+    val step = ontModel.getOntClass(s"${config.sfcConfig.ontoPlcConfig.ns}#Step")
+    hasStepRef.addRange(step)
+    Some(ontModel)
+  }
+
+  private def addExecutedByRelations(config: Config, ontModel: OntModel, withInference: Boolean = true): Option[Model] =
+    QueryExecutor.construct(
+      s =
+        s"""
+           |PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+           |PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+           |PREFIX owl: <http://www.w3.org/2002/07/owl#>
+           |PREFIX sfc: <${config.sfcConfig.sfcTransformationOntConfig.ns}#>
+           |PREFIX amlImp: <${config.amlConfig.nsImp}#>
+           |PREFIX amlOnt: <${config.amlConfig.nsOnt}#>
+           |PREFIX qual: <${config.qualOntConfig.ns}/>
+           |PREFIX ontoPlc: <${config.sfcConfig.ontoPlcConfig.ns}#>
+           |PREFIX secOnt: <${config.secOntConfig.ns}#>
+           |CONSTRUCT { ?step sfc:executedBy ?asset }
+           |       WHERE {
+           |       		?op amlOnt:hasEI ?interface1 ;
+           |  				sfc:hasStepRef ?step .
+           |			    ?interface1 a amlImp:ExecutedBy ;
+           |                      amlOnt:hasRefPartner ?link .
+           |  			  ?interface2 a amlImp:ExecutedBy ;
+           |  				            amlOnt:hasRefPartner ?link .
+           |
+           |  			?link amlOnt:hasRefPartnerSideA ?interface1 ;
+           |           		amlOnt:hasRefPartnerSideB ?interface2 ;
+           |  				    a amlImp:Link .
+           |
+           |  			?asset amlOnt:hasEI ?interface2 ;
+           |  					   a secOnt:Asset .
+           |
+           |        FILTER (?interface1 != ?interface2)
+           |      }
+        """.stripMargin,
+      model = ontModel,
+      reasonerUri = if (withInference) Some(config.reasonerUri) else None
+    )
+
+  private def addQualityConditions(config: Config, ontModel: OntModel, withInference: Boolean = true): Option[Model] =
+    QueryExecutor.construct(
+      s =
+        s"""
+           |PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+           |PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+           |PREFIX owl: <http://www.w3.org/2002/07/owl#>
+           |PREFIX sfc: <${config.sfcConfig.sfcTransformationOntConfig.ns}#>
+           |PREFIX amlImp: <${config.amlConfig.nsImp}#>
+           |PREFIX amlOnt: <${config.amlConfig.nsOnt}#>
+           |PREFIX qual: <${config.qualOntConfig.ns}/>
+           |PREFIX ontoPlc: <${config.sfcConfig.ontoPlcConfig.ns}#>
+           |PREFIX secOnt: <${config.secOntConfig.ns}#>
+           |CONSTRUCT {
+           |
+           |      ?qualityCondition qual:preConditionProcess ?preOpQual ;
+           |  		                  qual:postConditionProcess ?postOpQual ;
+           | 			                  qual:preConditionQualityCharacteristic ?qual1 ;
+           |  		                  qual:postConditionQualityCharacteristic ?qual2 ;
+           |                        a qual:QualityCondition .
+           |      ?preStep sfc:hasQualityCondition ?qualityCondition .
+           |      ?postStep sfc:hasQualityCondition ?qualityCondition .
+           |
+           |}
+           |     WHERE {
+           |
+           |         BIND("https://sba-research.org/sfctransformation#" AS ?sfcNs)
+           |         BIND("http://www.qualityontology.org/" AS ?qualNs)
+           |
+           |         ?ieQualityCondition a amlImp:QualityCondition ;
+           |  			                     amlOnt:hasIE ?preCondQual .
+           |
+           |  			 BIND(URI(REPLACE(STR(?ieQualityCondition), "^(.*?)#", CONCAT(?sfcNs, "qualitycondition_"))) AS ?qualityCondition)
+           |
+           |  			 ?preCondQual a amlImp:PreConditionQualityCharacteristic ;
+           |                        amlOnt:hasIE ?preQual .
+           |         ?ieQualityCondition amlOnt:hasIE ?postCondQual .
+           |  			 ?postCondQual a amlImp:PostConditionQualityCharacteristic ;
+           |                         amlOnt:hasIE ?postQual .
+           |
+           |  			  ?preQual rdf:type/rdfs:subClassOf* amlImp:QualityCharacteristic .
+           |          ?postQual rdf:type/rdfs:subClassOf* amlImp:QualityCharacteristic .
+           |
+           |          ?preQual a ?ieClass1 .
+           |          ?ieClass1 rdfs:label ?qual1Label .
+           |
+           |          FILTER(?ieClass1 != amlImp:QualityCharacteristic) .
+           |
+           | 				  ?postQual a ?ieClass2 .
+           |          FILTER(?ieClass2 != amlImp:QualityCharacteristic) .
+           |          ?ieClass2 rdfs:label ?qual2Label .
+           |
+           |          BIND(IRI(CONCAT(?qualNs, STR(?qual1Label))) AS ?qual1)
+           |          BIND(IRI(CONCAT(?qualNs, STR(?qual2Label))) AS ?qual2)
+           |
+           |  				?ieQualityCondition amlOnt:hasEI ?postQualCondProcessEi1 ;
+           |                              amlOnt:hasEI ?preQualCondProcessEi1 .
+           |  				?postQualCondProcessEi1 a amlImp:PostQualityConditionProcessAppliesTo ;
+           | 										              amlOnt:hasRefPartner ?link1 .
+           |  				?postQualCondProcessEi2 a amlImp:PostQualityConditionProcessAppliesTo ;
+           | 										              amlOnt:hasRefPartner ?link1 .
+           |  				FILTER (?postQualCondProcessEi1 != ?postQualCondProcessEi2) .
+           |
+           |  				?postOp amlOnt:hasEI ?postQualCondProcessEi2 ;
+           |          				a ?ieClass3 .
+           |          FILTER (?ieClass3 != amlImp:ManufacturingOperation) .
+           |  				?ieClass3 rdfs:label ?postOpLabel .
+           |
+           |          BIND(IRI(CONCAT(?qualNs, STR(?postOpLabel))) AS ?postOpQual)
+           |
+           |          ?preQualCondProcessEi1 a amlImp:PreQualityConditionProcessAppliesTo ;
+           | 										             amlOnt:hasRefPartner ?link2 .
+           |  				?preQualCondProcessEi2 a amlImp:PreQualityConditionProcessAppliesTo ;
+           | 										             amlOnt:hasRefPartner ?link2 .
+           |  				FILTER (?preQualCondProcessEi1 != ?preQualCondProcessEi2) .
+           |
+           |          ?preOp amlOnt:hasEI ?preQualCondProcessEi2 ;
+           |          			  a ?ieClass4 .
+           |          FILTER (?ieClass4 != amlImp:ManufacturingOperation) .
+           |  				?ieClass4 rdfs:label ?preOpLabel .
+           |
+           |          BIND(IRI(CONCAT(?qualNs, STR(?preOpLabel))) AS ?preOpQual)
+           |
+           |          ?iePreProcess amlOnt:hasEI ?preQualCondProcessEi2 ;
+           |                        sfc:hasStepRef ?preStep .
+           |
+           |          ?iePostProcess amlOnt:hasEI ?postQualCondProcessEi2 ;
+           |                         sfc:hasStepRef ?postStep .
+           |
+           |      }
+        """.stripMargin,
+      model = ontModel,
+      reasonerUri = if (withInference) Some(config.reasonerUri) else None
+    )
+
+  private def addQualityChecks(config: Config, ontModel: OntModel, withInference: Boolean = true): Option[Model] =
+    QueryExecutor.construct(
+      s =
+        s"""
+           |PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+           |PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+           |PREFIX owl: <http://www.w3.org/2002/07/owl#>
+           |PREFIX sfc: <${config.sfcConfig.sfcTransformationOntConfig.ns}#>
+           |PREFIX amlImp: <${config.amlConfig.nsImp}#>
+           |PREFIX amlOnt: <${config.amlConfig.nsOnt}#>
+           |PREFIX qual: <${config.qualOntConfig.ns}/>
+           |PREFIX ontoPlc: <${config.sfcConfig.ontoPlcConfig.ns}#>
+           |PREFIX secOnt: <${config.secOntConfig.ns}#>
+           |CONSTRUCT {
+           |
+           |        ?qualityCheck qual:covers ?qual ;
+           |                      qual:isCoveredBy ?qcMethod .
+           |
+           |        ?step1 sfc:hasQualityCheck ?qualityCheck .
+           |        ?step2 sfc:hasQualityCheck ?qualityCheck .
+           |
+           |}
+           |     WHERE {
+           |
+           |         ?ieQualityCheck a amlImp:QualityCheck ;
+           |                				 amlOnt:hasEI ?preQualCheckEi1 ;
+           |      							     amlOnt:hasEI ?postQualCheckEi1 .
+           |
+           |         BIND(URI(REPLACE(STR(?ieQualityCheck), "^(.*?)#", CONCAT("https://sba-research.org/sfctransformation#", "qualitycheck_"))) AS ?qualityCheck)
+           |
+           |         ?preQualCheckEi1 a amlImp:PreQualityCheckAppliesTo ;
+           | 										              amlOnt:hasRefPartner ?link1 .
+           |  			 ?preQualCheckEi2 a amlImp:PreQualityCheckAppliesTo ;
+           | 										              amlOnt:hasRefPartner ?link1 .
+           |  			 FILTER (?preQualCheckEi1 != ?preQualCheckEi2) .
+           |
+           |  			 ?iePreProcess rdf:type/rdfs:subClassOf* amlImp:ManufacturingOperation ;
+           |  				             amlOnt:hasEI ?preQualCheckEi2 .
+           |
+           |  			 ?iePreProcess sfc:hasStepRef ?step1 .
+           |
+           |
+           |         ?postQualCheckEi1 a amlImp:PostQualityCheckAppliesTo ;
+           | 										       amlOnt:hasRefPartner ?link2 .
+           |  			 ?postQualCheckEi2 a amlImp:PostQualityCheckAppliesTo ;
+           | 										       amlOnt:hasRefPartner ?link2 .
+           |  			 FILTER (?postQualCheckEi1 != ?postQualCheckEi2) .
+           |
+           |  			 ?iePostQual rdf:type/rdfs:subClassOf* amlImp:QualityControlMethod ;
+           |  				           amlOnt:hasEI ?postQualCheckEi2 .
+           |
+           |  			  ?iePostQual sfc:hasStepRef ?step2 .
+           |
+           |  				?step2 sfc:correspondsTo ?qcMethod .
+           |
+           |
+           |  				?ieQualityCheck amlOnt:hasIE ?coveredQuals .
+           |  				?coveredQuals a amlImp:CoveredQualityCharacteristics ;
+           |                        amlOnt:hasIE ?ieQual .
+           |
+           |
+           |  				?ieQual rdf:type/rdfs:subClassOf* amlImp:QualityCharacteristic ;
+           |                  a ?ieClass .
+           |          ?ieClass rdfs:label ?qualLabel .
+           |
+           |  				FILTER(?ieClass != amlImp:QualityCharacteristic) .
+           |
+           |  				BIND(IRI(CONCAT("http://www.qualityontology.org/", STR(?qualLabel))) AS ?qual)
+           |
+           |      }
+        """.stripMargin,
+      model = ontModel,
+      reasonerUri = if (withInference) Some(config.reasonerUri) else None
+    )
 
 }

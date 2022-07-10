@@ -1,0 +1,1298 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#"
+     xml:base="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#contains -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#contains"/>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasAction -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasAction">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#ActionBlock"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Action"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasActionBlock -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasActionBlock">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Step"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#ActionBlock"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasCompany -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasCompany">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Project"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Company"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasConfiguration -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasConfiguration"/>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasFunction -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasFunction"/>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasFunctionBlock -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasFunctionBlock"/>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasName -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasName"/>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasPOU -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasPOU">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Project"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#POU"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasQualifier -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasQualifier">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Action"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Qualifier"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasResource -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasResource"/>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasSimultaneousConvergence -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasSimultaneousConvergence">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#POU"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#SimultaneousConvergence"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasSimultaneousDivergence -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasSimultaneousDivergence">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#POU"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#SimultaneousDivergence"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasStep -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasStep">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Program"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Step"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasTask -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasTask"/>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasTime -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasTime"/>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasTransition -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasTransition">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#POU"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Transition"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasVariable -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasVariable"/>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasVersion -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasVersion">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Project"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#is -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#is"/>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#isConnectedFrom -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#isConnectedFrom">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#isConnectedTo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#isConnectedTo -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#isConnectedTo"/>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#isWritenIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#isWritenIn"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasAddress -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasAddress">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#OPC/DA"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasCreationDateTime -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasCreationDateTime">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Project"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasDescription -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasDescription">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#OPC/DA"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasDuration -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasDuration">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasExecutionOrderId -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasExecutionOrderId">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#ActionBlock"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasFormalParameter -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasFormalParameter"/>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasFormula -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasFormula">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#OPC/DA"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasGlobalId -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasGlobalId">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasGroupName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasGroupName">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#OPC/DA"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasLanguage -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasLanguage">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Project"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasLocalId -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasLocalId">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasModificationDateTime -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasModificationDateTime">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Project"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasName">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasPID -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasPID">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#OPC/DA"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasStatement -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasStatement">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#StStatement"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasUnit -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasUnit">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#OPC/DA"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasValue">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#OPC/DA"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasVersion -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasVersion">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#isInitialStep -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#isInitialStep">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Step"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#isReadable -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#isReadable">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#OPC/DA"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#isWritable -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#isWritable">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#OPC/DA"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#AccessVar -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#AccessVar">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Variable"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Action -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Action">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#SfcElement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#ActionBlock -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#ActionBlock">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#SfcElement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#AnalogConversion -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#AnalogConversion">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#FunctionBlock"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#BECKOFF -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#BECKOFF">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Brand"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#BcdConversion -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#BcdConversion">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Function"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Beremiz -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Beremiz">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Brand"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#BooleanOperator -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#BooleanOperator">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Function"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Brand -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Brand"/>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#CASE -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#CASE">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#StStatement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#CNC -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#CNC">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Equipment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#CODESYS -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#CODESYS">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Brand"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Chart -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Chart">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#SfcElement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Coil -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Coil">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#LdElement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#CommunicationType -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#CommunicationType"/>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Communications -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Communications">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#FunctionBlock"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Company -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Company"/>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Comparison -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Comparison">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Function"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Configuration -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Configuration">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasResource"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Resource"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasVariable"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#AccessVar"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasVariable"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#GlobalVar"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Contact -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Contact">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#LdElement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#ControlElement -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#ControlElement"/>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Conversion -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Conversion">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Function"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Counter -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Counter">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#FunctionBlock"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#DM -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#DM">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Equipment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#DataMovement -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#DataMovement">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Function"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#DataTypeConversion -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#DataTypeConversion">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Function"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#DirectedLink -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#DirectedLink">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#SfcElement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#EmbeddedSt -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#EmbeddedSt">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#LdElement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Equipment -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Equipment"/>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#FBD -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#FBD">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Language"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#FOR -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#FOR">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#StStatement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Fcs -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Fcs">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Function"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Function -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Function">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#POU"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasFunction"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Function"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasFunctionBlock"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#FunctionBlock"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#FunctionBlock -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#FunctionBlock">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#POU"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasFunction"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Function"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasFunctionBlock"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#FunctionBlock"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#GlobalVar -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#GlobalVar">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Variable"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#GraphicElement -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#GraphicElement">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#ControlElement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#IL -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#IL">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Language"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#IMM -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#IMM">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Equipment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Input -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Input">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Variable"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Instance -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Instance">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasConfiguration"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Configuration"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Jump -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Jump">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#LdElement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#KEBA -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#KEBA">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Brand"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#LD -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#LD">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Language"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Language -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Language"/>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#LdElement -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#LdElement">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#ControlElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#is"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#GraphicElement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#LdNetwork -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#LdNetwork">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#LdElement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Math -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Math">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Function"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#MotionControl -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#MotionControl">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#FunctionBlock"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Omron -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Omron">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Brand"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Output -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Output">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Variable"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#POU -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#POU">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#ControlElement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#isWritenIn"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Language"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Program -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Program">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#POU"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasFunction"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Function"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasFunctionBlock"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#FunctionBlock"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Project -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Project">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Instance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#POU"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#contains"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#VendorSpecificInfo"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Qualifier -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Qualifier">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#D"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#DS"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#L"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#N"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#P"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#P0"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#P1"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#R"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#S"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#SD"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#SL"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#SfcElement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#REPEAT -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#REPEAT">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#StStatement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Resource -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Resource">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasTask"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Task"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#SFC -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#SFC">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Language"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#ST -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#ST">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Language"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Selection -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Selection">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Function"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#SequenceControl -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#SequenceControl">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Function"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#SequenceInput -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#SequenceInput">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#FunctionBlock"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#SequenceOutput -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#SequenceOutput">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#FunctionBlock"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#SfcElement -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#SfcElement">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#ControlElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#is"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#GraphicElement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Simens -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Simens">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Brand"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#SimultaneousConvergence -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#SimultaneousConvergence">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#SfcElement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#SimultaneousDivergence -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#SimultaneousDivergence">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#SfcElement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#StStatement -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#StStatement">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#ControlElement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#is"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#TextElement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasStatement"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Step -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Step">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#SfcElement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Task -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Task"/>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#TextElement -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#TextElement">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#ControlElement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Time -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Time">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Function"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Timer -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Timer">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#FunctionBlock"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Transition -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Transition">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#SfcElement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Variable -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Variable">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#hasFormalParameter"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#VendorDataType -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#VendorDataType">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#VendorSpecificInfo"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#VendorFunction -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#VendorFunction">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#VendorSpecificInfo"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#VendorFunctionBlock -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#VendorFunctionBlock">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#VendorSpecificInfo"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#VendorSpecificInfo -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#VendorSpecificInfo"/>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#WHILE -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#WHILE">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#StStatement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Modbus/RTU -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#Modbus/RTU">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#CommunicationType"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#OPC/UA"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#OPC/DA -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#OPC/DA">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#CommunicationType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#OPC/UA -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#OPC/UA">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#CommunicationType"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#D -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#D"/>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#DS -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#DS"/>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#L -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#L"/>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#N -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#N"/>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#P -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#P"/>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#P0 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#P0"/>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#P1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#P1"/>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#R -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#R"/>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#S -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#S"/>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#SD -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#SD"/>
+    
+
+
+    <!-- http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#SL -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#SL"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#CNC"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#DM"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#IMM"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#D"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#DS"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#L"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#N"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#P"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#P0"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#P1"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#R"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#S"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#SD"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/aym/ontologies/2019/3/untitled-ontology-407#SL"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

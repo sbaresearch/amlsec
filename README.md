@@ -1,7 +1,7 @@
-# Automated Security Risk Identification Using AutomationML-based Engineering Data
+# Automated Quality-Driven Security Risk Identification in Cyber-Physical Production Systems
 
 This prototype identifies security risk sources (i.e., threats and vulnerabilities) and types of attack consequences based on AutomationML (AML) artifacts.
-The results of the risk identification process can be used to generate cyber-physical attack graphs, which model multistage cyber attacks that potentially lead to physical damage.
+The results of the risk identification process can be used to identify cascading effects and consequences of attacks affecting product quality.
 
 ## Installation
 
@@ -20,8 +20,8 @@ $ mvn clean compile install assembly:single
 
 2. Setup the AMLsec Base Directory
 
-Clone this repository, create the application base directory (usually located in the user's home directory), and place the files located in [amlsec-base-dir](https://github.com/sbaresearch/amlsec/blob/master/amlsec-base-dir) and the assembled AML2OWL JAR (located in `aml_owl/target/`) there.
-The AMLsec base directory and the path to the AML2OWL JAR must be set in the [configuration file](https://github.com/sbaresearch/amlsec/blob/master/amlsec/src/main/resources/application.conf) using the keys `baseDir` and `amlToOwlProgram`, respectively.
+Clone this repository, create the application base directory (usually located in the user's home directory), and place the files located in [amlsec-base-dir](https://github.com/qualsec-paper/amlsec/blob/master/amlsec-base-dir) and the assembled AML2OWL JAR (located in `aml_owl/target/`) there.
+The AMLsec base directory and the path to the AML2OWL JAR must be set in the [configuration file](https://github.com/qualsec-paper/amlsec/blob/master/amlsec/src/main/resources/application.conf) using the keys `baseDir` and `amlToOwlProgram`, respectively.
 
 3. Setup Apache Jena Fuseki
 
@@ -34,18 +34,16 @@ $ java -jar <path_to_apache-jena-fuseki-X.Y.Z>/fuseki-server.jar --update
 
 Finally, build and start the app by using [sbt](https://www.scala-sbt.org/).
 ```
-$ sbt "runMain org.sba_research.worker.Main"
+$ sbt "runMain org.sba_research.worker.Main -q"
 ```
 
 ## Usage
 
 The implemented method utilizes a semantic information mapping mechanism realized by means of AML libraries.
-These [AML security extension libraries](https://github.com/sbaresearch/amlsec/tree/master/amlsec-libs) can be easily reused in engineering projects by importing them into AML files.
+These [AML security extension libraries](https://github.com/qualsec-paper/amlsec/tree/master/aml-libs/amlsec) and [AML quality extension libraries](https://github.com/qualsec-paper/amlsec/tree/master/aml-libs/amlqual) can be easily reused in engineering projects by importing them into AML files.
 
-The capabilities of this prototype are demonstrated in a [case study](https://github.com/sbaresearch/amlsec/blob/master/amlsec-base-dir/case-study/CaseStudy_A.aml).
-Running this prototype as is will yield the knowledge base (can be accessed via Fuseki), which also includes the results of the risk identification process, and the following pruned cyber-physical attack graph:
-
-![Cyber-Physical Attack Graph](https://github.com/sbaresearch/amlsec/blob/master/amlsec-base-dir/pruned_ag.svg?sanitize=true)
+The capabilities of this prototype are demonstrated in a [case study](https://github.com/qualsec-paper/amlsec/blob/master/amlsec-base-dir/quality-case-study/A/CaseStudy_A.aml).
+Running this prototype as is will yield the knowledge base (can be accessed via Fuseki), which also includes the results of the risk identification process, and the results of the case study.
 
 ### Cluster
 
@@ -55,25 +53,25 @@ To run the cluster with multiple nodes:
 
 1. Start Cassandra:
 ```
-$ sbt "runMain org.sba_research.worker.Main cassandra"
+$ sbt "runMain org.sba_research.worker.Main cassandra -q"
 ```
 
 2. Start the first seed node:
 ```
-$ sbt "runMain org.sba_research.worker.Main 2551"
+$ sbt "runMain org.sba_research.worker.Main 2551 -q"
 ```
 
 3. Start a front-end node:
 ```
-$ sbt "runMain org.sba_research.worker.Main 3001"
+$ sbt "runMain org.sba_research.worker.Main 3001 -q"
 ```
 
 4. Start a worker node (the second parameter denotes the number of worker actors, e.g., 3):
 ```
-$ sbt "runMain org.sba_research.worker.Main 5001 3"
+$ sbt "runMain org.sba_research.worker.Main 5001 3 -q"
 ```
 
-If you run the nodes on separate machines, you will have to adapt the Akka settings in the [configuration file](https://github.com/sbaresearch/amlsec/blob/master/amlsec/src/main/resources/application.conf).
+If you run the nodes on separate machines, you will have to adapt the Akka settings in the [configuration file](https://github.com/qualsec-paper/amlsec/blob/master/amlsec/src/main/resources/application.conf).
 
 ## Performance Assessment
 

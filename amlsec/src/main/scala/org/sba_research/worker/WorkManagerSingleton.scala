@@ -7,7 +7,6 @@ import akka.cluster.typed.ClusterSingleton
 
 import scala.concurrent.duration._
 import akka.cluster.typed._
-import org.sba_research.worker.FrontEnd.WorkFinished
 import org.sba_research.worker.WorkManager.Command
 
 // cf. https://github.com/akka/akka-samples/tree/2.6/akka-sample-distributed-workers-scala

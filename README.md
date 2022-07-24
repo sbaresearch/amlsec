@@ -4,7 +4,7 @@
 This prototype implements the methods presented in the following two publications:
 
 1. [Eckhart, M., Ekelhart, A., & Weippl, E. R. (2020). Automated Security Risk Identification Using AutomationML-Based Engineering Data. IEEE Transactions on Dependable and Secure Computing.](https://doi.org/10.1109/TDSC.2020.3033150)
-2. Eckhart, M., Ekelhart, A., Biffl S., Lüder A., & Weippl, E. R. (2022). QualSec: An Automated Quality-Driven Approach for Security Risk Identification in Cyber-Physical Production Systems. IEEE Transactions on Industrial Informatics. To Appear.
+2. [Eckhart, M., Ekelhart, A., Biffl S., Lüder A., & Weippl, E. R. (2022). QualSec: An Automated Quality-Driven Approach for Security Risk Identification in Cyber-Physical Production Systems. IEEE Transactions on Industrial Informatics.](https://doi.org/10.1109/tii.2022.3193119)
 
 In essence, it identifies security risk sources (i.e., threats and vulnerabilities) and types of attack consequences based on AutomationML (AML) artifacts.
 The results of the risk identification process can be used to generate cyber-physical attack graphs, which model multistage cyber-attacks that potentially lead to physical damage.
@@ -99,7 +99,7 @@ The measurements and log files obtained during the performance assessment are av
 
 ## How to Cite
 
-If you use this prototype in your research, please consider citing our [IEEE TDSC 2020](https://doi.org/10.1109/TDSC.2020.3033150) or IEEE TII 2022 publication. Feel free to use the papers' BibTeX entries ([TDSC](https://github.com/sbaresearch/amlsec/tree/master/bib/Eckhart2022.bib), TII).
+If you use this prototype in your research, please consider citing our [IEEE TDSC 2020](https://doi.org/10.1109/TDSC.2020.3033150) or [IEEE TII 2022](https://doi.org/10.1109/tii.2022.3193119) publication. Feel free to use the papers' BibTeX entries ([TDSC](https://github.com/sbaresearch/amlsec/tree/master/bib/Eckhart2022.bib), [TII](https://github.com/sbaresearch/amlsec/tree/master/bib/Eckhart2022a.bib)).
 
 ## Acknowledgment
 
